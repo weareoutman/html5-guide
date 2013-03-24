@@ -1,0 +1,20 @@
+var xhr = new XMLHttpRequest();
+xhr.open("/path/?query", "POST");
+// 上传进度
+xhr.upload.onprogress = function(e){
+	// 长度是否可计算
+	if (e.lengthComputable) {
+		upProgress.max = e.total; // 总字节数
+		upProgress.value = e.loaded; // 已加载的字节数
+	}
+};
+// 下载进度
+xhr.onprogress = function(e){
+	if (e.lengthComputable) {
+		downProgress.max = e.total;
+		downProgress.value = e.loaded;		
+	}
+};
+var data = new FormData();
+data.append(file);
+xhr.send(data);

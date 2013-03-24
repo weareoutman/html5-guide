@@ -1,0 +1,39 @@
+<div id="drag-elem" draggable="true">#drag-elem</div>
+<div id="drop-box"></div>
+
+<script type="text/javascript">
+// 可拖动的元素
+var source = document.getElementById("drag-elem");
+
+source.ondragstart = function(e){ // 拖动开始
+	// 设置拖动传输的数据
+	e.dataTransfer.setData("Text", "You dragged #drag-elem");
+};
+source.ondragend = function(e){}; // 拖动结束
+
+// 接受拖放的目标元素
+var target = document.getElementById("drop-box");
+
+target.ondragover = function(e){ // 拖动经过
+	// 阻止 拖动 默认效果
+	e.prevetnDefault();
+	// 设置 拖动经过 的样式效果
+	target.className = "dropping";
+};
+target.ondragleave = function(e){ // 拖动离开
+	target.className = "";
+};
+target.ondragenter = function(e){}; // 拖动进入
+
+target.ondrop = function(e){ // 拖动放置
+	e.prevetnDefault();
+	target.className = "";
+
+	// 获取并处理 拖动 传输的数据
+	var data = e.dataTransfer.getData("Text");
+	doSomethingWithData(data);
+
+	// 处理 拖动 传输的文件
+	doSomethingWithFiles(e.dataTransfer.files);
+};
+</script>

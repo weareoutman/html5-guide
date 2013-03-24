@@ -1,0 +1,5 @@
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: http://www.origin.com
+Access-Control-Allow-Credentials: true
+Content-Type: image/png
+Content-Length: 865614

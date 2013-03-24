@@ -1,0 +1,43 @@
+<h2>Canvas vs SVG</h2>
+<div class="content">
+	<div id="c-v-s-table" style="margin:0 auto;width:620px;">
+		<h3 style="margin:0 auto;width:600px;">简单对比</h3>
+		<table class="compare">
+			<colgroup>
+				<col width="50%" />
+				<col width="50%" />
+			</colgroup>
+			<thead>
+				<tr>
+					<th>Canvas</th>
+					<th>SVG</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>基于像素</td>
+					<td>基于形状</td>
+				</tr>
+				<tr>
+					<td>单个 HTML 元素</td>
+					<td>多个图形元素，这些元素是 DOM 的一部分</td>
+				</tr>
+				<tr>
+					<td>仅通过脚本修改</td>
+					<td>通过脚本和 CSS 修改</td>
+				</tr>
+				<tr>
+					<td>事件模型/用户交互颗粒化 (x,y)</td>
+					<td>事件模型/用户交互抽象化 (rect, path)</td>
+				</tr>
+				<tr>
+					<td>适合: 图面较小、对象数量较大 (&gt;10k)</td>
+					<td>适合: 图面较大、对象数量较小 (&lt;10k)</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="c-v-s-diagram" style="margin-top:2em;text-align:center;">
+		<img src="images/canvas-svg-pfm.png" width="600" height="314">
+	</div>
+</div>

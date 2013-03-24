@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="70">
+	<rect x="0" y="0" fill="#dfebf7" width="60" height="70" />
+	<text text-anchor="middle" x="30" y="13" style="fill:#15c;font-family:'Segoe UI',Verdana;font-size:11px;">Handshake</text>
+	<g transform="translate(0.5 15.5)">
+		<path d="M 5 5 h 8 m 5 0 h 18 m 5 0 h 10" stroke="#56AEE7" stroke-width="3" stroke-linecap="round" />
+		<path d="M 0 12 m 5 0 h 10 m 5 0 h 20" stroke="#56AEE7" stroke-width="3" stroke-linecap="round" />
+		<path d="M 0 19 m 5 0 h 10 m 5 0 h 30" stroke="#56AEE7" stroke-width="3" stroke-linecap="round" />
+		<path d="M 0 26 m 5 0 h 10 m 5 0 h 30" stroke="#56AEE7" stroke-width="3" stroke-linecap="round" />
+		<path d="M 0 33 m 5 0 h 10 m 5 0 h 30" stroke="#56AEE7" stroke-width="3" stroke-linecap="round" />
+		<path d="M 0 40 m 5 0 h 10 m 5 0 h 30" stroke="#56AEE7" stroke-width="3" stroke-linecap="round" />
+		<path d="M 0 47 m 5 0 h 10 m 5 0 h 30" stroke="#56AEE7" stroke-width="3" stroke-linecap="round" />
+	</g>
+</svg>

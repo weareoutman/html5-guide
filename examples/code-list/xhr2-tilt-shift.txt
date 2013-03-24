@@ -1,0 +1,73 @@
+// 模拟移轴摄影
+function tiltShift(file, callback) {
+	// 新建 Ajax 请求
+	var xhr = new XMLHttpRequest();
+	var url = "http://www.open.com/open/tilt-shift.php";
+	xhr.open("POST", url);
+
+	// 设置响应类型为 "blob" 二进制大对象
+	// "", "arraybuffer", "blob", "document", "text"
+	xhr.responseType = "blob";
+
+	// 是否在请求中携带证书 (通常指cookie)
+	// xhr.withCredentials = true;
+
+	// 上传开始
+	xhr.upload.onloadstart = function(){
+		console.dir("upload start");
+	};
+
+	// 上传进度
+	xhr.upload.onprogress = function(e){
+		// 长度是否可计算
+		if (e.lengthComputable) {
+			// 更新进度
+			upProgress.max = e.total;
+			upProgress.value = e.loaded;
+		}
+	};
+	// 上传完成
+	xhr.upload.onloadend = function(){
+		upProgress.value = upProgress.max;
+	};
+
+	xhr.onreadystatechange = function(){
+		// 已收到响应头 => 下载开始
+		if (xhr.readyState == xhr.HEADERS_RECEIVED) {
+			console.log("download start");
+		}
+	};
+
+	// 下载完成
+	xhr.onload = function(){
+		downProgress.value = downProgress.max;
+
+		// 将返回的图片文件转为一个 Object URL
+		// blob:http%3A//www.a.com/901da0f3-c50e-4b41-8492-94189706db42
+		var url = window.URL.createObjectURL(xhr.response);
+
+		// 回调
+		callback(url);
+	};
+
+	// 下载进度
+	xhr.onprogress = function(e){
+		if (e.lengthComputable) {
+			downProgress.max = e.total;
+			downProgress.value = e.loaded;
+		}
+	};
+
+	// 处理错误
+	xhr.onerror = function(e){
+		console.dir(e);
+	};
+
+	// 组建需要发送的表单数据
+	var data = new FormData();
+	// 增加一个key为 "img" 的图片文件
+	data.append("img", file);
+
+	// 发送
+	xhr.send(data);
+}

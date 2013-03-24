@@ -1,0 +1,4 @@
+HTTP/1.1 101 Switching Protocols
+Connection: Upgrade
+Upgrade: websocket
+Sec-Websocket-Accept: xAdIzFZeZx7LmC2ucJ+v6xqaSzc=

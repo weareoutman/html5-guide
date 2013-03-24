@@ -1,0 +1,26 @@
+function Ajax() {
+	try {
+		return new XMLHttpRequest();
+	} catch (e) {}
+
+	try {
+		return new ActiveXObject("Microsoft.XMLHTTP");
+	} catch (e) {}
+
+	throw new Error("This browser does not support Ajax");
+}
+
+function ajaxPost(url, data, callback) {
+	var xhr = Ajax();
+	xhr.open("POST", url, true);
+	xhr.onreadystatechange = function(){
+		if (xhr.readyState == 4) {
+			if (xhr.status >= 200 && xhr.status < 300) {
+				callback(xhr.responseText);
+			} else {
+				// TODO: handle failures
+			}
+		}
+	};
+	xhr.send(data);
+}

@@ -1,0 +1,9 @@
+GET ws://127.0.0.1:8002/ HTTP/1.1
+Host: 127.0.0.1:8002
+Origin: http://127.0.0.1
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Key: QND8yfhKYhtTiNDo8ejHAg==
+Sec-WebSocket-Version: 13
+Sec-WebSocket-Protocol: chat, superchat
+Sec-WebSocket-Extensions: x-webkit-deflate-frame

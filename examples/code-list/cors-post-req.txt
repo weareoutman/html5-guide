@@ -1,0 +1,6 @@
+POST /path/?query HTTP/1.1
+Host: www.host.com
+Origin: http://www.origin.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 254923
+Cookie: key=value

@@ -1,0 +1,8 @@
+var xhr = new XMLHttpRequest();
+xhr.open("/path/?query", "GET");
+// 设置响应类型
+xhr.responseType = "blob"; // "arraybuffer"
+xhr.onload = function(){
+	callback(xhr.response); // Blob or ArrayBuffer
+};
+xhr.send(null);

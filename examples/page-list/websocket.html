@@ -1,0 +1,43 @@
+<h2>WebSocket</h2>
+<div class="content">
+	<div style="padding-top:30px;">
+		<pre style="width:800px;" id="ws-code"><code class="javascript" data-name="websocket-simple"></code></pre>
+	</div>
+	<div id="figure-websocket" style="position:absolute;top:60px;visibility:hidden;">
+		<div class="arrow" id="arr-browser">
+			<div class="arrow-body" style="height:0;"></div>
+			<div class="arrow-head"></div>
+		</div>
+		<div class="arrow" id="arr-server">
+			<div class="arrow-body" style="height:0;"></div>
+			<div class="arrow-head"></div>
+		</div>
+		<div class="entity" id="ent-browser">
+			Browser
+		</div>
+		<div class="entity" id="ent-server">
+			Server
+		</div>
+		<div class="line-box" id="ws-lines">
+			<div class="bg-text" id="txt-open-handshake">Opening Handshake</div>
+			<div class="line" id="open-handshake-req"></div>
+			<div class="line" id="open-handshake-res"></div>
+			<div class="line" id="client-send"></div>
+			<div class="packet" id="pkt-request">
+				<img src="images/packet-request.svg" width="60" height="70">
+				<pre id="hd-request"><code class="http" data-name="ws-handshake-req"></code></pre>
+			</div>
+			<div class="packet" id="pkt-response">
+				<img src="images/packet-response.svg" width="60" height="70">
+				<pre id="hd-response"><code class="http" data-name="ws-handshake-res"></code></pre>
+			</div>
+			<div class="packet" id="pkt-handshake">
+				<img src="images/packet-handshake.svg" width="60" height="70">
+			</div>
+			<div class="packet" id="pkt-frame">
+				<img src="images/packet-frame.svg" width="60" height="70">
+				<pre id="data-frame"><code class="no-highlight" data-name="ws-data-frame"></code></pre>
+			</div>
+		</div>
+	</div>
+</div>

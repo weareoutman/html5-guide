@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="300" viewBox="0 0 300 300">
+	<title>Hello World !</title>
+	<desc>Hello, This is the first world of SVG.</desc>
+	<defs>
+		<g id="cloud">
+			<path fill="#fff" d="M 5 60 Q 5 45 20 40 A 10 10 0 0 1 35 30 C 40 12 60 12 70 30 A 30 30 0 0 1 100 60 Z" />
+		</g>
+		<g id="car-wheel">
+			<circle r="12" stroke="#396180" stroke-width="3" fill="#98c8e7" cx="0" cy="0" />
+			<use xlink:href="#car-wheel-spokes" />
+		</g>
+		<g id="car-wheel-spokes">
+			<g>
+				<use xlink:href="#car-wheel-spoke" />
+			</g>
+			<g transform="rotate(45)">
+				<use xlink:href="#car-wheel-spoke" />
+			</g>
+			<g transform="rotate(90)">
+				<use xlink:href="#car-wheel-spoke" />
+			</g>
+			<g transform="rotate(135)">
+				<use xlink:href="#car-wheel-spoke" />
+			</g>
+		</g>
+		<g id="car-wheel-spoke">
+			<line x1="-12" y1="0" x2="12" y2="0" stroke="#396180" stroke-width="1" />
+		</g>
+		<g id="tree">
+			<path fill="#64a0cf" d="M -7 0 v -30 h -23 l 20 -20 h -10 l 20 -20 l 20 20 h -10 l 20 20 h -23 v 30 Z" />
+		</g>
+	</defs>
+	<!-- Sky -->
+	<g>
+		<rect x="-300" y="0" width="600" height="300" fill="#90dfff" />
+		<g transform="translate(60 30) scale(0.7 0.7)">
+			<use xlink:href="#cloud" />
+		</g>
+		<g transform="translate(200 50)">
+			<use xlink:href="#cloud" />
+		</g>
+		<g transform="translate(-240 30) scale(0.7 0.7)">
+			<use xlink:href="#cloud" />
+		</g>
+		<g transform="translate(-100 50)">
+			<use xlink:href="#cloud" />
+		</g>
+		<animateTransform attributeName="transform" attributeType="xml" type="translate" from="0 0" to="300 0" begin="0" dur="5s" repeatCount="indefinite" />
+	</g>
+	<!-- Road -->
+	<g transform="translate(0 245)">
+		<g>
+			<rect x="-300" y="0" width="600" height="55" fill="#64a0cf" />
+			<rect x="0" y="26" width="40" height="3" fill="#eee" />
+			<rect x="60" y="26" width="40" height="3" fill="#eee" />
+			<rect x="120" y="26" width="40" height="3" fill="#eee" />
+			<rect x="180" y="26" width="40" height="3" fill="#eee" />
+			<rect x="240" y="26" width="40" height="3" fill="#eee" />
+			<rect x="-60" y="26" width="40" height="3" fill="#eee" />
+			<rect x="-120" y="26" width="40" height="3" fill="#eee" />
+			<rect x="-180" y="26" width="40" height="3" fill="#eee" />
+			<rect x="-240" y="26" width="40" height="3" fill="#eee" />
+			<rect x="-300" y="26" width="40" height="3" fill="#eee" />
+			<g transform="translate(50 5) scale(1 1.5)">
+				<use xlink:href="#tree" />
+			</g>
+			<g transform="translate(250 5)">
+				<use xlink:href="#tree" />
+			</g>
+			<g transform="translate(-250 5) scale(1 1.5)">
+				<use xlink:href="#tree" />
+			</g>
+			<g transform="translate(-50 5)">
+				<use xlink:href="#tree" />
+			</g>
+			<animateTransform attributeName="transform" attributeType="xml" type="translate" from="0 0" to="300 0" begin="0" dur="1250ms" repeatCount="indefinite" />
+		</g>
+	</g>
+	<!-- Car -->
+	<g transform="translate(75 190)">
+		<path fill="#98c8e7" stroke="#396180" stroke-width="2" d="M 15 65 Q 5 40 55 35 Q 60 25 60 15 Q 145 5 135 65 Z">
+			<animateTransform attributeName="transform" attributeType="xml" type="translate" keyTimes="0;0.25;0.5;0.75;1" values="0 1;1 0;0 -1;-1 0;0 1" dur="400ms" repeatCount="indefinite" calcMode="linear" />
+		</path>
+		<use xlink:href="#car-wheel" x="45" y="65">
+			<animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 45 65" to="-360 45 65" begin="0" dur="1s" repeatCount="indefinite" />
+		</use>
+		<use xlink:href="#car-wheel" x="110" y="65">
+			<animateTransform attributeName="transform" attributeType="xml" type="rotate" from="0 110 65" to="-360 110 65" begin="0" dur="1s" repeatCount="indefinite" />
+		</use>
+	</g>
+</svg>

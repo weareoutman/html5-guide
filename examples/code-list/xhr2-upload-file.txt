@@ -1,0 +1,13 @@
+var input = document.querySelector("input[type=file]");
+if (input.files.length) {
+	var xhr = new XMLHttpRequest();
+	// 新建 FormData 对象
+	var data = new FormData();
+	var file = input.files[0];
+	// 只允许上传图片
+	if (/^image/.*$/.test(file.type)) {
+		data.append(file);
+	}
+	xhr.open("/path/?query", "POST");
+	xhr.send(data);
+}

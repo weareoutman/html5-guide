@@ -1,0 +1,5 @@
+OPTIONS /path/?query HTTP/1.1
+Host: www.host.com
+Origin: http://www.origin.com
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: origin, content-type

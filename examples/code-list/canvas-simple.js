@@ -1,0 +1,26 @@
+(function(){
+	// 取得canvas元素
+	var canvas = document.getElementById("canvas-simple");
+	// CanvasRenderingContext2D
+	var context = canvas.getContext("2d");
+
+	// 设置样式
+	context.strokeStyle = "#396180";
+	context.fillStyle = "#98c8e7";
+	context.lineWidth = 2;
+
+	// 坐标转换
+	context.scale(2, 2);
+
+	// 创建路径
+	context.beginPath();
+	context.moveTo(15, 65);
+	context.quadraticCurveTo(5, 40, 55, 35);
+	context.quadraticCurveTo(60, 25, 60, 15);
+	context.quadraticCurveTo(145, 5, 135, 65);
+	context.closePath();
+
+	// 填充、描线
+	context.fill();
+	context.stroke();
+})();

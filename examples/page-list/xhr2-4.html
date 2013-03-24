@@ -1,0 +1,29 @@
+<h2>XMLHttpRequest Level 2</h2>
+<div class="content">
+	<ul class="catalog" id="xhr2-catalog" style="margin:0 auto;padding-top:120px;width:470px">
+		<li>
+			<h4>XHR2 如何跨域 ? </h4>
+			<p>Cross-Origin Resource Sharing 跨域资源共享</p>
+		</li>
+		<li>
+			<h4>XHR2 如何上传文件 ?</h4>
+			<p>FormData + File API</p>
+		</li>
+		<li>
+			<h4>XHR2 如何获取非文本数据 (图片、音频、视频等) ?</h4>
+			<p>xhr.responseType = "blob"; // or "arraybuffer"</p>
+		</li>
+		<li>
+			<h4>如何得知 XHR2 当前上传或下载的进度 ?</h4>
+			<p>xhr.upload.onprogress = function(){};</p>
+			<p>xhr.onprogress = function(){};</p>
+		</li>
+	</ul>
+	<pre id="cors-options-req" class="cors-header"><code class="http" data-name="cors-options-req"></code></pre>
+	<pre id="cors-options-res" class="cors-header"><code class="http" data-name="cors-options-res"></code></pre>
+	<pre id="cors-post-req" class="cors-header"><code class="http" data-name="cors-post-req"></code></pre>
+	<pre id="cors-post-res" class="cors-header"><code class="http" data-name="cors-post-res"></code></pre>
+	<pre id="xhr2-upload-file" class="xhr2-feature"><code class="javascript" data-name="xhr2-upload-file"></code></pre>
+	<pre id="xhr2-binary" class="xhr2-feature"><code class="javascript" data-name="xhr2-binary"></code></pre>
+	<pre id="xhr2-progress" class="xhr2-feature"><code class="javascript" data-name="xhr2-progress"></code></pre>
+</div>

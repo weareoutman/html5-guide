@@ -1,0 +1,27 @@
+var host = "ws://127.0.0.1:8002/";
+var protocols = ["chat", "superchat"];
+// 新建WebSocket连接
+var socket = new WebSocket(host, protocols);
+// 指定二进制类型
+// "arraybuffer", "blob"
+socket.binaryType = "arraybuffer";
+// 连接打开
+socket.onopen = function(e){
+	// 发送数据
+	socket.send("a text string");
+	// binary
+	socket.send(new ArrayBuffer(1));
+	var d = new Uint16Array(2);
+	d[0] = 0x1234;
+	d[1] = 0xabcd;
+	socket.send(d);
+	socket.send(new Blob(["blob"]));
+};
+// 收到消息
+socket.onmessage = function(e){
+	console.log(e.data);
+};
+// 连接错误
+socket.onerror = function(e){};
+// 连接关闭
+socket.onclose = function(e){};

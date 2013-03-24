@@ -1,0 +1,176 @@
+
+/*#stage{
+	-webkit-perspective:2000;
+	-webkit-perspective-origin:50% 50%;
+}*/
+
+/*#container{
+	-webkit-transition:all 1000ms ease-in-out 0ms;
+}
+#stage{
+	-webkit-transition:all 500ms ease-in-out 0ms;
+}*/
+#container,#stage,.page{
+	-webkit-transform-style:preserve-3d;
+}
+.page[data-x]{
+	display:block;opacity:0.2;
+	-webkit-transition:opacity 400ms ease-in-out 100ms;
+}
+.page.active{
+	opacity:1;
+}
+
+/*#page-catalog{
+	-webkit-perspective:1000;
+	-webkit-perspective-origin:50% 50%;
+}*/
+#catalog{
+	-webkit-transform:translate(200px,0);
+}
+
+.catalog li{
+	-webkit-perspective:1000;
+	-webkit-perspective-origin:50% 50%;
+}
+.catalog p{
+	opacity:0;
+	-webkit-transform-origin:0% 50%;
+	-webkit-transform:translateX(400px) translateY(10px) translateZ(-100px) rotateX(-30deg) rotateZ(10deg);
+}
+
+.cors-header,.xhr2-feature{
+	visibility:hidden;
+	-webkit-transform:scale(0,0);
+}
+
+#drag-elem div{
+	-webkit-transition:left 800ms ease-in-out;
+}
+
+#drag-code,.api-code{
+	opacity:0;
+	-webkit-transform:scale(0,0);
+}
+ul.api-list li{
+	-webkit-transform-origin:0 50%;
+	-webkit-transition:-webkit-transform 200ms ease-in-out;
+}
+ul.api-list li.focus{
+	-webkit-transform:scale(1.2, 1.2);
+}
+
+#html5-logo{
+	left:244px;position:absolute;top:50px;
+	-webkit-transition:left 300ms ease;
+}
+#html5-logo img{
+	height:512px;width:512px;
+	-webkit-transition:height 300ms ease,width 300ms ease;
+}
+#html5-logo.step-2{left:694px;}
+#html5-logo.step-2 img{height:256px;width:256px;}
+
+#historylog{
+	-webkit-transition:-webkit-transform 300ms ease 300ms;
+	-webkit-transform:translate(850px,0);
+}
+#historylog.step-2{
+	-webkit-transform:translate(0,0);
+}
+
+#svg-logo{
+	left:208px;position:absolute;top:120px;
+	-webkit-transform-origin:50% 50%;
+	-webkit-transition:-webkit-transform 300ms ease;
+}
+#svg-logo img{
+	height:246px;width:585px;
+	-webkit-transition:height 300ms ease,width 300ms ease;
+}
+#svg-logo-code{
+	left:160px;position:absolute;top:230px;
+	-webkit-transition:-webkit-transform 300ms ease 110ms;
+	-webkit-transform:translate(0,600px);
+}
+
+#svg-logo.step-2{
+	-webkit-transform:rotate(90deg) translate(100px, -480px);
+}
+#svg-logo.step-2 img{height:164px;width:390px;}
+#svg-intro{
+	-webkit-transition:-webkit-transform 300ms ease 300ms;
+	-webkit-transform:translate(0,-800px);
+}
+#svg-intro.step-2{
+	-webkit-transform:translate(0,0);
+}
+#svg-intro.step-3{
+	/*-webkit-transition:-webkit-transform 300ms ease;*/
+	-webkit-transform:translate(0,-50px);
+}
+#svg-logo-code.step-3{
+	-webkit-transform:translate(0,0);
+}
+
+#c-v-s-table,#c-v-s-2-table{
+	-webkit-transition:-webkit-transform 300ms ease 110ms;
+	-webkit-transform:translate(0,100px);
+}
+#c-v-s-diagram,#c-v-s-2-diagram{
+	-webkit-transition:-webkit-transform 300ms ease;
+	-webkit-transform:translate(0,500px);
+}
+
+#c-v-s-table.step-2,#c-v-s-2-table.step-2{
+	-webkit-transform:translate(0,0);
+}
+#c-v-s-diagram.step-2,#c-v-s-2-diagram.step-2{
+	-webkit-transform:translate(0,0);
+}
+
+#ws-intro-1{
+	-webkit-transition:-webkit-transform 300ms ease 110ms;
+	-webkit-transform:translate(0,80px);
+}
+#ws-intro-2{
+	-webkit-transition:-webkit-transform 300ms;
+	-webkit-transform:translate(0,500px);
+}
+#ws-intro-img{
+	-webkit-transition:-webkit-transform 300ms;
+	-webkit-transform:translate(500px,0);
+}
+#ws-intro-img img{
+	opacity:0;
+	-webkit-transition:opacity 500ms;
+}
+
+#ws-intro-1.step-2,#ws-intro-2.step-2{
+	-webkit-transform:translate(0,0);
+}
+#ws-intro-1.step-3,
+#ws-intro-2.step-3,
+#ws-intro-2.step-4,
+#ws-intro-2.step-5,
+#ws-intro-2.step-6{
+	-webkit-transform:translate(-150px,0);
+}
+#ws-intro-img.step-3,
+#ws-intro-img.step-4,
+#ws-intro-img.step-5,
+#ws-intro-img.step-6{
+	-webkit-transform:translate(0,0);
+}
+#ws-intro-img.step-3 img:nth-of-type(1),
+#ws-intro-img.step-4 img:nth-of-type(2),
+#ws-intro-img.step-5 img:nth-of-type(3),
+#ws-intro-img.step-6 img:nth-of-type(4){
+	opacity:1;
+}
+#ws-intro-2.step-3 li:nth-of-type(1),
+#ws-intro-2.step-4 li:nth-of-type(2),
+#ws-intro-2.step-5 li:nth-of-type(3),
+#ws-intro-2.step-6 li:nth-of-type(4){
+	color:#06c;text-shadow:0 0 3px rgba(0,102,192,0.5);
+}

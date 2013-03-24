@@ -1,0 +1,57 @@
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<title>HTML5 Guide</title>
+<meta name="keywords" content="html5">
+<meta name="description" content="A simple html5 guide">
+<meta name="author" content="Wang">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=2.0"/>
+<style type="text/css">
+body{background-color:#fff;color:#444;font-size:14px;line-height:125%;}
+body,input,button,select,textarea{font-family:Verdana,"microsoft yahei",Arial,Helvetica,sans-serif;}
+/*article,aside,footer,header,hgroup,nav,section{display:block;}*/
+body,dl,dt,dd,ol,ul,li,h1,h2,h3,h4,h5,h6,p,img{margin:0;padding:0;}
+img{border:0;vertical-align:bottom;}
+</style>
+<link rel="stylesheet" type="text/css" href="css/chatroom.css">
+</head>
+<body>
+<div style="width:0;position:fixed;left:50%;bottom:10px;">
+	<div id="chat-room" style="margin-left:-321px;">
+		<div id="chat-area" id="chat-area"></div>
+		<div class="chat-input">
+			<input type="text" id="chat-text"><input type="button" value="发送" id="chat-send" class="chat-btn"><input type="button" value="位置" id="chat-place" class="chat-btn"><a class="chat-file-box" title="发送图片" href="javascript:;"><input type="button" value="图片" class="chat-btn"><input type="file" accept="image/*" id="chat-file"></a>
+		</div>
+		<div class="chat-user-list"></div>
+	</div>
+	<label style="display:none;" for="chat-notify" id="chat-notify-label"><input type="checkbox" id="chat-notify">接收桌面通知</label>
+</div>
+<script type="text/javascript">
+// 请求动画帧
+(function(w){
+	w.requestAnimationFrame = w.requestAnimationFrame
+		|| w.webkitRequestAnimationFrame
+		|| w.msRequestAnimationFrame
+		|| w.mozRequestAnimationFrame
+		|| w.oRequestAnimationFrame
+		|| function(a) {
+			return setTimeout(a, 16);
+		};
+	w.cancelAnimationFrame = w.cancelAnimationFrame
+		|| w.webkitCancelAnimationFrame
+		|| w.msCancelAnimationFrame
+		|| w.mozCancelAnimationFrame
+		|| w.oCancelAnimationFrame
+		|| w.cancelRequestRequestAnimationFrame
+		|| w.webkitCancelRequestAnimationFrame
+		|| w.msCancelRequestAnimationFrame
+		|| w.mozCancelRequestAnimationFrame
+		|| w.oCancelRequestAnimationFrame
+		|| function(a) {
+			return clearTimeout(a);
+		};
+})(window);
+</script>
+<script type="text/javascript" src="examples/code-list/ws-chatroom.js"></script>
+</body>
+</html>

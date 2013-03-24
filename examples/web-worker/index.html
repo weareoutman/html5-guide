@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<title>Web Worker</title>
+<meta name="keywords" content="Web Worker">
+<meta name="description" content="Web Worker">
+<meta name="author" content="Wang">
+<style type="text/css">
+/*body{font-family:"open sans",sans-serif;font-size:12px;line-height:150%;}*/
+</style>
+</head>
+<body>
+<div>
+	<canvas width="1024" height="500"></canvas><br>
+	<button>移轴</button>
+</div>
+<script type="text/javascript">
+(function(){
+	var btn = document.querySelector("button"),
+		canvas = document.querySelector("canvas"),
+		context = canvas.getContext("2d"),
+		src = "sample-a.jpg",
+		img = new Image(),
+		width = canvas.width,
+		height = canvas.height;
+	img.onload = function(){
+		img.onload = null;
+		context.drawImage(img, 0, 0);
+		var worker = new Worker("Tilt-Shift.js?v=2");
+		worker.onmessage = function(e){
+			/*if ("log" in e.data) {
+				console.log(e.data);
+				return;
+			}*/
+			var source = new Uint8ClampedArray(e.data.image),
+				imageData = context.createImageData(width, height),
+				target = imageData.data,
+				length = target.length,
+				i = 0;
+			for ( ; i<length; ++i) {
+				target[i] = source[i];
+			}
+			context.putImageData(imageData, 0, 0);
+			btn.disabled = false;
+		};
+		worker.onerror = function(e){
+			console.dir(e);
+		};
+		btn.onclick = function(){
+			btn.disabled = true;
+			var data = context.getImageData(0, 0, width, height).data;
+			worker.postMessage({
+				image: data.buffer,
+				width: width,
+				height: height,
+				gauss: 14,
+				min: 230,
+				max: 350,
+				gradient: 100
+			}, [data.buffer]);
+		};
+	};
+	img.src = src;
+})();
+</script>
+</body>
+</html>
