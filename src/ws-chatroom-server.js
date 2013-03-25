@@ -1,6 +1,6 @@
 var util = require("util");
 
-var WebSocketAPI = require("./WebSocket-Server.js");
+var WebSocketAPI = require("./WebSocket-server.js");
 var WebSocketServer = WebSocketAPI.WebSocketServer;
 var WebSocket = WebSocketAPI.WebSocket;
 var log = WebSocketAPI.log;
