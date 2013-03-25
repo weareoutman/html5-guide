@@ -1,10 +1,5 @@
 (function(){
-	/*function log() {
-		var elem = document.getElementById("chatroom");
-		elem.value = elem.value + Array.prototype.join.call(arguments, ", ") + "\n";
-	}*/
-
-	var HOST = "ws://192.168.41.102:8002/",
+	var HOST = "ws://192.168.1.101:8002/",
 		PROTOCOLS = ["chat"],
 		IMAGE_MAX_WIDTH = 480;
 
@@ -28,8 +23,42 @@
 
 	var user = {
 		joined: false,
-		name: null
+		name: null,
+		avatar: ""
 	};
+
+	var userList = {};
+
+	(function(){
+		var signInBox = document.getElementById("chat-sign-box"),
+			avatars = signInBox.querySelectorAll("a"),
+			_avatar = "maqing.jpg",
+			_name,
+			name = document.getElementById("chat-sign-name"),
+			btn = document.getElementById("chat-sign-btn");
+		for (var i = 0; i < avatars.length; ++ i) {
+			var a = avatars[i];
+			a.onclick = click;
+		}
+		btn.onclick = function(){
+			_name = name.value.trim();
+			if (_name) {
+				btn.value = "正在加入";
+				btn.disabled = true;
+				user.name = _name;
+				user.avatar = _avatar;
+				room.join();
+			}
+		};
+		function click() {
+			for (var i = 0; i < avatars.length; ++ i) {
+				var a = avatars[i];
+				a.className = "";
+			}
+			this.className = "checked";
+			_avatar = this.querySelector("img").src.match(/\/([^\/]+)$/)[0];
+		}
+	})();
 
 	var room = {
 		socket: null,
@@ -65,13 +94,14 @@
 	room.oninit = function(){
 		this.connected = true;
 		console.log("connected");
-		user.name = (~~ (Math.random() * 1e8)).toString(36);
-		this.join(user);
+		// user.name = (~~ (Math.random() * 1e8)).toString(36);
+		// this.join(user);
 	};
-	room.join = function(user){
+	room.join = function(){
 		if (user.name) {
 			room.sendMessage(MSG_TYPE_JOIN, {
-				user: user.name
+				name: user.name,
+				avatar: user.avatar
 			});
 		} else {
 			// TODO: no user name
@@ -178,6 +208,14 @@
 		console.dir(data);
 
 		if (data.list.length > 0) {
+			for (var i = 0; i < data.list.length; ++ i) {
+				var d = data.list[i];
+				userList[d.name] = {
+					name: d.name,
+					avatar: d.avatar
+				};
+			}
+
 			showMessage(MSG_TYPE_LIST, data, time);
 		}
 	};
@@ -185,9 +223,16 @@
 		console.log("user join", time);
 		console.dir(data);
 
-		if (data.user == user.name) {
+		chatArea.innerHTML = "";
+
+		if (data.name == user.name) {
 			user.joined = true;
 		}
+
+		userList[data.name] = {
+			name: data.name,
+			avatar: data.avatar
+		};
 
 		showMessage(MSG_TYPE_JOIN, data, time);
 	};
@@ -195,9 +240,14 @@
 		console.log("user leave", time);
 		console.dir(data);
 
-		if (data.user == user.name) {
+		if (data.name == user.name) {
 			user.joined = false;
 			user.name = null;
+			user.avatar = "";
+		}
+
+		if (data.name in userList) {
+			delete userList[data.name];
 		}
 
 		showMessage(MSG_TYPE_LEAVE, data, time);
@@ -229,7 +279,7 @@
 				var k = new Image();
 				k.width = 36;
 				k.height = 36;
-				k.src = "profiles/" + (Math.random() > 0.5 ? "maqing" : "xiaoxin") + ".jpg";
+				k.src = "avatars/" + userList[data.user].avatar;
 				p.appendChild(k);
 				layer.appendChild(p);
 				var b = document.createElement("div");
@@ -289,13 +339,13 @@
 			case MSG_TYPE_JOIN:
 				layer.className = "chat-join";
 				var b = document.createElement("div");
-				b.textContent = data.user + " 加入了聊天";
+				b.textContent = data.name + " 加入了聊天";
 				layer.appendChild(b);
 				break;
 			case MSG_TYPE_LEAVE:
 				layer.className = "chat-leave";
 				var b = document.createElement("div");
-				b.textContent = data.user + " 退出了聊天";
+				b.textContent = data.name + " 退出了聊天";
 				layer.appendChild(b);
 				break;
 			case MSG_TYPE_LIST:
@@ -303,7 +353,7 @@
 				var b = document.createElement("div");
 				var l = [];
 				for (var i = 0; i < data.list.length; ++ i) {
-					l.push(data.list[i].user);
+					l.push(data.list[i].name);
 				}
 				b.textContent = l.join("、") + " 加入了聊天";
 				layer.appendChild(b);

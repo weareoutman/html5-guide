@@ -38,6 +38,7 @@ function User(webSocket) {
 	this.id = uniqueId ++;
 	this.joined = false;
 	this.name = null;
+	this.avatar = "";
 	this.webSocket = webSocket;
 
 	userList.push(this);
@@ -113,7 +114,7 @@ User.prototype.placeReceived = function(data) {
 };
 
 User.prototype.join = function(data) {
-	var name = data.user;
+	var name = data.name;
 	if (!name) {
 		log(this.webSocket.socket, "Empty Username");
 		return;
@@ -123,11 +124,13 @@ User.prototype.join = function(data) {
 		return;
 	}
 	this.name = name;
+	this.avatar = data.avatar;
 	this.joined = true;
 	onlineUsers[name] = this;
 
 	notify(MSG_TYPE_JOIN, {
-		user: this.name
+		name: this.name,
+		avatar: this.avatar
 	});
 };
 
@@ -142,10 +145,11 @@ User.prototype.leave = function(data) {
 		delete onlineUsers[name];
 	}
 	this.name = null;
+	this.avatar = "";
 	this.joined = false;
 
 	notify(MSG_TYPE_LEAVE, {
-		user: name
+		name: name
 	});
 };
 
@@ -156,7 +160,8 @@ User.prototype.sendUserList = function() {
 		var user = userList[i];
 		if (user.joined) {
 			users.push({
-				user: user.name
+				name: user.name,
+				avatar: user.avatar
 			});
 		} else {
 			++ unjoined;

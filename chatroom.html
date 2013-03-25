@@ -12,15 +12,52 @@ body,input,button,select,textarea{font-family:Verdana,"microsoft yahei",Arial,He
 /*article,aside,footer,header,hgroup,nav,section{display:block;}*/
 body,dl,dt,dd,ol,ul,li,h1,h2,h3,h4,h5,h6,p,img{margin:0;padding:0;}
 img{border:0;vertical-align:bottom;}
+:focus{outline:0;}
 </style>
 <link rel="stylesheet" type="text/css" href="css/chatroom.css">
 </head>
 <body>
 <div style="width:0;position:fixed;left:50%;bottom:10px;">
 	<div id="chat-room" style="margin-left:-321px;">
-		<div id="chat-area" id="chat-area"></div>
+		<div id="chat-area" id="chat-area">
+			<div id="chat-sign-box">
+				<div style="text-indent:14px;">选择一个头像:</div>
+				<div class="chat-avatars">
+					<a href="javascript:;" class="checked">
+						<img src="avatars/maqing.jpg" width="60" height="60">
+						<span></span>
+					</a>
+					<a href="javascript:;">
+						<img src="avatars/stone.jpg" width="60" height="60">
+						<span></span>
+					</a>
+					<a href="javascript:;">
+						<img src="avatars/jay.jpg" width="60" height="60">
+						<span></span>
+					</a>
+				</div>
+				<div class="chat-avatars">
+					<a href="javascript:;">
+						<img src="avatars/meizhi.jpg" width="60" height="60">
+						<span></span>
+					</a>
+					<a href="javascript:;">
+						<img src="avatars/xiaoxin.jpg" width="60" height="60">
+						<span></span>
+					</a>
+					<a href="javascript:;">
+						<img src="avatars/fire.jpg" width="60" height="60">
+						<span></span>
+					</a>
+				</div>
+				<div style="text-align:center;">
+					<label>昵称:</label><input id="chat-sign-name" class="chat-text" type="text"><br>
+					<input id="chat-sign-btn" class="chat-btn" type="button" value="加入聊天">
+				</div>
+			</div>
+		</div>
 		<div class="chat-input">
-			<input type="text" id="chat-text"><input type="button" value="发送" id="chat-send" class="chat-btn"><input type="button" value="位置" id="chat-place" class="chat-btn"><a class="chat-file-box" title="发送图片" href="javascript:;"><input type="button" value="图片" class="chat-btn"><input type="file" accept="image/*" id="chat-file"></a>
+			<input type="text" id="chat-text" class="chat-text"><input type="button" value="发送" id="chat-send" class="chat-btn"><input type="button" value="位置" id="chat-place" class="chat-btn"><a class="chat-file-box" title="发送图片" href="javascript:;"><input type="button" value="图片" class="chat-btn"><input type="file" accept="image/*" id="chat-file"></a>
 		</div>
 		<div class="chat-user-list"></div>
 	</div>
