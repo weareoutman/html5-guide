@@ -21,10 +21,10 @@
 			var pre = q("pre", this);
 			pre.style.visibility = "visible";
 			pre.style.opacity = 1;
-			css(img, "transition", "transform 100ms linear");
+			/*css(img, "transition", "transform 100ms linear");
 			window.requestAnimationFrame(function(){
 				css(img, "transform", "scale(1.2,1.2)");
-			});
+			});*/
 		};
 		elem.onmouseout = function(){
 			handle = setTimeout(function(){
@@ -35,14 +35,14 @@
 				setTimeout(function(){
 					pre.style.visibility = "hidden";
 				}, 200);
-				css(img, "transition", "transform 100ms linear");
+				/*css(img, "transition", "transform 100ms linear");
 				window.requestAnimationFrame(function(){
 					css(img, "transform", "scale(1,1)");
-				});
+				});*/
 			}, 200);
 		};
 	}
-	packetHover(q("#pkt-request"));
-	packetHover(q("#pkt-response"));
-	packetHover(q("#pkt-frame"));
+	// packetHover(q("#pkt-request"));
+	// packetHover(q("#pkt-response"));
+	// packetHover(q("#pkt-frame"));
 })();

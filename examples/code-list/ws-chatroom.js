@@ -4,7 +4,7 @@
 		elem.value = elem.value + Array.prototype.join.call(arguments, ", ") + "\n";
 	}*/
 
-	var HOST = "ws://192.168.1.101:8002/",
+	var HOST = "ws://192.168.41.102:8002/",
 		PROTOCOLS = ["chat"],
 		IMAGE_MAX_WIDTH = 480;
 

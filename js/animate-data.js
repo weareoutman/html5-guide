@@ -582,7 +582,7 @@ stepDatas["websocket"] = [
 			"#arr-browser .arrow-body": {
 				height: {
 					from: "0",
-					to: "400px",
+					to: "450px",
 					duration: 300,
 					delay: 300
 				}
@@ -590,7 +590,7 @@ stepDatas["websocket"] = [
 			"#arr-server .arrow-body": {
 				height: {
 					from: "0",
-					to: "400px",
+					to: "450px",
 					duration: 300,
 					delay: 300
 				}
@@ -603,6 +603,7 @@ stepDatas["websocket"] = [
 					to: "visible"
 				},
 				opacity: {
+					from: 0,
 					to: 1,
 					duration: 300
 				}
@@ -641,30 +642,30 @@ stepDatas["websocket"] = [
 				left: {
 					from: "60px",
 					to: "390px",
-					duration: 600
+					duration: 300
 				},
 				top: {
 					from: "40px",
 					to: "110px",
-					duration: 600
+					duration: 300
 				}
-			}
-		}, 600],
-		[{
+			},
 			"#pkt-handshake": {
 				visibility: {
 					from: "hidden",
-					to: "visible"
+					to: "visible",
+					delay: 300
 				}
 			},
 			"#pkt-handshake img": {
 				transform: {
 					from: "rotateX(90deg)",
 					to: "rotateX(0)",
-					duration: 300
+					duration: 300,
+					delay: 300
 				}
 			}
-		}, 300]
+		}, 600]
 	],
 	[
 		[{
@@ -700,7 +701,8 @@ stepDatas["websocket"] = [
 			"#open-handshake-res": {
 				visibility: {
 					from: "hidden",
-					to: "visible"
+					to: "visible",
+					delay: 300
 				},
 				width: {
 					from: "0",
@@ -717,12 +719,12 @@ stepDatas["websocket"] = [
 				left: {
 					from: "390px",
 					to: "60px",
-					duration: 600
+					duration: 300
 				},
 				top: {
 					from: "110px",
 					to: "160px",
-					duration: 600
+					duration: 300
 				}
 			},
 			"#pkt-handshake": {
@@ -739,8 +741,190 @@ stepDatas["websocket"] = [
 					duration: 300
 				}
 			}
+		}, 300]
+	],
+	[
+		[{
+			"#pkt-response": {
+				visibility: {
+					from: "visible",
+					to: "hidden",
+					delay: 300
+				},
+				transform: {
+					from: "rotateX(0)",
+					to: "rotateX(90deg)",
+					duration: 300
+				}
+			},
+			"#txt-send-n-receive": {
+				visibility: {
+					from: "hidden",
+					to: "visible",
+					delay: 300
+				},
+				opacity: {
+					from: 0,
+					to: 1,
+					duration: 300,
+					delay: 300
+				}
+			},
+			"#pkt-frame": {
+				visibility: {
+					from: "hidden",
+					to: "visible",
+					delay: 300
+				}
+			},
+			"#pkt-frame img": {
+				transform: {
+					from: "rotateX(90deg)",
+					to: "rotateX(0)",
+					duration: 300,
+					delay: 300
+				}
+			},
+			"#client-send": {
+				visibility: {
+					from: "hidden",
+					to: "visible",
+					delay: 300
+				},
+				width: {
+					from: "0",
+					to: "378px",
+					duration: 300,
+					delay: 300
+				}
+			}
 		}, 600]
-	]
+	],
+	[
+		[{
+			"#pkt-frame": {
+				top: {
+					from: "200px",
+					to: "260px",
+					duration: 300
+				},
+				left: {
+					from: "-10px",
+					to: "390px",
+					duration: 300
+				}
+			},
+			"#data-frame": {
+				top: {
+					from: "55px",
+					to: "-120px",
+					duration: 300
+				},
+				left: {
+					from: "-238px",
+					to: "-550px",
+					duration: 300
+				}
+			},
+			"#pkt-parse": {
+				visibility: {
+					from: "hidden",
+					to: "visible",
+					delay: 300
+				}
+			},
+			"#pkt-parse img": {
+				transform: {
+					from: "rotateX(90deg)",
+					to: "rotateX(0)",
+					duration: 300,
+					delay: 300
+				}
+			}
+		}, 600]
+	],
+	[
+		[{
+			"#pkt-frame img": {
+				transform: {
+					from: "rotateY(0)",
+					to: "rotateY(90deg)",
+					duration: 300
+				}
+			},
+			"#pkt-parse": {
+				visibility: {
+					from: "visible",
+					to: "hidden",
+					delay: 300
+				}
+			},
+			"#pkt-parse img": {
+				transform: {
+					from: "rotateX(0)",
+					to: "rotateX(90deg)",
+					duration: 300
+				}
+			}
+		}, 300],
+		[{
+			"#pkt-frame img": {
+				transform: {
+					from: "rotateY(90deg)",
+					to: "rotateY(-90deg)"
+				}
+			}
+		}, 17],
+		[{
+			"#pkt-frame img": {
+				transform: {
+					from: "rotateY(-90deg)",
+					to: "rotateY(0)",
+					duration: 300
+				}
+			},
+			"#server-send": {
+				visibility: {
+					from: "hidden",
+					to: "visible"
+				},
+				width: {
+					from: "0",
+					to: "378px",
+					duration: 300
+				}
+			}
+		}, 300]
+	],
+	[
+		[{
+			"#pkt-frame": {
+				top: {
+					from: "260px",
+					to: "330px",
+					duration: 300
+				},
+				left: {
+					from: "390px",
+					to: "60px",
+					duration: 300
+				}
+			},
+			"#data-frame": {
+				top: {
+					from: "-120px",
+					to: "-280px",
+					duration: 300
+				},
+				left: {
+					from: "-550px",
+					to: "-238px",
+					duration: 300
+				}
+			}
+		}, 300]
+	],
+	[]
 ];
 return stepDatas;
 })();
