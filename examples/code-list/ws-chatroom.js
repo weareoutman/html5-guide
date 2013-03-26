@@ -1,5 +1,5 @@
 (function(){
-	var HOST = "ws://192.168.1.101:8002/",
+	var HOST = "ws://192.168.50.115:8002/",
 		PROTOCOLS = ["chat"],
 		IMAGE_MAX_WIDTH = 480;
 
@@ -13,13 +13,14 @@
 	var canvas = document.createElement("canvas"),
 		context = canvas.getContext("2d");
 
-	var MSG_TYPE_TEXT = 0x1;
-	var MSG_TYPE_IMAGE = 0x2;
-	var MSG_TYPE_PLACE = 0x3;
-	var MSG_TYPE_LIST = 0x8;
-	var MSG_TYPE_JOIN = 0x9;
-	var MSG_TYPE_LEAVE = 0xa;
-	var MSG_TYPE_ERROR = 0xb;
+	var MSG_TYPE_TEXT = 0x1,
+		MSG_TYPE_IMAGE = 0x2,
+		MSG_TYPE_PLACE = 0x3,
+		MSG_TYPE_LIST = 0x8,
+		MSG_TYPE_JOIN = 0x9,
+		MSG_TYPE_LEAVE = 0xa,
+		MSG_TYPE_ERROR = 0xb,
+		MSG_TYPE_JOIN_ERROR = 0xb;
 
 	var user = {
 		joined: false,
@@ -29,36 +30,134 @@
 
 	var userList = {};
 
-	(function(){
-		var signInBox = document.getElementById("chat-sign-box"),
-			avatars = signInBox.querySelectorAll("a"),
-			_avatar = "maqing.jpg",
-			_name,
-			name = document.getElementById("chat-sign-name"),
-			btn = document.getElementById("chat-sign-btn");
+	var signInBtn = document.getElementById("chat-sign-in-btn"),
+		signOutBtn = document.getElementById("chat-sign-out-btn"),
+		chatMask = document.getElementById("chat-mask"),
+		closeBtn = document.getElementById("chat-sign-close"),
+		signBox = document.getElementById("chat-sign-box"),
+		inputMask = document.getElementById("chat-input-mask"),
+		avatars = signBox.querySelectorAll(".chat-avatars a"),
+		_avatar = "maqing.jpg",
+		_name,
+		listBox = document.getElementById("chat-user-list"),
+		signName = document.getElementById("chat-sign-name"),
+		signBtn = document.getElementById("chat-sign-btn");
+	signInBtn.onclick = function(){
+		chatMask.style.display = "block";
+		signBox.style.display = "block";
+	};
+	signOutBtn.onclick = function(){
+		room.leave();
+	};
+	closeBtn.onclick = function(){
+		chatMask.style.display = "none";
+		signBox.style.display = "none";
+	};
+	var avatarClick = function(){
 		for (var i = 0; i < avatars.length; ++ i) {
 			var a = avatars[i];
-			a.onclick = click;
+			a.className = "";
 		}
-		btn.onclick = function(){
-			_name = name.value.trim();
-			if (_name) {
-				btn.value = "正在加入";
-				btn.disabled = true;
-				user.name = _name;
-				user.avatar = _avatar;
-				room.join();
-			}
+		this.className = "checked";
+		_avatar = this.querySelector("img").src.match(/\/([^\/]+)$/)[0];
+	};
+	for (var i = 0; i < avatars.length; ++ i) {
+		avatars[i].onclick = avatarClick;
+	}
+	signBtn.onclick = function(){
+		_name = signName.value.trim();
+		if (!(_name && /^.{2,20}$/.test(_name.replace(/[\u0100-\uffff]/g, "aa")))) {
+			joinError(1, "Invalid Username");
+			return;
+		}
+		signBtn.value = "正在加入";
+		signBtn.disabled = true;
+		signName.disabled = true;
+		user.name = _name;
+		user.avatar = _avatar;
+		room.join();
+	};
+	signName.onkeydown = function(e){
+		e.stopPropagation();
+	};
+	signName.onkeyup = function(e){
+		e.stopPropagation();
+		if (e.keyCode == 13) {
+			e.preventDefault();
+			signBtn.onclick();
+		}
+	};
+	function joinSuccess() {
+		closeBtn.onclick();
+		signBtn.value = "加入聊天";
+		signBtn.disabled = false;
+		signName.disabled = false;
+		signInBtn.style.display = "none";
+		signOutBtn.style.display = "inline-block";
+		inputMask.style.display = "none";
+	}
+	function joinError(code, reason) {
+		var msg;
+		switch (code) {
+			case 1:
+				msg = "请输入有效的昵称！"
+				break;
+			case 2:
+				msg = "该昵称已经被使用了！"
+				break;
+			default:
+				msg = "加入聊天失败！[" + code + ", " + reason + "]";
+				break;
+		}
+		alert(msg);
+		signBtn.value = "加入聊天";
+		signBtn.disabled = false;
+		signName.disabled = false;
+		signName.focus();
+		signName.select();
+	}
+	function leaveSuccess() {
+		signInBtn.style.display = "inline-block";
+		signOutBtn.style.display = "none";
+		inputMask.style.display = "block";
+	}
+
+	var getUniqueId = (function(){
+		var a = 1;
+		return function(){
+			return (++ a).toString(36);
 		};
-		function click() {
-			for (var i = 0; i < avatars.length; ++ i) {
-				var a = avatars[i];
-				a.className = "";
-			}
-			this.className = "checked";
-			_avatar = this.querySelector("img").src.match(/\/([^\/]+)$/)[0];
-		}
 	})();
+
+	function pushUser(user) {
+		userList[user.name] = user;
+
+		var div = document.createElement("div");
+		div.className = "list-user";
+		div.setAttribute("data-uid", user.uid);
+		var img = new Image();
+		img.width = 30;
+		img.height = 30;
+		img.src = "avatars/" + user.avatar;
+		var span = document.createElement("span");
+		span.textContent = user.name;
+		var em = document.createElement("em");
+		em.textContent = " (" + user.ip.replace(/^\d+\.\d+\.(\d+)\.(\d+)$/, "*.$1.$2") + ")";
+		div.title = span.textContent + em.textContent;
+		div.appendChild(img);
+		div.appendChild(span);
+		div.appendChild(em);
+		listBox.appendChild(div);
+	}
+
+	function removeUser(name) {
+		var uid = userList[name].uid;
+		delete userList[name];
+		var div = listBox.querySelector("div.list-user[data-uid=\"" + uid + "\"]");
+		if (div) {
+			listBox.removeChild(div);
+		}
+	}
 
 	var room = {
 		socket: null,
@@ -94,27 +193,17 @@
 	room.oninit = function(){
 		this.connected = true;
 		console.log("connected");
-		// user.name = (~~ (Math.random() * 1e8)).toString(36);
-		// this.join(user);
 	};
 	room.join = function(){
-		if (user.name) {
-			room.sendMessage(MSG_TYPE_JOIN, {
-				name: user.name,
-				avatar: user.avatar
-			});
-		} else {
-			// TODO: no user name
-		}
+		room.sendMessage(MSG_TYPE_JOIN, {
+			name: user.name,
+			avatar: user.avatar
+		});
 	};
 	room.leave = function(){
-		if (user.joined) {
-			room.sendMessage(MSG_TYPE_LEAVE, {
-				reason: ""
-			});
-		} else {
-			// TODO: no user name
-		}
+		room.sendMessage(MSG_TYPE_LEAVE, {
+			reason: ""
+		});
 	},
 	room.sendMessage = function(type, data){
 		if (this.connected) {
@@ -176,6 +265,9 @@
 			case MSG_TYPE_LEAVE:
 				this.userLeaved(data, time);
 				break;
+			case MSG_TYPE_JOIN_ERROR:
+				this.userJoinError(data, time);
+				break;
 		}
 	};
 	room.textReceived = function(data, time){
@@ -197,7 +289,6 @@
 	room.placeReceived = function(data, time){
 		console.log("place message", time);
 		console.dir(data);
-		// data.content = JSON.stringify(data.coords);
 
 		showMessage(MSG_TYPE_PLACE, data, time);
 
@@ -209,30 +300,21 @@
 
 		if (data.list.length > 0) {
 			for (var i = 0; i < data.list.length; ++ i) {
-				var d = data.list[i];
-				userList[d.name] = {
-					name: d.name,
-					avatar: d.avatar
-				};
+				pushUser(data.list[i]);
 			}
-
-			showMessage(MSG_TYPE_LIST, data, time);
 		}
 	};
 	room.userJoined = function(data, time){
 		console.log("user join", time);
 		console.dir(data);
 
-		chatArea.innerHTML = "";
-
 		if (data.name == user.name) {
 			user.joined = true;
+			user.uid = data.uid;
+			joinSuccess();
 		}
 
-		userList[data.name] = {
-			name: data.name,
-			avatar: data.avatar
-		};
+		pushUser(data);
 
 		showMessage(MSG_TYPE_JOIN, data, time);
 	};
@@ -244,13 +326,22 @@
 			user.joined = false;
 			user.name = null;
 			user.avatar = "";
+			user.uid = null;
+			leaveSuccess();
 		}
 
-		if (data.name in userList) {
-			delete userList[data.name];
-		}
+		removeUser(data.name);
 
 		showMessage(MSG_TYPE_LEAVE, data, time);
+	};
+	room.userJoinError = function(data, time){
+		console.log("user join error", time);
+		console.dir(data);
+
+		user.name = null;
+		user.avatar = "";
+
+		joinError(data.code, data.reason);
 	};
 
 	// 显示消息
@@ -264,7 +355,7 @@
 				var h = document.createElement("div");
 				h.className = "chat-head";
 				var u = document.createElement("div");
-				u.className = "chat-user";
+				u.className = "chat-name";
 				u.textContent = data.user;
 				var t = document.createElement("div");
 				t.className = "chat-time";
@@ -280,6 +371,7 @@
 				k.width = 36;
 				k.height = 36;
 				k.src = "avatars/" + userList[data.user].avatar;
+				p.title = data.user + " (" + userList[data.user].ip.replace(/^\d+\.\d+\.(\d+)\.(\d+)$/, "*.$1.$2") + ")";
 				p.appendChild(k);
 				layer.appendChild(p);
 				var b = document.createElement("div");

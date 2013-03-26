@@ -24,7 +24,7 @@ var server = WebSocketServer.listen({
 var userList = [];
 var onlineUsers = {};
 
-var uniqueId = 1;
+var uniqueId = 0;
 
 var MSG_TYPE_TEXT = 0x1;
 var MSG_TYPE_IMAGE = 0x2;
@@ -32,13 +32,15 @@ var MSG_TYPE_PLACE = 0x3;
 var MSG_TYPE_LIST = 0x8;
 var MSG_TYPE_JOIN = 0x9;
 var MSG_TYPE_LEAVE = 0xa;
+var MSG_TYPE_JOIN_ERROR = 0xb;
 
 function User(webSocket) {
 
-	this.id = uniqueId ++;
+	this.uid = (++ uniqueId);
 	this.joined = false;
 	this.name = null;
 	this.avatar = "";
+	this.ip = webSocket.socket.remoteAddress;
 	this.webSocket = webSocket;
 
 	userList.push(this);
@@ -71,6 +73,15 @@ function User(webSocket) {
 		}
 	});
 }
+
+User.prototype.toObject = function(){
+	return {
+		uid: this.uid,
+		name: this.name,
+		avatar: this.avatar,
+		ip: this.ip
+	}
+};
 
 User.prototype.messageReceived = function(type, data){
 	switch (type) {
@@ -114,24 +125,30 @@ User.prototype.placeReceived = function(data) {
 };
 
 User.prototype.join = function(data) {
-	var name = data.name;
-	if (!name) {
-		log(this.webSocket.socket, "Empty Username");
+	var name = data.name.trim(),
+		avatar = data.avatar;
+	if (!(name && /^.{2,20}$/.test(name.replace(/[\u0100-\uffff]/g, "aa")))) {
+		log(this.webSocket.socket, "Invalid Username");
+		this.send(MSG_TYPE_JOIN_ERROR, {
+			code: 1,
+			reason: "Invalid Username"
+		});
 		return;
 	}
 	if (name in onlineUsers) {
 		log(this.webSocket.socket, "Username Already Online");
+		this.send(MSG_TYPE_JOIN_ERROR, {
+			code: 2,
+			reason: "Username Already Online"
+		});
 		return;
 	}
 	this.name = name;
-	this.avatar = data.avatar;
+	this.avatar = avatar;
 	this.joined = true;
 	onlineUsers[name] = this;
 
-	notify(MSG_TYPE_JOIN, {
-		name: this.name,
-		avatar: this.avatar
-	});
+	notify(MSG_TYPE_JOIN, this.toObject());
 };
 
 
@@ -159,10 +176,7 @@ User.prototype.sendUserList = function() {
 	for (var i = 0; i < userList.length; ++ i) {
 		var user = userList[i];
 		if (user.joined) {
-			users.push({
-				name: user.name,
-				avatar: user.avatar
-			});
+			users.push(user.toObject());
 		} else {
 			++ unjoined;
 		}
@@ -170,10 +184,11 @@ User.prototype.sendUserList = function() {
 	this.send(MSG_TYPE_LIST, {
 		list: users,
 		unjoined: unjoined
-	}, Date.now());
+	});
 };
 
 User.prototype.send = function(type, data, time) {
+	time = time || Date.now();
 	var msg = JSON.stringify({
 		type: type,
 		time: time,
