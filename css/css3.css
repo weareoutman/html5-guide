@@ -1,0 +1,102 @@
+#transform-2d,#transform-3d,#transition,#animation
+{background-color:rgb(146,185,1);border:1px solid #999;color:#fff;font-family:'Segoe UI',Verdana;font-size:20px;
+	height:78px;line-height:78px;text-align:center;width:198px;}
+.transform-2d {
+	transform:         translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);
+	-webkit-transform: translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);
+	-ms-transform:     translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);
+	-moz-transform:    translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);
+	-o-transform:      translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);
+}
+#transition,#transform-3d {
+	transition:                 transform 1000ms ease-in-out;
+	-webkit-transition: -webkit-transform 1000ms ease-in-out;
+	-ms-transition:         -ms-transform 1000ms ease-in-out;
+	-moz-transition:       -moz-transform 1000ms ease-in-out;
+	-o-transition:           -o-transform 1000ms ease-in-out;
+}
+#transform-3d-parent {
+	width:  200px;
+	height: 80px;
+	
+	perspective:         200;
+	-webkit-perspective: 200;
+	-ms-perspective:     200;
+	-moz-perspective:    200;
+	-o-perspective:      200;
+
+	perspective-origin:         50% 50%;
+	-webkit-perspective-origin: 50% 50%;
+	-ms-perspective-origin:     50% 50%;
+	-moz-perspective-origin:    50% 50%;
+	-o-perspective-origin:      50% 50%;
+}
+#transform-3d {
+	transform-origin:         50% 100%;
+	-webkit-transform-origin: 50% 100%;
+	-ms-transform-origin:     50% 100%;
+	-moz-transform-origin:    50% 100%;
+	-o-transform-origin:      50% 100%;
+}
+.transform-3d {
+	transform:         rotateX(360deg);
+	-webkit-transform: rotateX(360deg);
+	-ms-transform:     rotateX(360deg);
+	-moz-transform:    rotateX(360deg);
+	-o-transform:      rotateX(360deg);
+}
+
+@keyframes my-animation {
+	0%   {}
+	25%  {transform: translate(150px,-30px);}
+	50%  {transform: translate(150px,-30px) rotate(15deg);}
+	75%  {transform: translate(150px,-30px) rotate(15deg) scale(2,1);}
+	100% {transform: translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);}
+}
+@-webkit-keyframes my-animation {
+	0%   {}
+	25%  {-webkit-transform: translate(150px,-30px);}
+	50%  {-webkit-transform: translate(150px,-30px) rotate(15deg);}
+	75%  {-webkit-transform: translate(150px,-30px) rotate(15deg) scale(2,1);}
+	100% {-webkit-transform: translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);}
+}
+@-moz-keyframes my-animation {
+	0%   {}
+	25%  {-moz-transform: translate(150px,-30px);}
+	50%  {-moz-transform: translate(150px,-30px) rotate(15deg);}
+	75%  {-moz-transform: translate(150px,-30px) rotate(15deg) scale(2,1);}
+	100% {-moz-transform: translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);}
+}
+@-ms-keyframes my-animation {
+	0%   {}
+	25%  {-ms-transform: translate(150px,-30px);}
+	50%  {-ms-transform: translate(150px,-30px) rotate(15deg);}
+	75%  {-ms-transform: translate(150px,-30px) rotate(15deg) scale(2,1);}
+	100% {-ms-transform: translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);}
+}
+@-o-keyframes my-animation {
+	0%   {}
+	25%  {-o-transform: translate(150px,-30px);}
+	50%  {-o-transform: translate(150px,-30px) rotate(15deg);}
+	75%  {-o-transform: translate(150px,-30px) rotate(15deg) scale(2,1);}
+	100% {-o-transform: translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);}
+}
+#animation {
+	animation: my-animation 2s linear 0 infinite alternate;
+	-webkit-animation: my-animation 2s linear 0 infinite alternate;
+	-moz-animation: my-animation 2s linear 0 infinite alternate;
+	-ms-animation: my-animation 2s linear 0 infinite alternate;
+	-o-animation: my-animation 2s linear 0 infinite alternate;
+	animation-play-state: paused;
+	-webkit-animation-play-state: paused;
+	-moz-animation-play-state: paused;
+	-ms-animation-play-state: paused;
+	-o-animation-play-state: paused;
+}
+#animation.animation-run{
+	animation-play-state: running;
+	-webkit-animation-play-state: running;
+	-moz-animation-play-state: running;
+	-ms-animation-play-state: running;
+	-o-animation-play-state: running;
+}

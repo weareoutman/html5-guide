@@ -1,0 +1,3 @@
+#transition {
+	/* transition: property duration timing-function delay; */
+	transition: transform 1000ms ease-in-out; }

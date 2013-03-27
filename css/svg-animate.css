@@ -101,3 +101,10 @@
 	-ms-animation:svg-car-wheel 1s linear 0 infinite;
 	-o-animation:svg-car-wheel 1s linear 0 infinite;
 }
+.svg-sky use{
+	-webkit-transition:-webkit-transform 100ms ease;
+	-webkit-transform-origin:50% 50%;
+}
+.svg-sky use:hover{
+	-webkit-transform:scale(1.2);
+}

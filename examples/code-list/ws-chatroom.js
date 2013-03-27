@@ -534,7 +534,7 @@
 
 	// 通知
 	var notify = (function(){
-		return function(){};
+		// return function(){};
 		if (window.webkitNotifications) {
 			var btn = document.getElementById("chat-notify"),
 				label = document.getElementById("chat-notify-label"),

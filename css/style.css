@@ -43,6 +43,8 @@ ul.catalog h4,#historylog h4{font-size:18px;font-weight:600;line-height:150%;pad
 ul.catalog p,#historylog p{font-size:16px;padding-left:2em;}
 ul.catalog b{font-weight:400;}
 ul.catalog b.focus{font-size:16px;font-weight:700;}
+#historylog span{color:#e44d26;}
+#historylog b{color:#39a448;}
 
 ul#xhr-catalog.catalog li,ul#xhr2-catalog.catalog li{padding:15px 0;}
 
@@ -195,3 +197,12 @@ pre.col-2:last-of-type{float:right;}
 table{background-color:#fff;box-shadow:0 0 10px rgba(0,0,0,.5);margin:10px auto;width:600px;}
 table.compare th,table.compare td{border-bottom:1px solid #ccc;padding:10px;text-align:left;}
 table.compare th{background-color:#ededed;color:#707070;}
+
+.css3-codes h3{padding:3px 0;}
+.css3-codes pre{width:647px;overflow-x:auto;}
+.css3-samples{position:absolute;right:160px;top:0;width:100px;}
+.css3-samples > div{position:absolute;left:0;}
+.css3-samples > div:nth-of-type(1){top:25px;}
+.css3-samples > div:nth-of-type(2){top:160px;}
+.css3-samples > div:nth-of-type(3){top:325px;}
+.css3-samples > div:nth-of-type(4){top:500px;}

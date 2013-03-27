@@ -1,0 +1,7 @@
+#transform-3d-parent {
+	perspective: 200;
+	perspective-origin: 50% 50%; }
+#transform-3d {
+	/* transform: translate3d(x,y,z) translateX(x) ... matrix3d(...) */
+	transform: rotateX(360deg);
+	transform-origin: 50% 100%; }

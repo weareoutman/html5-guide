@@ -1,30 +1,56 @@
 <h2>Web Socket</h2>
 <div class="content">
 	<div id="chat-room">
-		<div id="chat-area" id="chat-area">
-			<!-- <div class="chat-others">
-				<div class="chat-head">
-					<span class="chat-user">Wang.S.W</span>
-					<span class="chat-time">8:30</span>
-				</div>
-				<div class="chat-prof"><img src="profiles/maqing.jpg" width="36" height="36"></div>
-				<div class="chat-body">I joined this room.<div class="chat-corner"></div></div>
-			</div>
-			<div class="chat-myself">
-				<div class="chat-head">
-					<span class="chat-user">Wang.S.W</span>
-					<span class="chat-time">8:30</span>
-				</div>
-				<div class="chat-prof"><img src="profiles/xiaoxin.jpg" width="36" height="36"></div>
-				<div class="chat-body">I joined this room.<div class="chat-corner"></div></div>
-			</div>
-			<div class="chat-join"><div>Wang.S.W 加入了聊天</div></div>
-			<div class="chat-leave"><div>Wang.S.W 退出了聊天</div></div> -->
-		</div>
+		<div id="chat-area" id="chat-area"></div>
 		<div class="chat-input">
-			<input type="text" id="chat-text"><input type="button" value="发送" id="chat-send" class="chat-btn"><input type="button" value="位置" id="chat-place" class="chat-btn"><a class="chat-file-box" title="发送图片" href="javascript:;"><input type="button" value="图片" class="chat-btn"><input type="file" accept="image/*" id="chat-file"></a>
+			<input type="text" id="chat-text" class="chat-text"><input type="button" value="发送" id="chat-send" class="chat-btn"><input type="button" value="位置" id="chat-place" class="chat-btn"><a class="chat-file-box" title="发送图片" href="javascript:;"><input type="button" value="图片" class="chat-btn"><input type="file" accept="image/*" id="chat-file"></a>
 		</div>
-		<div class="chat-user-list"></div>
+		<div id="chat-input-mask"></div>
+		<div id="chat-user-list">
+			<div id="chat-sign-in">
+				<input id="chat-sign-in-btn" class="chat-btn" type="button" value="加入聊天">
+				<input id="chat-sign-out-btn" class="chat-btn" type="button" value="退出聊天">
+			</div>
+		</div>
 	</div>
-	<label style="display:none;" for="chat-notify" id="chat-notify-label"><input type="checkbox" id="chat-notify">接收桌面通知</label>
+	<div style="color:#999;padding-top:20px;text-align:center;"><label for="chat-notify" id="chat-notify-label"><input type="checkbox" id="chat-notify">接收桌面通知</label></div>
+</div>
+<div id="chat-mask"></div>
+<div id="chat-sign-box">
+	<div class="chat-sign-con">
+		<div style="line-height:20px;text-indent:14px;">选择一个头像:</div>
+		<div class="chat-avatars">
+			<a href="javascript:;" class="checked">
+				<img src="avatars/maqing.jpg" width="60" height="60">
+				<span></span>
+			</a>
+			<a href="javascript:;">
+				<img src="avatars/stone.jpg" width="60" height="60">
+				<span></span>
+			</a>
+			<a href="javascript:;">
+				<img src="avatars/jay.jpg" width="60" height="60">
+				<span></span>
+			</a>
+		</div>
+		<div class="chat-avatars">
+			<a href="javascript:;">
+				<img src="avatars/meizhi.jpg" width="60" height="60">
+				<span></span>
+			</a>
+			<a href="javascript:;">
+				<img src="avatars/xiaoxin.jpg" width="60" height="60">
+				<span></span>
+			</a>
+			<a href="javascript:;">
+				<img src="avatars/fire.jpg" width="60" height="60">
+				<span></span>
+			</a>
+		</div>
+		<div style="line-height:43px;text-align:center;">
+			<label>昵称:</label><input id="chat-sign-name" class="chat-text" type="text"><br>
+			<input id="chat-sign-btn" class="chat-btn" type="button" value="加入聊天">
+		</div>
+		<a id="chat-sign-close" class="btn-close" href="javascript:;"></a>
+	</div>
 </div>
