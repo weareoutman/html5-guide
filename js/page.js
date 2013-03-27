@@ -9,8 +9,9 @@
 				hljs.highlightBlock(code, tab);
 				return;
 			}
+			name = name + (/\.(js|svg|css|html|php)$/.test(name) ? "" : ".txt");
 			var xhr = new XMLHttpRequest();
-			xhr.open("GET", "./examples/code-list/" + name + ".txt");
+			xhr.open("GET", "./examples/code-list/" + name);
 			xhr.onload = function(){
 				code.textContent = xhr.responseText.replace(/\r\n/g, "\n");
 				setTimeout(function(){

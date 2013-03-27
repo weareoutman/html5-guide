@@ -25,7 +25,8 @@
 			<div id="transition">Transition</div>
 		</div>
 		<div>
-			<input type="button" value="开始/停止" onclick="(function(a){a.className=a.className=='animation-run'?'':'animation-run'})(document.getElementById('animation'))">
+			<input type="button" value="开始/暂停" onclick="(function(a){a.className=a.className=='animation-run'?'animation-run animation-pause':'animation-run'})(document.getElementById('animation'))">
+			<input type="button" value="停止" onclick="(function(a){a.className=''})(document.getElementById('animation'))">
 			<div id="animation">Animation</div>
 		</div>
 	</div>

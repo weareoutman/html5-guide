@@ -1,12 +1,12 @@
 #transform-2d,#transform-3d,#transition,#animation
-{background-color:rgb(146,185,1);border:1px solid #999;color:#fff;font-family:'Segoe UI',Verdana;font-size:20px;
-	height:78px;line-height:78px;text-align:center;width:198px;}
+{background-color:rgb(146,185,1);border:1px solid #999;color:#fff;font-family:'Segoe UI',Verdana;
+	font-size:20px;height:78px;line-height:78px;text-align:center;width:198px;}
 .transform-2d {
-	transform:         translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);
-	-webkit-transform: translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);
-	-ms-transform:     translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);
-	-moz-transform:    translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);
-	-o-transform:      translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);
+	transform:         translate(-200px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);
+	-webkit-transform: translate(-200px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);
+	-ms-transform:     translate(-200px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);
+	-moz-transform:    translate(-200px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);
+	-o-transform:      translate(-200px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);
 }
 #transition,#transform-3d {
 	transition:                 transform 1000ms ease-in-out;
@@ -48,55 +48,51 @@
 
 @keyframes my-animation {
 	0%   {}
-	25%  {transform: translate(150px,-30px);}
-	50%  {transform: translate(150px,-30px) rotate(15deg);}
-	75%  {transform: translate(150px,-30px) rotate(15deg) scale(2,1);}
-	100% {transform: translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);}
+	25%  {transform: translate(-200px,-30px);}
+	50%  {transform: translate(-200px,-30px) rotate(15deg);}
+	75%  {transform: translate(-200px,-30px) rotate(15deg) scale(2,1);}
+	100% {transform: translate(-200px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);}
 }
 @-webkit-keyframes my-animation {
 	0%   {}
-	25%  {-webkit-transform: translate(150px,-30px);}
-	50%  {-webkit-transform: translate(150px,-30px) rotate(15deg);}
-	75%  {-webkit-transform: translate(150px,-30px) rotate(15deg) scale(2,1);}
-	100% {-webkit-transform: translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);}
+	25%  {-webkit-transform: translate(-200px,-30px);}
+	50%  {-webkit-transform: translate(-200px,-30px) rotate(15deg);}
+	75%  {-webkit-transform: translate(-200px,-30px) rotate(15deg) scale(2,1);}
+	100% {-webkit-transform: translate(-200px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);}
 }
 @-moz-keyframes my-animation {
 	0%   {}
-	25%  {-moz-transform: translate(150px,-30px);}
-	50%  {-moz-transform: translate(150px,-30px) rotate(15deg);}
-	75%  {-moz-transform: translate(150px,-30px) rotate(15deg) scale(2,1);}
-	100% {-moz-transform: translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);}
+	25%  {-moz-transform: translate(-200px,-30px);}
+	50%  {-moz-transform: translate(-200px,-30px) rotate(15deg);}
+	75%  {-moz-transform: translate(-200px,-30px) rotate(15deg) scale(2,1);}
+	100% {-moz-transform: translate(-200px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);}
 }
 @-ms-keyframes my-animation {
 	0%   {}
-	25%  {-ms-transform: translate(150px,-30px);}
-	50%  {-ms-transform: translate(150px,-30px) rotate(15deg);}
-	75%  {-ms-transform: translate(150px,-30px) rotate(15deg) scale(2,1);}
-	100% {-ms-transform: translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);}
+	25%  {-ms-transform: translate(-200px,-30px);}
+	50%  {-ms-transform: translate(-200px,-30px) rotate(15deg);}
+	75%  {-ms-transform: translate(-200px,-30px) rotate(15deg) scale(2,1);}
+	100% {-ms-transform: translate(-200px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);}
 }
 @-o-keyframes my-animation {
 	0%   {}
-	25%  {-o-transform: translate(150px,-30px);}
-	50%  {-o-transform: translate(150px,-30px) rotate(15deg);}
-	75%  {-o-transform: translate(150px,-30px) rotate(15deg) scale(2,1);}
-	100% {-o-transform: translate(150px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);}
+	25%  {-o-transform: translate(-200px,-30px);}
+	50%  {-o-transform: translate(-200px,-30px) rotate(15deg);}
+	75%  {-o-transform: translate(-200px,-30px) rotate(15deg) scale(2,1);}
+	100% {-o-transform: translate(-200px,-30px) rotate(15deg) scale(2,1) skew(-20deg,10deg);}
 }
-#animation {
+
+#animation.animation-run{
 	animation: my-animation 2s linear 0 infinite alternate;
 	-webkit-animation: my-animation 2s linear 0 infinite alternate;
 	-moz-animation: my-animation 2s linear 0 infinite alternate;
 	-ms-animation: my-animation 2s linear 0 infinite alternate;
 	-o-animation: my-animation 2s linear 0 infinite alternate;
+}
+#animation.animation-pause{
 	animation-play-state: paused;
 	-webkit-animation-play-state: paused;
 	-moz-animation-play-state: paused;
 	-ms-animation-play-state: paused;
 	-o-animation-play-state: paused;
-}
-#animation.animation-run{
-	animation-play-state: running;
-	-webkit-animation-play-state: running;
-	-moz-animation-play-state: running;
-	-ms-animation-play-state: running;
-	-o-animation-play-state: running;
 }

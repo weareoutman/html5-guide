@@ -27,7 +27,7 @@ progress::-moz-progress-bar{background-color:#369aca;}
 #container{position:absolute;}
 /*#stage{height:750px;margin:0 auto;overflow:visible;position:relative;width:1000px;}*/
 .page{background-color:#fff;display:none;left:0;height:750px;overflow:hidden;position:absolute;top:0;width:1000px;}
-h2{border-bottom:2px solid #ccc;color:rgba(0,102,192,0.8);font-size:26px;height:36px;line-height:36px;
+h2{border-bottom:2px solid #ccc;color:#06c;font-size:26px;height:36px;line-height:36px;
 	margin-bottom:10px;padding:11px 0;text-align:center;}
 .content{position:relative;}
 
@@ -206,3 +206,6 @@ table.compare th{background-color:#ededed;color:#707070;}
 .css3-samples > div:nth-of-type(2){top:160px;}
 .css3-samples > div:nth-of-type(3){top:325px;}
 .css3-samples > div:nth-of-type(4){top:500px;}
+
+#thanks,#q-and-a{color:#06c;font-size:60px;padding-top:150px;text-align:center;}
+#q-and-a{padding-top:100px;}

@@ -1,14 +1,18 @@
 (function(){
-	var HOST = "ws://192.168.50.115:8002/",
+	function g(id){
+		return document.getElementById(id);
+	}
+	
+	var HOST = "ws://192.168.1.101:8002/",
 		PROTOCOLS = ["chat"],
 		IMAGE_MAX_WIDTH = 480;
 
-	var chatRoom = document.getElementById("chat-room"),
-		chatArea = document.getElementById("chat-area"),
-		chatFile = document.getElementById("chat-file"),
-		chatText = document.getElementById("chat-text"),
-		chatSend = document.getElementById("chat-send"),
-		chatPlace = document.getElementById("chat-place");
+	var chatRoom = g("chat-room"),
+		chatArea = g("chat-area"),
+		chatFile = g("chat-file"),
+		chatText = g("chat-text"),
+		chatSend = g("chat-send"),
+		chatPlace = g("chat-place");
 
 	var canvas = document.createElement("canvas"),
 		context = canvas.getContext("2d");
@@ -25,23 +29,24 @@
 	var user = {
 		joined: false,
 		name: null,
-		avatar: ""
+		avatar: "",
+		uid: null
 	};
 
 	var userList = {};
 
-	var signInBtn = document.getElementById("chat-sign-in-btn"),
-		signOutBtn = document.getElementById("chat-sign-out-btn"),
-		chatMask = document.getElementById("chat-mask"),
-		closeBtn = document.getElementById("chat-sign-close"),
-		signBox = document.getElementById("chat-sign-box"),
-		inputMask = document.getElementById("chat-input-mask"),
+	var signInBtn = g("chat-sign-in-btn"),
+		signOutBtn = g("chat-sign-out-btn"),
+		chatMask = g("chat-mask"),
+		closeBtn = g("chat-sign-close"),
+		signBox = g("chat-sign-box"),
+		inputMask = g("chat-input-mask"),
 		avatars = signBox.querySelectorAll(".chat-avatars a"),
 		_avatar = "maqing.jpg",
 		_name,
-		listBox = document.getElementById("chat-user-list"),
-		signName = document.getElementById("chat-sign-name"),
-		signBtn = document.getElementById("chat-sign-btn");
+		listBox = g("chat-user-list"),
+		signName = g("chat-sign-name"),
+		signBtn = g("chat-sign-btn");
 	signInBtn.onclick = function(){
 		chatMask.style.display = "block";
 		signBox.style.display = "block";
@@ -163,6 +168,9 @@
 		socket: null,
 		connected: false
 	};
+
+	// 聊天室初始化
+	// 建立 WebSocket 连接
 	room.init = function(){
 		var host = HOST;
 		var protocols = PROTOCOLS;
@@ -534,33 +542,35 @@
 
 	// 通知
 	var notify = (function(){
-		// return function(){};
-		if (window.webkitNotifications) {
-			var btn = document.getElementById("chat-notify"),
-				label = document.getElementById("chat-notify-label"),
+		window.notifications = window.notifications || window.webkitNotifications;
+		if (window.notifications) {
+			var btn = g("chat-notify"),
+				label = g("chat-notify-label"),
 				state = "default";
 			label.style.display = "";
-			btn.checked = window.webkitNotifications.checkPermission() == 0;
+			btn.checked = window.notifications.checkPermission() == 0;
 			if (btn.checked) {
 				state = "granted";
 			}
 			btn.onclick = function(){
 				if (btn.checked) {
 					if (state != "granted") {
-						window.webkitNotifications.requestPermission(function(){
+						window.notifications.requestPermission(function(){
 							state = "granted";
 						});
 					}
 				}
 			};
+		} else {
+			return function(){};
 		}
 		var lastNote = null;
 		return function (type, data) {
 			if (state != "granted" || !btn.checked) {
 				return;
 			}
-			if (document.webkitHidden) {
-				if (window.webkitNotifications && window.webkitNotifications.checkPermission() == 0) {
+			if (document.hidden || document.webkitHidden) {
+				if (window.notifications && window.notifications.checkPermission() == 0) {
 					var body = data.user;
 					if (type == MSG_TYPE_TEXT) {
 						body += " : " + data.content.substr(0,20) + (data.content.length > 20 ? "..." : "");
@@ -569,7 +579,7 @@
 					} else {
 						body += " 发来一条位置消息";
 					}
-					var note = window.webkitNotifications.createNotification(
+					var note = window.notifications.createNotification(
 						"",
 						"新消息",
 						body
@@ -584,20 +594,22 @@
 		};
 	})();
 
+	// 定位
 	chatPlace.onclick = function(){
 		if (!navigator.geolocation) {
 			showMessage(MSG_TYPE_ERROR, {content: "您的浏览器不支持定位"});
 			return;
 		}
-		// showMessage(MSG_TYPE_ERROR, {content: "正在定位..."});
-		navigator.geolocation.getCurrentPosition(onPlaceSuccess, onPlaceError, {
+		navigator.geolocation.getCurrentPosition(onLoacationSuccess, onLocationError, {
 			enableHighAccuracy: false, // 是否使用精确定位
 			timeout: 2e4, // 超时时间
 			maximumAge: 6e5 // 位置有效期
 		});
+		// 监听位置变化
+		// navigator.geolocation.watchPosition(onLoacationSuccess, onLocationError, options);
 		this.disabled = true;
 	};
-	function onPlaceSuccess(position) {
+	function onLoacationSuccess(position) {
 		/**
 		coords: {
 			latitude : 纬度,
@@ -606,11 +618,10 @@
 		} (还有高度，高度精确度，运动方向，运动速度等)
 		*/
 		console.dir(position);
-		// showMessage(MSG_TYPE_ERROR, {content: JSON.stringify(position.coords)});
 		room.sendPlace(position.coords);
 		chatPlace.disabled = false;
 	}
-	function onPlaceError() {
+	function onLocationError() {
 		showMessage(MSG_TYPE_ERROR, {content: "定位失败"});
 		chatPlace.disabled = false;
 	}

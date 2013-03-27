@@ -341,7 +341,7 @@
 	};
 
 	var ppt = new PPT(),
-		pageElems = q("#container > div.page[data-x]", document, true);
+		pageElems = q("#container > div.page", document, true);
 	for (var i = 0; i < pageElems.length; ++ i) {
 		var page = new Page(ppt, pageElems[i]),
 			// name = pageElems[i].getAttribute("page-name"),

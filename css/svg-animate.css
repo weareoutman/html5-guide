@@ -106,5 +106,6 @@
 	-webkit-transform-origin:50% 50%;
 }
 .svg-sky use:hover{
-	-webkit-transform:scale(1.2);
+	/*-webkit-transform:scale(1.2);*/
+	/*box-shadow:0 0 10px rgba(255,255,255,0.5);*/
 }
