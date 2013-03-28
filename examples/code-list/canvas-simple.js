@@ -9,6 +9,9 @@
 	context.fillStyle = "#98c8e7";
 	context.lineWidth = 2;
 
+	// 边框
+	context.strokeRect(2, 2, 296, 196);
+
 	// 坐标转换
 	context.scale(2, 2);
 

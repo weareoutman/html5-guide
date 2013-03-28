@@ -207,5 +207,9 @@ table.compare th{background-color:#ededed;color:#707070;}
 .css3-samples > div:nth-of-type(3){top:325px;}
 .css3-samples > div:nth-of-type(4){top:500px;}
 
+dl.link-list{line-height:150%;margin:0 auto;width:600px;}
+dl.link-list dt{padding-top:1em;}
+dl.link-list dd{text-indent:1em;}
+
 #thanks,#q-and-a{color:#06c;font-size:60px;padding-top:150px;text-align:center;}
 #q-and-a{padding-top:100px;}

@@ -3,20 +3,22 @@
 		return document.getElementById(id);
 	}
 	
-	var HOST = "ws://192.168.1.101:8002/",
+	var HOST = "ws://192.168.50.115:8002/",
 		PROTOCOLS = ["chat"],
 		IMAGE_MAX_WIDTH = 480;
 
+	// 元素
 	var chatRoom = g("chat-room"),
 		chatArea = g("chat-area"),
 		chatFile = g("chat-file"),
 		chatText = g("chat-text"),
 		chatSend = g("chat-send"),
 		chatPlace = g("chat-place");
-
+	// 用于调整大图片的画布
 	var canvas = document.createElement("canvas"),
 		context = canvas.getContext("2d");
 
+	// 消息类型
 	var MSG_TYPE_TEXT = 0x1,
 		MSG_TYPE_IMAGE = 0x2,
 		MSG_TYPE_PLACE = 0x3,
@@ -26,15 +28,17 @@
 		MSG_TYPE_ERROR = 0xb,
 		MSG_TYPE_JOIN_ERROR = 0xb;
 
+	// 当前用户
 	var user = {
 		joined: false,
 		name: null,
 		avatar: "",
 		uid: null
 	};
-
+	// 用户列表
 	var userList = {};
 
+	// 加入聊天相关
 	var signInBtn = g("chat-sign-in-btn"),
 		signOutBtn = g("chat-sign-out-btn"),
 		chatMask = g("chat-mask"),
@@ -127,13 +131,7 @@
 		inputMask.style.display = "block";
 	}
 
-	var getUniqueId = (function(){
-		var a = 1;
-		return function(){
-			return (++ a).toString(36);
-		};
-	})();
-
+	// 新加入用户
 	function pushUser(user) {
 		userList[user.name] = user;
 
@@ -155,6 +153,7 @@
 		listBox.appendChild(div);
 	}
 
+	// 用户离开
 	function removeUser(name) {
 		var uid = userList[name].uid;
 		delete userList[name];
@@ -164,6 +163,7 @@
 		}
 	}
 
+	// 聊天室
 	var room = {
 		socket: null,
 		connected: false
