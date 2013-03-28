@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta charset="utf-8">
+<title>走近 HTML5 - 王沈伟</title>
+<meta name="keywords" content="html5">
+<meta name="description" content="带你走近html5，探讨html5及其相关技术">
+<meta name="author" content="王沈伟">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+<link rel="stylesheet" type="text/css" href="css/css3.css">
+<link rel="stylesheet" type="text/css" href="css/svg-animate.css">
+<link rel="stylesheet" type="text/css" href="css/chatroom.css">
+<link rel="stylesheet" type="text/css" href="highlight/styles/github.css">
+<!-- <link rel="stylesheet" type="text/css" href="highlight/styles/monokai_sublime.css"> -->
+<style type="text/css">
+/* remove italic font-style for comments in "github.css" */
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  font-style: normal;
+}
+</style>
+</head>
+<body>
+<div id="stage" style="-webkit-transform: perspective(1000px) scale(1); -webkit-transition: all 500ms ease-in-out 0ms; transition: all 500ms ease-in-out 0ms;">
+	<div id="container" style="-webkit-transform: rotateZ(0deg) rotateY(0deg) rotateX(0deg) translate3d(0px, 0px, 0px); -webkit-transition: all 500ms ease-in-out 0ms; transition: all 500ms ease-in-out 0ms;">
+		<div class="page active" data-name="history" data-x="0" data-y="0" data-z="0" style="-webkit-transform: translate(-50%, -50%) translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>HTML5</h2>
+<div class="content">
+	<div id="html5-logo">
+		<img src="images/HTML5-logo.svg">
+	</div>
+	<ul id="historylog">
+		<li>
+			<h4>什么是 HTML5</h4>
+			<p>HTML 标准的第 <b><span>5</span></b> 个修订版</p>
+			<p>广义的 HTML5，通常指包括 HTML5、CSS3 以及其它相关技术的总和</p>
+		</li>
+		<!-- <li>
+			<h4>核心目标</h4>
+			<p>改善语言，支持最新的多媒体，同时保持对人类的易读性、计算机和设备的理解一致性</p>
+		</li> -->
+		<li>
+			<h4>发展里程</h4>
+			<p style="white-space:pre;">1990.
+	HTML 与 WWW（万维网） 一起诞生
+2000.
+	HTML 4.01 最后一次更新
+<span>2004.</span>
+	<b>W3C</b> 正制定 XHTML 2.0（注重可扩展性，不向后兼容）
+	<b>WHATWG</b> 开始致力于建立新的html标准
+<span>2007.</span>
+	W3C 和 WHATWG 开始一起开发 HTML5
+	W3C 随后 搁置了 XHTML 2.0
+<span>2008.</span>
+	WHATWG 第一个 HTML5 公开工作草案
+2010.
+	《Thoughts on Flash》--苹果公司当时的CEO 乔布斯，发表的一篇公开文章
+	-- “Flash 不再是观看视频或者消费任何类型web内容，所必需的了”
+	-- “在移动时代建立的新的开放标准，比如HTML5，将会胜利”
+<span>2012.</span>
+	W3C 专注于单一的“最终”标准
+	WHATWG 则认为 HTML5 应该是一个标准“快照”（永不结束、不断地更新和改善）
+2014.
+	W3C 目标：<b>HTML5 Recommendation</b></p>
+		</li>
+	</ul>
+	<div id="author">
+		研发中心 - 资讯开发组<br>
+		@王沈伟
+	</div>
+</div></div>
+		<div class="page" data-name="intro" data-x="500" data-y="0" data-z="-500" data-rotate-y="90" style="-webkit-transform: translate(-50%, -50%) translate3d(500px, 0px, -500px) rotateX(0deg) rotateY(90deg) rotateZ(0deg) scale(1);"><h2>HTML5</h2>
+<div class="content" style="text-align:center;">
+	<img src="images/html5.png" width="980">
+</div></div>
+		<div class="page" data-name="catalog" data-x="125" data-y="375" data-z="-500" data-rotate-x="-90" data-rotate-z="90" style="-webkit-transform: translate(-50%, -50%) translate3d(125px, 375px, -500px) rotateX(-90deg) rotateY(0deg) rotateZ(90deg) scale(1);"><h2>HTML5</h2>
+<div class="content" id="page-catalog">
+	<ul class="catalog" id="catalog">
+		<li>
+			<h4>标记</h4>
+			<p>增加新的语义化元素 (&lt;nav&gt;&lt;footer&gt;...)</p>
+			<p>移除一些纯表现的元素 (&lt;font&gt;&lt;center&gt;...)</p>
+		</li>
+		<li>
+			<h4>图形与动画</h4>
+			<p id="p1"><b>Canvas</b>, <b>SVG</b>, <a href="http://mrdoob.github.com/three.js/" target="_blank" style="color:#444;">WebGL</a>, <b>CSS3</b> (Transforms, Transitions, Animations)</p>
+		</li>
+		<li>
+			<h4>交互</h4>
+			<p><b>Drag and Drop</b>, Touch Events</p>
+		</li>
+		<li>
+			<h4>连接和通信</h4>
+			<p><b>WebSocket</b>, Server-Sent Event, Cross-Document Messaging, WebRTC<br><b>XMLHttpRequest Level 2</b></p>
+		</li>
+		<li>
+			<h4>文件</h4>
+			<p>File API, Directories and System</p>
+		</li>
+		<li>
+			<h4>Web Worker</h4>
+			<p>Web Worker, Shared Worker</p>
+		</li>
+		<li>
+			<h4>本地存储与离线应用</h4>
+			<p>WebStorage, IndexedDB, App Cache</p>
+		</li>
+		<li>
+			<h4>视频/音频</h4>
+			<p>Video, Audio</p>
+		</li>
+		<li style="overflow:hidden;">
+			<h4>其它</h4>
+			<!-- <p>GeoLocation, Notifications, Page Visibility, Performance, History State, Typed Array</p> -->
+			<p style="overflow:hidden;">定位, 通知, 页面可见性, 性能统计, 历史记录管理, 类型化数组, ...</p>
+		</li>
+	</ul>
+</div></div>
+		<div class="page" data-name="graphic" data-x="1000" data-y="1450" data-z="-500" style="-webkit-transform: translate(-50%, -50%) translate3d(1000px, 1450px, -500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>图形与动画</h2>
+<div class="content">
+	<p style="font-size:16px;line-height:30px;padding:50px 0 20px;text-align:center;">HTML5 提供了三种实现图形和动画的核心技术：<br> &lt;canvas&gt;元素、SVG (可缩放矢量图形)、CSS (级联样式表)</p>
+	<table class="compare" style="font-size:16px;">
+		<colgroup>
+			<col width="20%">
+			<col width="80%">
+		</colgroup>
+		<thead>
+			<tr>
+				<th>主题</th>
+				<th>描述</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Canvas</td>
+				<td>依赖于分辨率的、位图画布的编程接口</td>
+			</tr>
+			<tr>
+				<td>SVG</td>
+				<td>基于 XML 的、矢量的图形</td>
+			</tr>
+			<tr>
+				<td>CSS3</td>
+				<td>2D 和 3D 变换、过渡、动画等</td>
+			</tr>
+		</tbody>
+	</table>
+</div></div>
+		<div class="page" data-name="graphic-example" data-x="1000" data-y="1450" data-z="-1750" data-rotate-z="90" style="-webkit-transform: translate(-50%, -50%) translate3d(1000px, 1450px, -1750px) rotateX(0deg) rotateY(0deg) rotateZ(90deg) scale(1);"><h2>Canvas</h2>
+<div class="content">
+	<h3 style="padding-left:100px;">实例与代码</h3>
+	<div style="position:relative;">
+		<pre style="margin-left:100px;width:500px;"><code class="html xml" data-name="canvas-simple"><span class="tag">&lt;<span class="title">canvas</span> <span class="attribute">width</span>=<span class="value">"300"</span> <span class="attribute">height</span>=<span class="value">"200"</span> <span class="attribute">id</span>=<span class="value">"canvas-simple"</span>&gt;</span><span class="tag">&lt;/<span class="title">canvas</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+<span class="comment">// 取得canvas元素</span>
+<span class="keyword">var</span> canvas = document.getElementById(<span class="string">"canvas-simple"</span>);
+<span class="comment">// CanvasRenderingContext2D</span>
+<span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);
+
+<span class="comment">// 设置样式</span>
+context.strokeStyle = <span class="string">"#396180"</span>;
+context.fillStyle = <span class="string">"#98c8e7"</span>;
+context.lineWidth = <span class="number">2</span>;
+
+<span class="comment">// 边框</span>
+context.strokeRect(<span class="number">2</span>, <span class="number">2</span>, <span class="number">296</span>, <span class="number">196</span>);
+
+<span class="comment">// 坐标转换</span>
+context.scale(<span class="number">2</span>, <span class="number">2</span>);
+
+<span class="comment">// 创建路径</span>
+context.beginPath();
+context.moveTo(<span class="number">15</span>, <span class="number">65</span>);
+<span class="comment">// 二次贝塞尔曲线</span>
+context.quadraticCurveTo(<span class="number">5</span>, <span class="number">40</span>, <span class="number">55</span>, <span class="number">35</span>);
+context.quadraticCurveTo(<span class="number">60</span>, <span class="number">25</span>, <span class="number">60</span>, <span class="number">15</span>);
+context.quadraticCurveTo(<span class="number">145</span>, <span class="number">5</span>, <span class="number">135</span>, <span class="number">65</span>);
+context.closePath();
+
+<span class="comment">// 填充、描线</span>
+context.fill();
+context.stroke();
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+		<canvas width="300" height="200" id="canvas-simple" style="position:absolute;top:100px;right:50px;"></canvas>
+	</div>
+</div></div>
+		<div class="page" data-name="canvas" data-js="canvas-simple.js" data-x="0" data-y="2300" data-z="0" style="-webkit-transform: translate(-50%, -50%) translate3d(0px, 2300px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>Canvas</h2>
+<div class="content">
+	<div style="left:30%;overflow:visible;position:absolute;top:100px;width:0;">
+		<ul class="api-list" id="canvas-api-list">
+			<li>样式</li>
+			<li>路径</li>
+			<li>坐标转换</li>
+			<li>文字</li>
+			<li>图像数据</li>
+			<li>其它</li>
+		</ul>
+	</div>
+	<div id="canvas-api-code" style="margin:0 auto;position:relative;overflow:visible;width:0;">
+		<pre class="api-code"><code class="no-highlight">fillStyle, strokeStyle,
+lineCap, lineJoin, lineWidth, miterLimit,
+shadowColor, shadowBlur,
+shadowOffsetX, shadowOffsetY,
+createLinearGradient(), createRadialGradient(),
+addColorStop(),
+createPattern()</code></pre>
+		<pre class="api-code"><code class="no-highlight">fill(), stroke(),
+beginPath(), closePath(),
+moveTo(), lineTo(),
+arc(), arcTo(), bezierCurveTo(), quadraticCurveTo(),
+rect(), fillRect(), strokeRect(), clearRect(),
+isPointInPath()</code></pre>
+		<pre class="api-code"><code class="no-highlight">translate(), rotate(), scale(),
+transform(), setTransform()</code></pre>
+		<pre class="api-code"><code class="no-highlight">font,
+textAlign, textBaseline,
+fillText(), strokeText(),
+measureText()</code></pre>
+		<pre class="api-code"><code class="no-highlight">getImageData(), putImageData(),
+createImageData(),
+drawImage(),
+toDataURL()</code></pre>
+		<pre class="api-code"><code class="no-highlight">globalAlpha,
+globalCompositeOperation,
+save(), restore()</code></pre>
+	</div>
+</div></div>
+		<div class="page" data-name="canvas-example" data-js="canvas-world.js" data-x="0" data-y="3200" data-z="0" data-rotate-z="90" style="-webkit-transform: translate(-50%, -50%) translate3d(0px, 3200px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(90deg) scale(1);"><h2>Canvas</h2>
+<div class="content">
+	<h3>实例与代码</h3>
+	<pre style="height:570px;margin-left:30px;overflow-y:auto;width:600px;white-space:pre-wrap;word-break:break-all;"><code class="javascript" data-name="canvas-world"><span class="function"><span class="keyword">function</span> <span class="title">World</span><span class="params">(context)</span> {</span>
+  <span class="keyword">this</span>.sky = <span class="keyword">new</span> Sky();
+  <span class="keyword">this</span>.road = <span class="keyword">new</span> Road([<span class="number">0</span>, <span class="number">245</span>]);
+  <span class="keyword">this</span>.car = <span class="keyword">new</span> Car([<span class="number">75</span>, <span class="number">190</span>]);
+
+  <span class="keyword">this</span>.context = context;
+  <span class="keyword">this</span>.skyX = <span class="number">0</span>;
+  <span class="keyword">this</span>.roadX = <span class="number">0</span>;
+}
+<span class="function"><span class="keyword">function</span> <span class="title">Element</span><span class="params">(translate, scale, rotate)</span>{</span>
+  <span class="keyword">this</span>.render = <span class="keyword">function</span>(context){
+    context.save();
+    <span class="keyword">if</span> (translate) {
+      context.translate(translate[<span class="number">0</span>], translate[<span class="number">1</span>]);
+    }
+    <span class="keyword">if</span> (scale) {
+      context.scale(scale[<span class="number">0</span>], scale[<span class="number">1</span>]);
+    }
+    <span class="keyword">if</span> (rotate) {
+      context.rotate(rotate);
+    }
+    <span class="keyword">this</span>.draw(context);
+    context.restore();
+  };
+}
+<span class="function"><span class="keyword">function</span> <span class="title">Sky</span><span class="params">()</span>{</span>
+  Element.apply(<span class="keyword">this</span>, arguments);
+  <span class="keyword">this</span>.cloud1 = <span class="keyword">new</span> Cloud([<span class="number">60</span>, <span class="number">30</span>], [<span class="number">0.7</span>, <span class="number">0.7</span>]);
+  <span class="keyword">this</span>.cloud2 = <span class="keyword">new</span> Cloud([<span class="number">200</span>, <span class="number">50</span>]);
+  <span class="keyword">this</span>.cloud3 = <span class="keyword">new</span> Cloud([-<span class="number">240</span>, <span class="number">30</span>], [<span class="number">0.7</span>, <span class="number">0.7</span>]);
+  <span class="keyword">this</span>.cloud4 = <span class="keyword">new</span> Cloud([-<span class="number">100</span>, <span class="number">50</span>]);
+}
+<span class="function"><span class="keyword">function</span> <span class="title">Cloud</span><span class="params">()</span>{</span>
+  Element.apply(<span class="keyword">this</span>, arguments);
+}
+<span class="function"><span class="keyword">function</span> <span class="title">Road</span><span class="params">()</span>{</span>
+  Element.apply(<span class="keyword">this</span>, arguments);
+  <span class="keyword">this</span>.tree1 = <span class="keyword">new</span> Tree([<span class="number">50</span>, <span class="number">5</span>], [<span class="number">1</span>, <span class="number">1.5</span>]);
+  <span class="keyword">this</span>.tree2 = <span class="keyword">new</span> Tree([<span class="number">250</span>, <span class="number">5</span>]);
+  <span class="keyword">this</span>.tree3 = <span class="keyword">new</span> Tree([-<span class="number">250</span>, <span class="number">5</span>], [<span class="number">1</span>, <span class="number">1.5</span>]);
+  <span class="keyword">this</span>.tree4 = <span class="keyword">new</span> Tree([-<span class="number">50</span>, <span class="number">5</span>]);
+}
+<span class="function"><span class="keyword">function</span> <span class="title">Tree</span><span class="params">()</span>{</span>
+  Element.apply(<span class="keyword">this</span>, arguments);
+}
+<span class="function"><span class="keyword">function</span> <span class="title">Car</span><span class="params">()</span> {</span>
+  Element.apply(<span class="keyword">this</span>, arguments);
+  <span class="keyword">this</span>.frame = <span class="keyword">new</span> CarFrame();
+  <span class="keyword">this</span>.frontWheel = <span class="keyword">new</span> CarWheel([<span class="number">45</span>, <span class="number">65</span>]);
+  <span class="keyword">this</span>.rearWheel = <span class="keyword">new</span> CarWheel([<span class="number">110</span>, <span class="number">65</span>]);
+  <span class="keyword">this</span>.frameX = <span class="number">0</span>;
+  <span class="keyword">this</span>.frameY = <span class="number">1</span>;
+}
+<span class="function"><span class="keyword">function</span> <span class="title">CarFrame</span><span class="params">()</span>{</span>
+  Element.apply(<span class="keyword">this</span>, arguments);
+}
+<span class="function"><span class="keyword">function</span> <span class="title">CarWheel</span><span class="params">()</span>{</span>
+  Element.apply(<span class="keyword">this</span>, arguments);
+  <span class="keyword">this</span>.tyre = <span class="keyword">new</span> CarWheelTyre();
+  <span class="keyword">this</span>.spokes = <span class="keyword">new</span> CarWheelSpokes();
+  <span class="keyword">this</span>.spokesRotate = <span class="number">0</span>;
+}
+<span class="function"><span class="keyword">function</span> <span class="title">CarWheelTyre</span><span class="params">()</span>{</span>
+  Element.apply(<span class="keyword">this</span>, arguments);
+}
+<span class="function"><span class="keyword">function</span> <span class="title">CarWheelSpokes</span><span class="params">()</span>{</span>
+  Element.apply(<span class="keyword">this</span>, arguments);
+}
+
+World.prototype.render = <span class="keyword">function</span>(){
+  <span class="keyword">var</span> context = <span class="keyword">this</span>.context;
+  context.save();
+  context.translate(<span class="keyword">this</span>.skyX, <span class="number">0</span>);
+  <span class="keyword">this</span>.sky.render(context);
+  context.restore();
+  context.save();
+  context.translate(<span class="keyword">this</span>.roadX, <span class="number">0</span>);
+  <span class="keyword">this</span>.road.render(context);
+  context.restore();
+  <span class="keyword">this</span>.car.render(context);
+};
+Sky.prototype.draw = <span class="keyword">function</span>(context){
+  context.fillStyle = <span class="string">"#90dfff"</span>;
+  context.fillRect(-<span class="number">300</span>, <span class="number">0</span>, <span class="number">600</span>, <span class="number">300</span>);
+  <span class="keyword">this</span>.cloud1.render(context);
+  <span class="keyword">this</span>.cloud2.render(context);
+  <span class="keyword">this</span>.cloud3.render(context);
+  <span class="keyword">this</span>.cloud4.render(context);
+};
+Cloud.prototype.draw = <span class="keyword">function</span>(context){
+  context.fillStyle = <span class="string">"#fff"</span>;
+  context.beginPath();
+  context.moveTo(<span class="number">5</span>, <span class="number">60</span>);
+  context.quadraticCurveTo(<span class="number">5</span>, <span class="number">45</span>, <span class="number">20</span>, <span class="number">40</span>);
+  context.arcTo(<span class="number">20</span>, <span class="number">20</span>, <span class="number">35</span>, <span class="number">30</span>, <span class="number">10</span>);
+  context.bezierCurveTo(<span class="number">40</span>, <span class="number">12</span>, <span class="number">60</span>, <span class="number">12</span>, <span class="number">70</span>, <span class="number">30</span>);
+  context.arcTo(<span class="number">100</span>, <span class="number">30</span>, <span class="number">100</span>, <span class="number">60</span>, <span class="number">30</span>);
+  context.closePath();
+  context.fill();
+};
+Road.prototype.draw = <span class="keyword">function</span>(context){
+  context.fillStyle = <span class="string">"#64a0cf"</span>;
+  context.fillRect(-<span class="number">300</span>, <span class="number">0</span>, <span class="number">600</span>, <span class="number">55</span>);
+  context.fillStyle = <span class="string">"#eee"</span>;
+  context.fillRect(<span class="number">0</span>, <span class="number">26</span>, <span class="number">40</span>, <span class="number">3</span>);
+  context.fillRect(<span class="number">60</span>, <span class="number">26</span>, <span class="number">40</span>, <span class="number">3</span>);
+  context.fillRect(<span class="number">120</span>, <span class="number">26</span>, <span class="number">40</span>, <span class="number">3</span>);
+  context.fillRect(<span class="number">180</span>, <span class="number">26</span>, <span class="number">40</span>, <span class="number">3</span>);
+  context.fillRect(<span class="number">240</span>, <span class="number">26</span>, <span class="number">40</span>, <span class="number">3</span>);
+  context.fillRect(-<span class="number">60</span>, <span class="number">26</span>, <span class="number">40</span>, <span class="number">3</span>);
+  context.fillRect(-<span class="number">120</span>, <span class="number">26</span>, <span class="number">40</span>, <span class="number">3</span>);
+  context.fillRect(-<span class="number">180</span>, <span class="number">26</span>, <span class="number">40</span>, <span class="number">3</span>);
+  context.fillRect(-<span class="number">240</span>, <span class="number">26</span>, <span class="number">40</span>, <span class="number">3</span>);
+  context.fillRect(-<span class="number">300</span>, <span class="number">26</span>, <span class="number">40</span>, <span class="number">3</span>);
+  <span class="keyword">this</span>.tree1.render(context);
+  <span class="keyword">this</span>.tree2.render(context);
+  <span class="keyword">this</span>.tree3.render(context);
+  <span class="keyword">this</span>.tree4.render(context);
+};
+Tree.prototype.draw = <span class="keyword">function</span>(){
+  context.fillStyle = <span class="string">"#64a0cf"</span>;
+  context.beginPath();
+  context.moveTo(-<span class="number">7</span>, <span class="number">0</span>);
+  context.lineTo(-<span class="number">7</span>, -<span class="number">30</span>);
+  context.lineTo(-<span class="number">30</span>, -<span class="number">30</span>);
+  context.lineTo(-<span class="number">10</span>, -<span class="number">50</span>);
+  context.lineTo(-<span class="number">20</span>, -<span class="number">50</span>);
+  context.lineTo(<span class="number">0</span>, -<span class="number">70</span>);
+  context.lineTo(<span class="number">20</span>, -<span class="number">50</span>);
+  context.lineTo(<span class="number">10</span>, -<span class="number">50</span>);
+  context.lineTo(<span class="number">30</span>, -<span class="number">30</span>);
+  context.lineTo(<span class="number">7</span>, -<span class="number">30</span>);
+  context.lineTo(<span class="number">7</span>, <span class="number">0</span>);
+  context.closePath();
+  context.fill();
+};
+Car.prototype.draw = <span class="keyword">function</span>(context){
+  context.save();
+  context.translate(<span class="keyword">this</span>.frameX, <span class="keyword">this</span>.frameY);
+  <span class="keyword">this</span>.frame.render(context);
+  context.restore();
+  <span class="keyword">this</span>.frontWheel.render(context);
+  <span class="keyword">this</span>.rearWheel.render(context);
+};
+CarFrame.prototype.draw = <span class="keyword">function</span>(context){
+  context.strokeStyle = <span class="string">"#396180"</span>;
+  context.fillStyle = <span class="string">"#98c8e7"</span>;
+  context.lineWidth = <span class="number">2</span>;
+  context.beginPath();
+  context.moveTo(<span class="number">15</span>, <span class="number">65</span>);
+  context.quadraticCurveTo(<span class="number">5</span>, <span class="number">40</span>, <span class="number">55</span>, <span class="number">35</span>);
+  context.quadraticCurveTo(<span class="number">60</span>, <span class="number">25</span>, <span class="number">60</span>, <span class="number">15</span>);
+  context.quadraticCurveTo(<span class="number">145</span>, <span class="number">5</span>, <span class="number">135</span>, <span class="number">65</span>);
+  context.closePath();
+  context.fill();
+  context.stroke();
+}
+CarWheel.prototype.draw = <span class="keyword">function</span>(context){
+  <span class="keyword">this</span>.tyre.render(context);
+  context.save();
+  context.rotate(<span class="keyword">this</span>.spokesRotate);
+  <span class="keyword">this</span>.spokes.render(context);
+  context.restore();
+};
+CarWheelTyre.prototype.draw = <span class="keyword">function</span>(context){
+  context.strokeStyle = <span class="string">"#396180"</span>;
+  context.fillStyle = <span class="string">"#98c8e7"</span>;
+  context.lineWidth = <span class="number">3</span>;
+  context.beginPath();
+  context.arc(<span class="number">0</span>, <span class="number">0</span>, <span class="number">12</span>, <span class="number">0</span>, <span class="number">2</span> * Math.PI);
+  context.closePath();
+  context.fill();
+  context.stroke();
+};
+CarWheelSpokes.prototype.draw = <span class="keyword">function</span>(context){
+  <span class="keyword">var</span> temp = Math.sin(Math.PI / <span class="number">4</span>) * <span class="number">12</span>;
+  <span class="keyword">var</span> spokes = [
+    [[-<span class="number">12</span>, <span class="number">0</span>], [<span class="number">12</span>, <span class="number">0</span>]],
+    [[<span class="number">0</span>, -<span class="number">12</span>], [<span class="number">0</span>, <span class="number">12</span>]],
+    [[-temp, temp], [temp, -temp]],
+    [[-temp, -temp], [temp, temp]]
+  ];
+  context.strokeStyle = <span class="string">"#396180"</span>;
+  context.lineWidth = <span class="number">1</span>;
+  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; spokes.length; ++ i) {
+    <span class="keyword">var</span> spoke = spokes[i];
+    context.beginPath();
+    context.moveTo(spoke[<span class="number">0</span>][<span class="number">0</span>], spoke[<span class="number">0</span>][<span class="number">1</span>]);
+    context.lineTo(spoke[<span class="number">1</span>][<span class="number">0</span>], spoke[<span class="number">1</span>][<span class="number">1</span>]);
+    context.stroke();
+  }
+};
+<span class="keyword">var</span> canvas = document.getElementById(<span class="string">"canvas-world"</span>);
+<span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);
+<span class="keyword">var</span> world = <span class="keyword">new</span> World(context);
+<span class="keyword">var</span> startTime = Date.now();
+<span class="keyword">var</span> ratio = <span class="number">1</span>;
+document.getElementById(<span class="string">"canvas-world-speed"</span>).onchange = <span class="keyword">function</span>(){
+  <span class="keyword">var</span> lastRatio = ratio;
+  ratio = <span class="keyword">this</span>.value / <span class="number">200</span>;
+  <span class="keyword">var</span> now = Date.now();
+  startTime = now - (now - startTime) % (<span class="number">5000</span> / lastRatio) / (<span class="number">5000</span> / lastRatio) * <span class="number">5000</span> / ratio;
+};
+<span class="function"><span class="keyword">function</span> <span class="title">reRender</span><span class="params">()</span>{</span>
+  <span class="keyword">var</span> diffTime = Date.now() - startTime;
+  world.skyX = diffTime % (<span class="number">5000</span> / ratio) / (<span class="number">5000</span> / ratio) * <span class="number">300</span>;
+  world.roadX = diffTime % (<span class="number">1250</span> / ratio) / (<span class="number">1250</span> / ratio) * <span class="number">300</span>;
+  world.car.frameX = Math.sin(diffTime / <span class="number">200</span> * Math.PI) * ratio;
+  world.car.frameY = Math.cos(diffTime / <span class="number">200</span> * Math.PI) * ratio;
+  world.car.frontWheel.spokesRotate = - diffTime % (<span class="number">1000</span> / ratio) / (<span class="number">1000</span> / ratio) * Math.PI * <span class="number">2</span>;
+  world.car.rearWheel.spokesRotate = - diffTime % (<span class="number">1000</span> / ratio) / (<span class="number">1000</span> / ratio) * Math.PI * <span class="number">2</span>;
+  world.render();
+  requestAnimationFrame(reRender);
+}
+reRender();</code></pre>
+	<div style="position:absolute;right:20px;text-align:center;top:120px;width:350px;">
+		<canvas width="300" height="300" id="canvas-world"></canvas>
+		<br>速度:<input type="range" min="1" max="400" id="canvas-world-speed"> <output for="canvas-world-speed">200 km/h</output>
+	</div>
+</div></div>
+		<div class="page" data-name="svg" data-x="0" data-y="4400" data-z="0" style="-webkit-transform: translate(-50%, -50%) translate3d(0px, 4400px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>SVG</h2>
+<div class="content">
+	<div id="svg-logo">
+		<img src="images/SVG-logo.svg">
+	</div>
+	<div id="svg-logo-code">
+		<pre style="height:400px;overflow-y:auto;width:600px;white-space:pre-wrap;word-break:break-all;"><code class="xml" data-name="svg-logo"><span class="tag">&lt;<span class="title">svg</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.w3.org/2000/svg"</span> <span class="attribute">xmlns:xlink</span>=<span class="value">"http://www.w3.org/1999/xlink"</span> <span class="attribute">viewBox</span>=<span class="value">"0 0 195 82"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">title</span>&gt;</span>SVG logo combined with the W3C logo, set horizontally<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">desc</span>&gt;</span>The logo combines three entities displayed horizontally: the W3C logo with the text 'W3C'; the drawing of a flower or star shape with eight arms; and the text 'SVG'. These three entities are set horizontally.<span class="tag">&lt;/<span class="title">desc</span>&gt;</span>
+  
+  <span class="tag">&lt;<span class="title">text</span> <span class="attribute">x</span>=<span class="value">"0"</span> <span class="attribute">y</span>=<span class="value">"75"</span> <span class="attribute">font-size</span>=<span class="value">"83"</span> <span class="attribute">fill-opacity</span>=<span class="value">"0"</span> <span class="attribute">font-family</span>=<span class="value">"Trebuchet"</span> <span class="attribute">letter-spacing</span>=<span class="value">"-12"</span>&gt;</span>W3C<span class="tag">&lt;/<span class="title">text</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">text</span> <span class="attribute">x</span>=<span class="value">"180"</span> <span class="attribute">y</span>=<span class="value">"75"</span> <span class="attribute">font-size</span>=<span class="value">"83"</span> <span class="attribute">fill-opacity</span>=<span class="value">"0"</span> <span class="attribute">font-family</span>=<span class="value">"Trebuchet"</span> <span class="attribute">font-weight</span>=<span class="value">"bold"</span>&gt;</span>SVG<span class="tag">&lt;/<span class="title">text</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">defs</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">g</span> <span class="attribute">id</span>=<span class="value">"SVG"</span> <span class="attribute">fill</span>=<span class="value">"#005A9C"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">path</span> <span class="attribute">id</span>=<span class="value">"S"</span> <span class="attribute">d</span>=<span class="value">"M 5.482,31.319 C2.163,28.001 0.109,23.419 0.109,18.358 C0.109,8.232 8.322,0.024 18.443,0.024 C28.569,0.024 36.782,8.232 36.782,18.358 L26.042,18.358 C26.042,14.164 22.638,10.765 18.443,10.765 C14.249,10.765 10.850,14.164 10.850,18.358 C10.850,20.453 11.701,22.351 13.070,23.721 L13.075,23.721 C14.450,25.101 15.595,25.500 18.443,25.952 L18.443,25.952 C23.509,26.479 28.091,28.006 31.409,31.324 L31.409,31.324 C34.728,34.643 36.782,39.225 36.782,44.286 C36.782,54.412 28.569,62.625 18.443,62.625 C8.322,62.625 0.109,54.412 0.109,44.286 L10.850,44.286 C10.850,48.480 14.249,51.884 18.443,51.884 C22.638,51.884 26.042,48.480 26.042,44.286 C26.042,42.191 25.191,40.298 23.821,38.923 L23.816,38.923 C22.441,37.548 20.468,37.074 18.443,36.697 L18.443,36.692 C13.533,35.939 8.800,34.638 5.482,31.319 L5.482,31.319 L5.482,31.319 Z"</span>/&gt;</span>
+      <span class="tag">&lt;<span class="title">path</span> <span class="attribute">id</span>=<span class="value">"V"</span> <span class="attribute">d</span>=<span class="value">"M 73.452,0.024 L60.482,62.625 L49.742,62.625 L36.782,0.024 L47.522,0.024 L55.122,36.687 L62.712,0.024 L73.452,0.024 Z"</span>/&gt;</span>
+      <span class="tag">&lt;<span class="title">path</span> <span class="attribute">id</span>=<span class="value">"G"</span> <span class="attribute">d</span>=<span class="value">"M 91.792,25.952 L110.126,25.952 L110.126,44.286 L110.131,44.286 C110.131,54.413 101.918,62.626 91.792,62.626 C81.665,62.626 73.458,54.413 73.458,44.286 L73.458,44.286 L73.458,18.359 L73.453,18.359 C73.453,8.233 81.665,0.025 91.792,0.025 C101.913,0.025 110.126,8.233 110.126,18.359 L99.385,18.359 C99.385,14.169 95.981,10.765 91.792,10.765 C87.597,10.765 84.198,14.169 84.198,18.359 L84.198,44.286 L84.198,44.286 C84.198,48.481 87.597,51.880 91.792,51.880 C95.981,51.880 99.380,48.481 99.385,44.291 L99.385,44.286 L99.385,36.698 L91.792,36.698 L91.792,25.952 L91.792,25.952 Z"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">defs</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">g</span> <span class="attribute">shape-rendering</span>=<span class="value">"geometricPrecision"</span> <span class="attribute">text-rendering</span>=<span class="value">"geometricPrecision"</span> <span class="attribute">image-rendering</span>=<span class="value">"optimizeQuality"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">g</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">g</span> <span class="attribute">id</span>=<span class="value">"logo"</span> <span class="attribute">transform</span>=<span class="value">"scale(0.24) translate(0, 35)"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">g</span> <span class="attribute">stroke-width</span>=<span class="value">"38.0086"</span> <span class="attribute">stroke</span>=<span class="value">"#000"</span>&gt;</span>
+          <span class="tag">&lt;<span class="title">g</span> <span class="attribute">id</span>=<span class="value">"svgstar"</span> <span class="attribute">transform</span>=<span class="value">"translate(150, 150)"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">path</span> <span class="attribute">id</span>=<span class="value">"svgbar"</span> <span class="attribute">fill</span>=<span class="value">"#EDA921"</span> <span class="attribute">d</span>=<span class="value">"M-84.1487,-15.8513 a22.4171,22.4171 0 1 0 0,31.7026 h168.2974 a22.4171,22.4171 0 1 0 0,-31.7026 Z"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#svgbar"</span> <span class="attribute">transform</span>=<span class="value">"rotate(45)"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#svgbar"</span> <span class="attribute">transform</span>=<span class="value">"rotate(90)"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#svgbar"</span> <span class="attribute">transform</span>=<span class="value">"rotate(135)"</span>/&gt;</span>
+          <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#svgstar"</span>/&gt;</span>
+      <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">g</span> <span class="attribute">id</span>=<span class="value">"SVG-label"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#SVG"</span> <span class="attribute">transform</span>=<span class="value">"scale(1.08) translate(65,10)"</span>/&gt;</span>
+      <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">svg</span>&gt;</span></code></pre>
+	</div>
+	<div id="svg-intro">
+		<h3>什么是 SVG ?</h3>
+		<ul class="desc-list">
+			<li>SVG - Scalable Vector Graphics 可伸缩矢量图形</li>
+			<li>用于web上的基于向量的图形</li>
+			<li>使用XML格式定义图形</li>
+			<li>图形放大或改变尺寸时，不损失质量</li>
+			<li>其中的元素和属性都可以使用动画</li>
+			<li>SVG 是一个W3C推荐标准，与 DOM 等其它标准相统一</li>
+		</ul>
+		<!-- <h3>SVG 的优势 ?</h3>
+		<ul>
+			<li>SVG 可以使用任何文本编辑器来创建或修改</li>
+			<li>SVG 可以被搜索、索引、脚本化、压缩</li>
+			<li>SVG 可伸缩</li>
+			<li>SVG 可以在任何分辨率下被高质量的打印</li>
+			<li>SVG 可以放大，而不损失质量</li>
+			<li>SVG 是一个开放标准</li>
+			<li>SVG 与DOM、XSL等其它W3C标准相统一</li>
+		</ul>
+		<h3>SVG 应用场景</h3>
+		<ul>
+			<li>在网页中使用向量图形作为背景图像以支持高 DPI 和“收缩”缩放功能</li>
+			<li>显示实时的图表和图形的交互式股票网站</li>
+			<li>作为地图属性，用来执行线路查找操作</li>
+			<li>选举地图等</li>
+			<li>航班或音乐厅的座位图</li>
+			<li>游戏</li>
+		</ul> -->
+	</div>
+	<!-- <img src="images/SVG-logo.svg" width="390" height="164"> -->
+	<!-- <pre style="height:400px;overflow-y:auto;width:500px;white-space:pre-wrap;word-break:break-all;"><code class="xml" data-name="svg-logo"></code></pre> -->
+</div></div>
+		<div class="page" data-name="svg-2" data-x="1400" data-y="4400" data-z="500" style="-webkit-transform: translate(-50%, -50%) translate3d(1400px, 4400px, 500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>SVG</h2>
+<div class="content">
+	<div style="left:28%;overflow:visible;position:absolute;top:100px;width:0;">
+		<ul class="api-list" id="svg-api-list">
+			<li>形状、路径</li>
+			<li>文本</li>
+			<li>渐变</li>
+			<li>动画</li>
+			<li>定义与复用</li>
+			<li>滤镜</li>
+			<li>其它</li>
+		</ul>
+	</div>
+	<div id="svg-api-code" style="margin:0 auto;position:relative;overflow:visible;width:0;">
+		<pre class="api-code"><code class="no-highlight"><span>rect, circle, ellipse, line, polyline, polygon, path,</span>
+<span>text, tspan, textPath,</span>
+<span>linearGradient, radialGradient, stop,</span>
+<span>animate, animateColor, animateMotion, animateTransform,</span>
+<span>defs, symbol, use,</span>
+<span>filter, feGaussianBlur, feBlend, feOffset,</span>
+<span>g, clipPath, pattern, marker, image</span></code></pre>
+	</div>
+</div></div>
+		<div class="page" data-name="svg-example" data-x="2800" data-y="4400" data-z="0" style="-webkit-transform: translate(-50%, -50%) translate3d(2800px, 4400px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>SVG</h2>
+<div class="content">
+	<h3>实例与代码</h3>
+	<pre style="height:585px;overflow-y:scroll;width:600px;white-space:pre-wrap;word-break:break-all;"><code class="xml" data-name="svg-world"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="doctype">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span>
+<span class="tag">&lt;<span class="title">svg</span> <span class="attribute">version</span>=<span class="value">"1.1"</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.w3.org/2000/svg"</span> <span class="attribute">xmlns:xlink</span>=<span class="value">"http://www.w3.org/1999/xlink"</span> <span class="attribute">width</span>=<span class="value">"300"</span> <span class="attribute">height</span>=<span class="value">"300"</span> <span class="attribute">viewBox</span>=<span class="value">"0 0 300 300"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">title</span>&gt;</span>Hello World !<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">desc</span>&gt;</span>Hello, This is the first world of SVG.<span class="tag">&lt;/<span class="title">desc</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">defs</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">g</span> <span class="attribute">id</span>=<span class="value">"cloud"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">path</span> <span class="attribute">fill</span>=<span class="value">"#fff"</span> <span class="attribute">d</span>=<span class="value">"M 5 60 Q 5 45 20 40 A 10 10 0 0 1 35 30 C 40 12 60 12 70 30 A 30 30 0 0 1 100 60 Z"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">g</span> <span class="attribute">id</span>=<span class="value">"car-wheel"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">circle</span> <span class="attribute">r</span>=<span class="value">"12"</span> <span class="attribute">stroke</span>=<span class="value">"#396180"</span> <span class="attribute">stroke-width</span>=<span class="value">"3"</span> <span class="attribute">fill</span>=<span class="value">"#98c8e7"</span> <span class="attribute">cx</span>=<span class="value">"0"</span> <span class="attribute">cy</span>=<span class="value">"0"</span> /&gt;</span>
+      <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#car-wheel-spokes"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">g</span> <span class="attribute">id</span>=<span class="value">"car-wheel-spokes"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">g</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#car-wheel-spoke"</span> /&gt;</span>
+      <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">g</span> <span class="attribute">transform</span>=<span class="value">"rotate(45)"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#car-wheel-spoke"</span> /&gt;</span>
+      <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">g</span> <span class="attribute">transform</span>=<span class="value">"rotate(90)"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#car-wheel-spoke"</span> /&gt;</span>
+      <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">g</span> <span class="attribute">transform</span>=<span class="value">"rotate(135)"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#car-wheel-spoke"</span> /&gt;</span>
+      <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">g</span> <span class="attribute">id</span>=<span class="value">"car-wheel-spoke"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">line</span> <span class="attribute">x1</span>=<span class="value">"-12"</span> <span class="attribute">y1</span>=<span class="value">"0"</span> <span class="attribute">x2</span>=<span class="value">"12"</span> <span class="attribute">y2</span>=<span class="value">"0"</span> <span class="attribute">stroke</span>=<span class="value">"#396180"</span> <span class="attribute">stroke-width</span>=<span class="value">"1"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">g</span> <span class="attribute">id</span>=<span class="value">"tree"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">path</span> <span class="attribute">fill</span>=<span class="value">"#64a0cf"</span> <span class="attribute">d</span>=<span class="value">"M -7 0 v -30 h -23 l 20 -20 h -10 l 20 -20 l 20 20 h -10 l 20 20 h -23 v 30 Z"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">defs</span>&gt;</span>
+  <span class="comment">&lt;!-- Sky --&gt;</span>
+  <span class="tag">&lt;<span class="title">g</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">rect</span> <span class="attribute">x</span>=<span class="value">"-300"</span> <span class="attribute">y</span>=<span class="value">"0"</span> <span class="attribute">width</span>=<span class="value">"600"</span> <span class="attribute">height</span>=<span class="value">"300"</span> <span class="attribute">fill</span>=<span class="value">"#90dfff"</span> /&gt;</span>
+    <span class="tag">&lt;<span class="title">g</span> <span class="attribute">transform</span>=<span class="value">"translate(60 30) scale(0.7 0.7)"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#cloud"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">g</span> <span class="attribute">transform</span>=<span class="value">"translate(200 50)"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#cloud"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">g</span> <span class="attribute">transform</span>=<span class="value">"translate(-240 30) scale(0.7 0.7)"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#cloud"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">g</span> <span class="attribute">transform</span>=<span class="value">"translate(-100 50)"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#cloud"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">animateTransform</span> <span class="attribute">attributeName</span>=<span class="value">"transform"</span> <span class="attribute">attributeType</span>=<span class="value">"xml"</span> <span class="attribute">type</span>=<span class="value">"translate"</span> <span class="attribute">from</span>=<span class="value">"0 0"</span> <span class="attribute">to</span>=<span class="value">"300 0"</span> <span class="attribute">begin</span>=<span class="value">"0"</span> <span class="attribute">dur</span>=<span class="value">"5s"</span> <span class="attribute">repeatCount</span>=<span class="value">"indefinite"</span> /&gt;</span>
+  <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+  <span class="comment">&lt;!-- Road --&gt;</span>
+  <span class="tag">&lt;<span class="title">g</span> <span class="attribute">transform</span>=<span class="value">"translate(0 245)"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">g</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">rect</span> <span class="attribute">x</span>=<span class="value">"-300"</span> <span class="attribute">y</span>=<span class="value">"0"</span> <span class="attribute">width</span>=<span class="value">"600"</span> <span class="attribute">height</span>=<span class="value">"55"</span> <span class="attribute">fill</span>=<span class="value">"#64a0cf"</span> /&gt;</span>
+      <span class="tag">&lt;<span class="title">rect</span> <span class="attribute">x</span>=<span class="value">"0"</span> <span class="attribute">y</span>=<span class="value">"26"</span> <span class="attribute">width</span>=<span class="value">"40"</span> <span class="attribute">height</span>=<span class="value">"3"</span> <span class="attribute">fill</span>=<span class="value">"#eee"</span> /&gt;</span>
+      <span class="tag">&lt;<span class="title">rect</span> <span class="attribute">x</span>=<span class="value">"60"</span> <span class="attribute">y</span>=<span class="value">"26"</span> <span class="attribute">width</span>=<span class="value">"40"</span> <span class="attribute">height</span>=<span class="value">"3"</span> <span class="attribute">fill</span>=<span class="value">"#eee"</span> /&gt;</span>
+      <span class="tag">&lt;<span class="title">rect</span> <span class="attribute">x</span>=<span class="value">"120"</span> <span class="attribute">y</span>=<span class="value">"26"</span> <span class="attribute">width</span>=<span class="value">"40"</span> <span class="attribute">height</span>=<span class="value">"3"</span> <span class="attribute">fill</span>=<span class="value">"#eee"</span> /&gt;</span>
+      <span class="tag">&lt;<span class="title">rect</span> <span class="attribute">x</span>=<span class="value">"180"</span> <span class="attribute">y</span>=<span class="value">"26"</span> <span class="attribute">width</span>=<span class="value">"40"</span> <span class="attribute">height</span>=<span class="value">"3"</span> <span class="attribute">fill</span>=<span class="value">"#eee"</span> /&gt;</span>
+      <span class="tag">&lt;<span class="title">rect</span> <span class="attribute">x</span>=<span class="value">"240"</span> <span class="attribute">y</span>=<span class="value">"26"</span> <span class="attribute">width</span>=<span class="value">"40"</span> <span class="attribute">height</span>=<span class="value">"3"</span> <span class="attribute">fill</span>=<span class="value">"#eee"</span> /&gt;</span>
+      <span class="tag">&lt;<span class="title">rect</span> <span class="attribute">x</span>=<span class="value">"-60"</span> <span class="attribute">y</span>=<span class="value">"26"</span> <span class="attribute">width</span>=<span class="value">"40"</span> <span class="attribute">height</span>=<span class="value">"3"</span> <span class="attribute">fill</span>=<span class="value">"#eee"</span> /&gt;</span>
+      <span class="tag">&lt;<span class="title">rect</span> <span class="attribute">x</span>=<span class="value">"-120"</span> <span class="attribute">y</span>=<span class="value">"26"</span> <span class="attribute">width</span>=<span class="value">"40"</span> <span class="attribute">height</span>=<span class="value">"3"</span> <span class="attribute">fill</span>=<span class="value">"#eee"</span> /&gt;</span>
+      <span class="tag">&lt;<span class="title">rect</span> <span class="attribute">x</span>=<span class="value">"-180"</span> <span class="attribute">y</span>=<span class="value">"26"</span> <span class="attribute">width</span>=<span class="value">"40"</span> <span class="attribute">height</span>=<span class="value">"3"</span> <span class="attribute">fill</span>=<span class="value">"#eee"</span> /&gt;</span>
+      <span class="tag">&lt;<span class="title">rect</span> <span class="attribute">x</span>=<span class="value">"-240"</span> <span class="attribute">y</span>=<span class="value">"26"</span> <span class="attribute">width</span>=<span class="value">"40"</span> <span class="attribute">height</span>=<span class="value">"3"</span> <span class="attribute">fill</span>=<span class="value">"#eee"</span> /&gt;</span>
+      <span class="tag">&lt;<span class="title">rect</span> <span class="attribute">x</span>=<span class="value">"-300"</span> <span class="attribute">y</span>=<span class="value">"26"</span> <span class="attribute">width</span>=<span class="value">"40"</span> <span class="attribute">height</span>=<span class="value">"3"</span> <span class="attribute">fill</span>=<span class="value">"#eee"</span> /&gt;</span>
+      <span class="tag">&lt;<span class="title">g</span> <span class="attribute">transform</span>=<span class="value">"translate(50 5) scale(1 1.5)"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#tree"</span> /&gt;</span>
+      <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">g</span> <span class="attribute">transform</span>=<span class="value">"translate(250 5)"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#tree"</span> /&gt;</span>
+      <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">g</span> <span class="attribute">transform</span>=<span class="value">"translate(-250 5) scale(1 1.5)"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#tree"</span> /&gt;</span>
+      <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">g</span> <span class="attribute">transform</span>=<span class="value">"translate(-50 5)"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#tree"</span> /&gt;</span>
+      <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">animateTransform</span> <span class="attribute">attributeName</span>=<span class="value">"transform"</span> <span class="attribute">attributeType</span>=<span class="value">"xml"</span> <span class="attribute">type</span>=<span class="value">"translate"</span> <span class="attribute">from</span>=<span class="value">"0 0"</span> <span class="attribute">to</span>=<span class="value">"300 0"</span> <span class="attribute">begin</span>=<span class="value">"0"</span> <span class="attribute">dur</span>=<span class="value">"1250ms"</span> <span class="attribute">repeatCount</span>=<span class="value">"indefinite"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+  <span class="comment">&lt;!-- Car --&gt;</span>
+  <span class="tag">&lt;<span class="title">g</span> <span class="attribute">transform</span>=<span class="value">"translate(75 190)"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">path</span> <span class="attribute">fill</span>=<span class="value">"#98c8e7"</span> <span class="attribute">stroke</span>=<span class="value">"#396180"</span> <span class="attribute">stroke-width</span>=<span class="value">"2"</span> <span class="attribute">d</span>=<span class="value">"M 15 65 Q 5 40 55 35 Q 60 25 60 15 Q 145 5 135 65 Z"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">animateTransform</span> <span class="attribute">attributeName</span>=<span class="value">"transform"</span> <span class="attribute">attributeType</span>=<span class="value">"xml"</span> <span class="attribute">type</span>=<span class="value">"translate"</span> <span class="attribute">keyTimes</span>=<span class="value">"0;0.25;0.5;0.75;1"</span> <span class="attribute">values</span>=<span class="value">"0 1;1 0;0 -1;-1 0;0 1"</span> <span class="attribute">dur</span>=<span class="value">"400ms"</span> <span class="attribute">repeatCount</span>=<span class="value">"indefinite"</span> <span class="attribute">calcMode</span>=<span class="value">"linear"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">path</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#car-wheel"</span> <span class="attribute">x</span>=<span class="value">"45"</span> <span class="attribute">y</span>=<span class="value">"65"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">animateTransform</span> <span class="attribute">attributeName</span>=<span class="value">"transform"</span> <span class="attribute">attributeType</span>=<span class="value">"xml"</span> <span class="attribute">type</span>=<span class="value">"rotate"</span> <span class="attribute">from</span>=<span class="value">"0 45 65"</span> <span class="attribute">to</span>=<span class="value">"-360 45 65"</span> <span class="attribute">begin</span>=<span class="value">"0"</span> <span class="attribute">dur</span>=<span class="value">"1s"</span> <span class="attribute">repeatCount</span>=<span class="value">"indefinite"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">use</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"#car-wheel"</span> <span class="attribute">x</span>=<span class="value">"110"</span> <span class="attribute">y</span>=<span class="value">"65"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">animateTransform</span> <span class="attribute">attributeName</span>=<span class="value">"transform"</span> <span class="attribute">attributeType</span>=<span class="value">"xml"</span> <span class="attribute">type</span>=<span class="value">"rotate"</span> <span class="attribute">from</span>=<span class="value">"0 110 65"</span> <span class="attribute">to</span>=<span class="value">"-360 110 65"</span> <span class="attribute">begin</span>=<span class="value">"0"</span> <span class="attribute">dur</span>=<span class="value">"1s"</span> <span class="attribute">repeatCount</span>=<span class="value">"indefinite"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">use</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">g</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">svg</span>&gt;</span></code></pre>
+	<div style="height:300px;overflow:hidden;position:absolute;right:30px;top:150px;width:300px;">
+		<img src="examples/code-list/svg-world.svg" width="300">
+	</div>
+</div></div>
+		<div class="page" data-name="svg-example-css3" data-x="3800" data-y="4400" data-z="1000" style="-webkit-transform: translate(-50%, -50%) translate3d(3800px, 4400px, 1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>SVG</h2>
+<div class="content">
+	<div style="margin:0 auto;padding-top:50px;width:500px;">
+		<svg width="500" height="500" viewBox="0 0 300 300">
+			<title>Hello World !</title>
+			<desc>Hello, This is the first world of SVG.</desc>
+			<defs>
+				<g id="cloud">
+					<path fill="#fff" d="M 5 60 Q 5 45 20 40 A 10 10 0 0 1 35 30 C 40 12 60 12 70 30 A 30 30 0 0 1 100 60 Z"></path>
+				</g>
+				<g id="car-wheel">
+					<circle r="12" stroke="#396180" stroke-width="3" fill="#98c8e7" cx="0" cy="0"></circle>
+					<use xlink:href="#car-wheel-spokes"></use>
+				</g>
+				<g id="car-wheel-spokes">
+					<g>
+						<use xlink:href="#car-wheel-spoke"></use>
+					</g>
+					<g transform="rotate(45)">
+						<use xlink:href="#car-wheel-spoke"></use>
+					</g>
+					<g transform="rotate(90)">
+						<use xlink:href="#car-wheel-spoke"></use>
+					</g>
+					<g transform="rotate(135)">
+						<use xlink:href="#car-wheel-spoke"></use>
+					</g>
+				</g>
+				<g id="car-wheel-spoke">
+					<line x1="-12" y1="0" x2="12" y2="0" stroke="#396180" stroke-width="1"></line>
+				</g>
+				<g id="tree">
+					<path fill="#64a0cf" d="M -7 0 v -30 h -23 l 20 -20 h -10 l 20 -20 l 20 20 h -10 l 20 20 h -23 v 30 Z"></path>
+				</g>
+			</defs>
+			<!-- Sky -->
+			<g class="svg-sky">
+				<rect x="-300" y="0" width="600" height="300" fill="#90dfff"></rect>
+				<g transform="translate(60 30) scale(0.7 0.7)">
+					<use xlink:href="#cloud"></use>
+				</g>
+				<g transform="translate(200 50)">
+					<use xlink:href="#cloud"></use>
+				</g>
+				<g transform="translate(-240 30) scale(0.7 0.7)">
+					<use xlink:href="#cloud"></use>
+				</g>
+				<g transform="translate(-100 50)">
+					<use xlink:href="#cloud"></use>
+				</g>
+			</g>
+			<!-- Road -->
+			<g transform="translate(0 245)">
+				<g class="svg-road">
+					<rect x="-300" y="0" width="600" height="55" fill="#64a0cf"></rect>
+					<rect x="0" y="26" width="40" height="3" fill="#eee"></rect>
+					<rect x="60" y="26" width="40" height="3" fill="#eee"></rect>
+					<rect x="120" y="26" width="40" height="3" fill="#eee"></rect>
+					<rect x="180" y="26" width="40" height="3" fill="#eee"></rect>
+					<rect x="240" y="26" width="40" height="3" fill="#eee"></rect>
+					<rect x="-60" y="26" width="40" height="3" fill="#eee"></rect>
+					<rect x="-120" y="26" width="40" height="3" fill="#eee"></rect>
+					<rect x="-180" y="26" width="40" height="3" fill="#eee"></rect>
+					<rect x="-240" y="26" width="40" height="3" fill="#eee"></rect>
+					<rect x="-300" y="26" width="40" height="3" fill="#eee"></rect>
+					<g transform="translate(50 5) scale(1 1.5)">
+						<use xlink:href="#tree"></use>
+					</g>
+					<g transform="translate(250 5)">
+						<use xlink:href="#tree"></use>
+					</g>
+					<g transform="translate(-250 5) scale(1 1.5)">
+						<use xlink:href="#tree"></use>
+					</g>
+					<g transform="translate(-50 5)">
+						<use xlink:href="#tree"></use>
+					</g>
+				</g>
+			</g>
+			<!-- Car -->
+			<g transform="translate(75 190)">
+				<path class="svg-car-frame" fill="#98c8e7" stroke="#396180" stroke-width="2" d="M 15 65 Q 5 40 55 35 Q 60 25 60 15 Q 145 5 135 65 Z"></path>
+				<g transform="translate(45 65)">
+					<g class="svg-car-wheel">
+						<use xlink:href="#car-wheel"></use>
+					</g>
+				</g>
+				<g transform="translate(110 65)">
+					<g class="svg-car-wheel">
+						<use xlink:href="#car-wheel"></use>
+					</g>
+				</g>
+			</g>
+		</svg>
+	</div>
+</div></div>
+		<!-- <div class="page" data-name="svg-example-2"
+				data-x="4800" data-y="4400" data-z="0"></div> -->
+		<div class="page" data-name="canvas-or-svg" data-x="2800" data-y="5400" data-z="500" style="-webkit-transform: translate(-50%, -50%) translate3d(2800px, 5400px, 500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>Canvas vs SVG</h2>
+<div class="content">
+	<div id="c-v-s-table" style="margin:0 auto;width:620px;">
+		<h3 style="margin:0 auto;width:600px;">简单对比</h3>
+		<table class="compare">
+			<colgroup>
+				<col width="50%">
+				<col width="50%">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>Canvas</th>
+					<th>SVG</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>基于像素</td>
+					<td>基于形状</td>
+				</tr>
+				<tr>
+					<td>单个 HTML 元素</td>
+					<td>多个图形元素，这些元素是 DOM 的一部分</td>
+				</tr>
+				<tr>
+					<td>仅通过脚本修改</td>
+					<td>通过脚本和 CSS 修改</td>
+				</tr>
+				<tr>
+					<td>事件模型/用户交互颗粒化 (x,y)</td>
+					<td>事件模型/用户交互抽象化 (rect, path)</td>
+				</tr>
+				<tr>
+					<td>适合: 图面较小、对象数量较大 (&gt;10k)</td>
+					<td>适合: 图面较大、对象数量较小 (&lt;10k)</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="c-v-s-diagram" style="margin-top:2em;text-align:center;">
+		<img src="images/canvas-svg-pfm.png" width="600" height="314">
+	</div>
+</div></div>
+		<div class="page" data-name="canvas-or-svg-2" data-x="3300" data-y="5400" data-z="0" data-rotate-y="90" style="-webkit-transform: translate(-50%, -50%) translate3d(3300px, 5400px, 0px) rotateX(0deg) rotateY(90deg) rotateZ(0deg) scale(1);"><h2>Canvas or SVG ?</h2>
+<div class="content">
+	<div id="c-v-s-2-table" style="margin:0 auto;padding-top:2em;width:620px;">
+		<h3 style="margin:0 auto;">应用场景</h3>
+		<table class="compare">
+			<colgroup>
+				<col width="45%">
+				<col width="55%">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>Canvas</th>
+					<th>SVG</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>游戏</td>
+					<td>数据驱动的图表（环形图、条形图、散点图等）</td>
+				</tr>
+				<tr>
+					<td>高性能图像处理（滤镜、光线跟踪等）</td>
+					<td>交互式地图 - 路径查找</td>
+				</tr>
+				<tr>
+					<td>实时数学动画</td>
+					<td>其它需要用户交互的图形</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="c-v-s-2-diagram" style="margin-top:4em;text-align:center;">
+		<img src="images/canvas-or-svg-2.png" width="670" height="260">
+	</div>
+</div></div>
+		<div class="page" data-name="css3" data-x="2925" data-y="5775" data-z="0" data-rotate-x="-90" data-rotate-z="90" style="-webkit-transform: translate(-50%, -50%) translate3d(2925px, 5775px, 0px) rotateX(-90deg) rotateY(0deg) rotateZ(90deg) scale(1);"><h2>CSS3</h2>
+<div class="content">
+	<div class="css3-codes">
+		<h3>Transform 变换</h3>
+		<pre><code class="css" data-name="css-transform"><span class="id">#transform-2d</span> <span class="rules">{
+  <span class="rule"><span class="attribute">transform</span>:<span class="value">         <span class="function">translate(-<span class="number">200</span>px,-<span class="number">30</span>px)</span> <span class="function">rotate(<span class="number">15</span>deg)</span> <span class="function">scale(<span class="number">2</span>,<span class="number">1</span>)</span> <span class="function">skew(-<span class="number">20</span>deg,<span class="number">10</span>deg)</span> <span class="comment">/* matrix(...) */</span>;</span></span>
+  <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">translate(-<span class="number">200</span>px,-<span class="number">30</span>px)</span> <span class="function">rotate(<span class="number">15</span>deg)</span> <span class="function">scale(<span class="number">2</span>,<span class="number">1</span>)</span> <span class="function">skew(-<span class="number">20</span>deg,<span class="number">10</span>deg)</span>;</span></span>
+  <span class="rule"><span class="attribute">-ms-transform</span>:<span class="value">     <span class="function">translate(-<span class="number">200</span>px,-<span class="number">30</span>px)</span> <span class="function">rotate(<span class="number">15</span>deg)</span> <span class="function">scale(<span class="number">2</span>,<span class="number">1</span>)</span> <span class="function">skew(-<span class="number">20</span>deg,<span class="number">10</span>deg)</span>;</span></span> <span class="rule">}</span></span></code></pre>
+		<pre><code class="css" data-name="css-transform-3d"><span class="id">#transform-3d-parent</span> <span class="rules">{
+  <span class="rule"><span class="attribute">perspective</span>:<span class="value"> <span class="number">200</span>;</span></span>
+  <span class="rule"><span class="attribute">perspective-origin</span>:<span class="value"> <span class="number">50</span>% <span class="number">50</span>%;</span></span> <span class="rule">}</span></span>
+<span class="id">#transform-3d</span> <span class="rules">{
+  <span class="comment">/* transform: translate3d(x,y,z) translateX(x) ... matrix3d(...) */</span>
+  <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateX(<span class="number">360</span>deg)</span>;</span></span>
+  <span class="rule"><span class="attribute">transform-origin</span>:<span class="value"> <span class="number">50</span>% <span class="number">100</span>%;</span></span> <span class="rule">}</span></span></code></pre>
+		<h3>Transition 过渡</h3>
+		<pre><code class="css" data-name="css-transition"><span class="id">#transition</span> <span class="rules">{
+  <span class="comment">/* transition: property duration timing-function delay; */</span>
+  <span class="rule"><span class="attribute">transition</span>:<span class="value"> transform <span class="number">1000</span>ms ease-in-out;</span></span> <span class="rule">}</span></span></code></pre>
+		<h3>Animation 动画</h3>
+		<pre><code class="css" data-name="css-animation"><span class="at_rule">@keyframes my-animation </span>{
+  0%   <span class="rules">{<span class="rule">}</span></span>
+  25%  <span class="rules">{<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translate(-<span class="number">200</span>px,-<span class="number">30</span>px)</span>;</span></span><span class="rule">}</span></span>
+  50%  <span class="rules">{<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translate(-<span class="number">200</span>px,-<span class="number">30</span>px)</span> <span class="function">rotate(<span class="number">15</span>deg)</span>;</span></span><span class="rule">}</span></span>
+  75%  <span class="rules">{<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translate(-<span class="number">200</span>px,-<span class="number">30</span>px)</span> <span class="function">rotate(<span class="number">15</span>deg)</span> <span class="function">scale(<span class="number">2</span>,<span class="number">1</span>)</span>;</span></span><span class="rule">}</span></span>
+  100% <span class="rules">{<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translate(-<span class="number">200</span>px,-<span class="number">30</span>px)</span> <span class="function">rotate(<span class="number">15</span>deg)</span> <span class="function">scale(<span class="number">2</span>,<span class="number">1</span>)</span> <span class="function">skew(-<span class="number">20</span>deg,<span class="number">10</span>deg)</span>;</span></span><span class="rule">}</span></span> }
+<span class="id">#animation</span> <span class="rules">{
+  <span class="comment">/* animation: name duration timing-function delay iteration-count direction; */</span>
+  <span class="rule"><span class="attribute">animation</span>:<span class="value"> my-animation <span class="number">2</span>s linear <span class="number">0</span> infinite alternate;</span></span>
+  <span class="rule"><span class="attribute">animation-play-state</span>:<span class="value"> running;</span></span> <span class="comment">/* paused */</span> <span class="rule">}</span></span></code></pre>
+	</div>
+	<div class="css3-samples">
+		<div>
+			<input type="button" value="2D变换" onclick="(function(a){a.className=a.className=='transform-2d'?'':'transform-2d'})(document.getElementById('transform-2d'))">
+			<div id="transform-2d">2D Transform</div>
+		</div>
+		<div>
+			<input type="button" value="3D变换" onclick="(function(a){a.className=a.className=='transform-3d'?'':'transform-3d'})(document.getElementById('transform-3d'))">
+			<div id="transform-3d-parent">
+				<div id="transform-3d">3D Transform</div>
+			</div>
+		</div>
+		<div>
+			<input type="button" value="过渡" onclick="(function(a){a.className=a.className=='transform-2d'?'':'transform-2d'})(document.getElementById('transition'))">
+			<div id="transition">Transition</div>
+		</div>
+		<div>
+			<input type="button" value="开始/暂停" onclick="(function(a){a.className=a.className=='animation-run'?'animation-run animation-pause':'animation-run'})(document.getElementById('animation'))">
+			<input type="button" value="停止" onclick="(function(a){a.className=''})(document.getElementById('animation'))">
+			<div id="animation">Animation</div>
+		</div>
+	</div>
+</div></div>
+		<div class="page" data-name="xhr2-2" data-x="2800" data-y="7400" data-z="500" data-rotate-z="90" style="-webkit-transform: translate(-50%, -50%) translate3d(2800px, 7400px, 500px) rotateX(0deg) rotateY(0deg) rotateZ(90deg) scale(1);"><h2>XMLHttpRequest Level 2</h2>
+<div class="content" style="margin:2em auto;width:600px;">
+	<h3>XMLHttpRequest Level 1</h3>
+	<pre><code class="javascript" data-name="xhr-level-1"><span class="function"><span class="keyword">function</span> <span class="title">Ajax</span><span class="params">()</span> {</span>
+  <span class="keyword">try</span> {
+    <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();
+  } <span class="keyword">catch</span> (e) {}
+
+  <span class="keyword">try</span> {
+    <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);
+  } <span class="keyword">catch</span> (e) {}
+
+  <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"This browser does not support Ajax"</span>);
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">ajaxPost</span><span class="params">(url, data, callback)</span> {</span>
+  <span class="keyword">var</span> xhr = Ajax();
+  xhr.open(<span class="string">"POST"</span>, url, <span class="literal">true</span>);
+  xhr.onreadystatechange = <span class="keyword">function</span>(){
+    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) {
+      <span class="keyword">if</span> (xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) {
+        callback(xhr.responseText);
+      } <span class="keyword">else</span> {
+        <span class="comment">// TODO: handle failures</span>
+      }
+    }
+  };
+  xhr.send(data);
+}</code></pre>
+</div></div>
+		<div class="page" data-name="xhr2-3" data-x="2800" data-y="8600" data-z="0" style="-webkit-transform: translate(-50%, -50%) translate3d(2800px, 8600px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>XMLHttpRequest Level 2</h2>
+<div class="content">
+	<ul class="catalog" id="xhr-catalog" style="margin:0 auto;padding-top:100px;width:470px">
+		<li>
+			<h4>AJAX 如何跨域 ? (同源策略 Same Origin Policy)</h4>
+			<p>JSONP (&lt;script&gt;)</p>
+			<p>document.domain</p>
+			<p>window.name</p>
+		</li>
+		<li>
+			<h4>AJAX 如何上传文件 ?</h4>
+			<p>&lt;form&gt; + &lt;iframe&gt; 代理</p>
+		</li>
+		<li>
+			<h4>AJAX 如何获取非文本数据 (图片、音频、视频等) ?</h4>
+			<p>未知</p>
+		</li>
+		<li>
+			<h4>如何得知 AJAX 当前上传或下载的进度 ?</h4>
+			<p>没有进度，只有状态：</p>
+			<p>1.未开始 2.已打开 3.已收到响应头 4.加载中 5.完成</p>
+		</li>
+	</ul>
+</div></div>
+		<div class="page" data-name="xhr2-4" data-x="3900" data-y="8600" data-z="500" style="-webkit-transform: translate(-50%, -50%) translate3d(3900px, 8600px, 500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>XMLHttpRequest Level 2</h2>
+<div class="content">
+	<ul class="catalog" id="xhr2-catalog" style="margin:0 auto;padding-top:120px;width:470px">
+		<li>
+			<h4>XHR2 如何跨域 ? </h4>
+			<p>Cross-Origin Resource Sharing 跨域资源共享</p>
+		</li>
+		<li>
+			<h4>XHR2 如何上传文件 ?</h4>
+			<p>FormData + File API</p>
+		</li>
+		<li>
+			<h4>XHR2 如何获取非文本数据 (图片、音频、视频等) ?</h4>
+			<p>xhr.responseType = "blob"; // or "arraybuffer"</p>
+		</li>
+		<li>
+			<h4>如何得知 XHR2 当前上传或下载的进度 ?</h4>
+			<p>xhr.upload.onprogress = function(){};</p>
+			<p>xhr.onprogress = function(){};</p>
+		</li>
+	</ul>
+	<pre id="cors-options-req" class="cors-header"><code class="http" data-name="cors-options-req"><span class="request">OPTIONS <span class="string">/path/?query</span> HTTP/1.1</span>
+<span class="attribute">Host</span>: <span class="string">www.host.com</span>
+<span class="attribute">Origin</span>: <span class="string">http://www.origin.com</span>
+<span class="attribute">Access-Control-Request-Method</span>: <span class="string">POST</span>
+<span class="attribute">Access-Control-Request-Headers</span>: <span class="string">origin, content-type</span></code></pre>
+	<pre id="cors-options-res" class="cors-header"><code class="http" data-name="cors-options-res"><span class="status">HTTP/1.1 <span class="number">200</span> OK</span>
+<span class="attribute">Access-Control-Allow-Origin</span>: <span class="string">http://www.origin.com</span>
+<span class="attribute">Access-Control-Allow-Methods</span>: <span class="string">GET, POST</span>
+<span class="attribute">Access-Control-Allow-Headers</span>: <span class="string">origin, content-type</span>
+<span class="attribute">Access-Control-Allow-Credentials</span>: <span class="string">true</span>
+<span class="attribute">Access-Control-Max-Age</span>: <span class="string">86400</span></code></pre>
+	<pre id="cors-post-req" class="cors-header"><code class="http" data-name="cors-post-req"><span class="request">POST <span class="string">/path/?query</span> HTTP/1.1</span>
+<span class="attribute">Host</span>: <span class="string">www.host.com</span>
+<span class="attribute">Origin</span>: <span class="string">http://www.origin.com</span>
+<span class="attribute">Content-Type</span>: <span class="string">application/x-www-form-urlencoded</span>
+<span class="attribute">Content-Length</span>: <span class="string">254923</span>
+<span class="attribute">Cookie</span>: <span class="string">key=value</span></code></pre>
+	<pre id="cors-post-res" class="cors-header"><code class="http" data-name="cors-post-res"><span class="status">HTTP/1.1 <span class="number">200</span> OK</span>
+<span class="attribute">Access-Control-Allow-Origin</span>: <span class="string">http://www.origin.com</span>
+<span class="attribute">Access-Control-Allow-Credentials</span>: <span class="string">true</span>
+<span class="attribute">Content-Type</span>: <span class="string">image/png</span>
+<span class="attribute">Content-Length</span>: <span class="string">865614</span></code></pre>
+	<pre id="xhr2-upload-file" class="xhr2-feature"><code class="javascript" data-name="xhr2-upload-file"><span class="keyword">var</span> input = document.querySelector(<span class="string">"input[type=file]"</span>);
+<span class="keyword">if</span> (input.files.length) {
+  <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+  <span class="comment">// 新建 FormData 对象</span>
+  <span class="keyword">var</span> data = <span class="keyword">new</span> FormData();
+  <span class="keyword">var</span> file = input.files[<span class="number">0</span>];
+  <span class="comment">// 只允许上传图片</span>
+  <span class="keyword">if</span> (<span class="regexp">/^image/</span>.*$/.test(file.type)) {
+    data.append(file);
+  }
+  xhr.open(<span class="string">"/path/?query"</span>, <span class="string">"POST"</span>);
+  xhr.send(data);
+}</code></pre>
+	<pre id="xhr2-binary" class="xhr2-feature"><code class="javascript" data-name="xhr2-binary"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+xhr.open(<span class="string">"/path/?query"</span>, <span class="string">"GET"</span>);
+<span class="comment">// 设置响应类型</span>
+xhr.responseType = <span class="string">"blob"</span>; <span class="comment">// "arraybuffer"</span>
+xhr.onload = <span class="keyword">function</span>(){
+  callback(xhr.response); <span class="comment">// Blob or ArrayBuffer</span>
+};
+xhr.send(<span class="literal">null</span>);</code></pre>
+	<pre id="xhr2-progress" class="xhr2-feature"><code class="javascript" data-name="xhr2-progress"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+xhr.open(<span class="string">"/path/?query"</span>, <span class="string">"POST"</span>);
+<span class="comment">// 上传进度</span>
+xhr.upload.onprogress = <span class="keyword">function</span>(e){
+  <span class="comment">// 长度是否可计算</span>
+  <span class="keyword">if</span> (e.lengthComputable) {
+    upProgress.max = e.total; <span class="comment">// 总字节数</span>
+    upProgress.value = e.loaded; <span class="comment">// 已加载的字节数</span>
+  }
+};
+<span class="comment">// 下载进度</span>
+xhr.onprogress = <span class="keyword">function</span>(e){
+  <span class="keyword">if</span> (e.lengthComputable) {
+    downProgress.max = e.total;
+    downProgress.value = e.loaded;		
+  }
+};
+<span class="keyword">var</span> data = <span class="keyword">new</span> FormData();
+data.append(file);
+xhr.send(data);</code></pre>
+</div></div>
+		<div class="page" data-name="xhr2-example" data-js="xhr2-tilt-shift.js" data-x="5000" data-y="8600" data-z="0" style="-webkit-transform: translate(-50%, -50%) translate3d(5000px, 8600px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>XMLHttpRequest Level 2</h2>
+<div class="content">
+	<div class="xhr-box">
+		<h3>实例与代码</h3>
+		<ul style="margin-bottom:1em;text-indent:2em;">
+			<li>www.open.com 是一个开放平台，它提供了一个照片滤镜的API，接收用户上传的一张照片，接着执行一个“移轴摄影”的滤镜，最后把处理好的照片返回</li>
+			<li style="margin-top:0.5em;">www.esun.com 在某个栏目页面，为用户提供了一个照片滤镜服务，使用 AJAX 调用 www.open.com 的以上API，支持用户拖放照片到页面中，随后完成滤镜渲染，并支持进度显示</li>
+		</ul>
+		<div style="display:none;">
+			<input type="file" id="xhr-file">
+		</div>
+		<input type="button" value="开始" id="xhr-btn" style="width:60px;">
+		<div id="xhr-bar-box">
+			<span id="xhr-up-tip">正在上传</span>
+			<progress max="100" value="0" id="xhr-up-bar"></progress>
+			<span id="xhr-up-speed"></span><br>
+			<span id="xhr-down-tip">正在下载</span>
+			<progress max="100" value="0" id="xhr-down-bar"></progress>
+			<span id="xhr-down-speed"></span>
+		</div>
+		<div id="xhr-drop-box">拖动照片文件到这儿</div>
+		<img width="768" id="xhr-up-img" style="display:none;">
+		<img width="768" id="xhr-down-img" style="display:none;">
+	</div>
+</div></div>
+		<div class="page" data-name="xhr2-example-code" data-x="6100" data-y="8600" data-z="500" style="-webkit-transform: translate(-50%, -50%) translate3d(6100px, 8600px, 500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>XMLHttpRequest Level 2</h2>
+<div class="content">
+	<h3>实例与代码</h3>
+	<div style="height:auto;overflow:hidden;">
+		<pre class="col-2"><code class="javascript" data-name="xhr2-tilt-shift"><span class="comment">// 模拟移轴摄影</span>
+<span class="function"><span class="keyword">function</span> <span class="title">tiltShift</span><span class="params">(file, callback)</span> {</span>
+  <span class="comment">// 新建 Ajax 请求</span>
+  <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+  <span class="keyword">var</span> url = <span class="string">"http://www.open.com/open/tilt-shift.php"</span>;
+  xhr.open(<span class="string">"POST"</span>, url);
+
+  <span class="comment">// 设置响应类型为 "blob" 二进制大对象</span>
+  <span class="comment">// "", "arraybuffer", "blob", "document", "text"</span>
+  xhr.responseType = <span class="string">"blob"</span>;
+
+  <span class="comment">// 是否在请求中携带证书 (通常指cookie)</span>
+  <span class="comment">// xhr.withCredentials = true;</span>
+
+  <span class="comment">// 上传开始</span>
+  xhr.upload.onloadstart = <span class="keyword">function</span>(){
+    console.dir(<span class="string">"upload start"</span>);
+  };
+
+  <span class="comment">// 上传进度</span>
+  xhr.upload.onprogress = <span class="keyword">function</span>(e){
+    <span class="comment">// 长度是否可计算</span>
+    <span class="keyword">if</span> (e.lengthComputable) {
+      <span class="comment">// 更新进度</span>
+      upProgress.max = e.total;
+      upProgress.value = e.loaded;
+    }
+  };
+  <span class="comment">// 上传完成</span>
+  xhr.upload.onloadend = <span class="keyword">function</span>(){
+    upProgress.value = upProgress.max;
+  };
+
+  xhr.onreadystatechange = <span class="keyword">function</span>(){
+    <span class="comment">// 已收到响应头 =&gt; 下载开始</span>
+    <span class="keyword">if</span> (xhr.readyState == xhr.HEADERS_RECEIVED) {
+      console.log(<span class="string">"download start"</span>);
+    }
+  };
+
+  <span class="comment">// 下载完成</span>
+  xhr.onload = <span class="keyword">function</span>(){
+    downProgress.value = downProgress.max;
+
+    <span class="comment">// 将返回的图片文件转为一个 Object URL</span>
+    <span class="comment">// blob:http%3A//www.a.com/901da0f3-c50e-4b41-8492-94189706db42</span>
+    <span class="keyword">var</span> url = window.URL.createObjectURL(xhr.response);
+
+    <span class="comment">// 回调</span>
+    callback(url);
+  };
+
+  <span class="comment">// 下载进度</span>
+  xhr.onprogress = <span class="keyword">function</span>(e){
+    <span class="keyword">if</span> (e.lengthComputable) {
+      downProgress.max = e.total;
+      downProgress.value = e.loaded;
+    }
+  };
+
+  <span class="comment">// 处理错误</span>
+  xhr.onerror = <span class="keyword">function</span>(e){
+    console.dir(e);
+  };
+
+  <span class="comment">// 组建需要发送的表单数据</span>
+  <span class="keyword">var</span> data = <span class="keyword">new</span> FormData();
+  <span class="comment">// 增加一个key为 "img" 的图片文件</span>
+  data.append(<span class="string">"img"</span>, file);
+
+  <span class="comment">// 发送</span>
+  xhr.send(data);
+}</code></pre>
+		<pre class="col-2"><code clas="php" data-name="xhr2-tilt-shift-php" class="php"><span class="preprocessor">&lt;?php</span>
+<span class="comment">// 允许 CORS 的源列表</span>
+<span class="variable">$allowed</span> = <span class="keyword">array</span>(
+  <span class="string">'http://www.esun.com'</span>,
+  <span class="string">'http://www.others.com'</span>
+);
+
+<span class="comment">// CORS 请求, 会带有 Origin 头部</span>
+<span class="variable">$origin</span> = <span class="keyword">isset</span>(<span class="variable">$_SERVER</span>[<span class="string">'HTTP_ORIGIN'</span>]) ? <span class="variable">$_SERVER</span>[<span class="string">'HTTP_ORIGIN'</span>] : <span class="string">''</span>;
+
+<span class="variable">$MimeTypes</span> = <span class="keyword">array</span>(
+  <span class="string">'image/gif'</span>  =&gt; <span class="string">'.gif'</span>,
+  <span class="string">'image/jpeg'</span> =&gt; <span class="string">'.jpg'</span>, <span class="string">'image/pjpeg'</span> =&gt; <span class="string">'.jpg'</span>,
+  <span class="string">'image/png'</span>  =&gt; <span class="string">'.png'</span>, <span class="string">'image/x-png'</span> =&gt; <span class="string">'.png'</span>
+);
+
+<span class="variable">$method</span> = <span class="variable">$_SERVER</span>[<span class="string">'REQUEST_METHOD'</span>];
+<span class="keyword">if</span> (<span class="variable">$method</span> == <span class="string">"OPTIONS"</span>) {
+  <span class="keyword">if</span> (<span class="variable">$origin</span> &amp;&amp; in_array(<span class="variable">$origin</span>, <span class="variable">$allowed</span>)) {
+    header(<span class="string">'Access-Control-Allow-Origin: '</span> . <span class="variable">$origin</span>);
+    header(<span class="string">'Access-Control-Allow-Methods: GET, POST'</span>);
+    header(<span class="string">'Access-Control-Allow-Credentials: true'</span>);
+    header(<span class="string">'Access-Control-Max-Age: 86400'</span>);
+  } <span class="keyword">else</span> {
+    <span class="keyword">exit</span>;
+  }
+} <span class="keyword">else</span> <span class="keyword">if</span> (<span class="variable">$method</span> == <span class="string">"POST"</span>) {
+  <span class="keyword">if</span> (<span class="variable">$origin</span>) {
+    <span class="keyword">if</span> (in_array(<span class="variable">$origin</span>, <span class="variable">$allowed</span>)) {
+      header(<span class="string">'Access-Control-Allow-Origin: '</span> . <span class="variable">$origin</span>);
+      header(<span class="string">'Access-Control-Allow-Credentials: true'</span>);
+    } <span class="keyword">else</span> {
+      <span class="keyword">exit</span>;
+    }
+  }
+  <span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_FILES</span>[<span class="string">'img'</span>])) {
+    <span class="variable">$file</span> = <span class="variable">$_FILES</span>[<span class="string">'img'</span>];
+    <span class="keyword">if</span> (is_uploaded_file(<span class="variable">$file</span>[<span class="string">'tmp_name'</span>])
+        &amp;&amp; <span class="variable">$file</span>[<span class="string">'error'</span>] == UPLOAD_ERR_OK
+        &amp;&amp; <span class="keyword">isset</span>(<span class="variable">$MimeTypes</span>[<span class="variable">$file</span>[<span class="string">'type'</span>]])) {
+      <span class="comment">// 执行 移轴摄影 滤镜</span>
+      <span class="variable">$content</span> = filter_tilt_shift(<span class="variable">$file</span>[<span class="string">'tmp_name'</span>]);
+      header(<span class="string">'Content-Type: image/png'</span>);
+      <span class="comment">// 发送 Content-Length 响应头，以便追踪下载进度</span>
+      header(<span class="string">'Content-Length: '</span> . strlen(<span class="variable">$content</span>));
+      <span class="keyword">echo</span> <span class="variable">$content</span>;
+    }
+  }
+}</code></pre>
+	</div>
+</div></div>
+		<div class="page" data-name="drag-n-drop" data-js="drag-n-drop.js" data-x="7200" data-y="8600" data-z="0" style="-webkit-transform: translate(-50%, -50%) translate3d(7200px, 8600px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>Drag and Drop</h2>
+<div class="content">
+	<div style="margin:0 auto;padding-top:80px;width:600px;">
+		<div id="drag-elem">
+			<div id="drag-elem-a" draggable="true" style="left:0px;">#drag-elem-a</div>
+			<img src="images/photos.png" width="30" height="30">
+			<a href="http://www.500.com/" target="_blank">链接</a>
+			<div id="drag-elem-b" draggable="true" style="left:386px;">#drag-elem-b</div>
+		</div>
+		<div id="drop-box"></div>
+		<pre id="drag-code"><code class="html xml" data-name="drag-n-drop"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"drag-elem"</span> <span class="attribute">draggable</span>=<span class="value">"true"</span>&gt;</span>#drag-elem<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"drop-box"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+<span class="comment">// 可拖动的元素</span>
+<span class="keyword">var</span> source = document.getElementById(<span class="string">"drag-elem"</span>);
+
+source.ondragstart = <span class="keyword">function</span>(e){ <span class="comment">// 拖动开始</span>
+  <span class="comment">// 设置拖动传输的数据</span>
+  e.dataTransfer.setData(<span class="string">"Text"</span>, <span class="string">"You dragged #drag-elem"</span>);
+};
+source.ondragend = <span class="keyword">function</span>(e){}; <span class="comment">// 拖动结束</span>
+
+<span class="comment">// 接受拖放的目标元素</span>
+<span class="keyword">var</span> target = document.getElementById(<span class="string">"drop-box"</span>);
+
+target.ondragover = <span class="keyword">function</span>(e){ <span class="comment">// 拖动经过</span>
+  <span class="comment">// 阻止 拖动 默认效果</span>
+  e.prevetnDefault();
+  <span class="comment">// 设置 拖动经过 的样式效果</span>
+  target.className = <span class="string">"dropping"</span>;
+};
+target.ondragleave = <span class="keyword">function</span>(e){ <span class="comment">// 拖动离开</span>
+  target.className = <span class="string">""</span>;
+};
+target.ondragenter = <span class="keyword">function</span>(e){}; <span class="comment">// 拖动进入</span>
+
+target.ondrop = <span class="keyword">function</span>(e){ <span class="comment">// 拖动放置</span>
+  e.prevetnDefault();
+  target.className = <span class="string">""</span>;
+
+  <span class="comment">// 获取并处理 拖动 传输的数据</span>
+  <span class="keyword">var</span> data = e.dataTransfer.getData(<span class="string">"Text"</span>);
+  doSomethingWithData(data);
+
+  <span class="comment">// 处理 拖动 传输的文件</span>
+  doSomethingWithFiles(e.dataTransfer.files);
+};
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+	</div>
+</div></div>
+		<div class="page" data-name="ws-intro" data-x="8300" data-y="8600" data-z="500" style="-webkit-transform: translate(-50%, -50%) translate3d(8300px, 8600px, 500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>WebSocket</h2>
+<div class="content">
+	<div id="ws-intro">
+		<div id="ws-intro-1">
+			<h3>什么是 WebSocket ?</h3>
+			<ul>
+				<li>用于 Web 的、</li>
+				<li>基于 TCP 连接的、</li>
+				<li>全双工通信通道 技术</li>
+			</ul>
+		</div>
+		<div id="ws-intro-2" style="margin-top:50px;">
+			<h3>传统的 web 双向通信技术</h3>
+			<ul>
+				<li>简单轮询</li>
+				<li>长轮询</li>
+				<li>Iframe Script 流</li>
+				<li>Flash Socket</li>
+			</ul>
+		</div>
+	</div>
+	<div id="ws-intro-img">
+		<img src="images/polling.svg" width="360" height="480">
+		<img src="images/comet.svg" width="360" height="480">
+		<img src="images/iframe-script.svg" width="360" height="480">
+		<img src="images/socket.svg" width="360" height="480">
+	</div>
+</div></div>
+		<div class="page" data-name="websocket" data-x="9400" data-y="8600" data-z="0" style="-webkit-transform: translate(-50%, -50%) translate3d(9400px, 8600px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>WebSocket</h2>
+<div class="content">
+	<div style="padding-top:30px;">
+		<pre style="width:800px;" id="ws-code"><code class="javascript" data-name="websocket-simple"><span class="keyword">var</span> host = <span class="string">"ws://127.0.0.1:8002/"</span>;
+<span class="keyword">var</span> protocols = [<span class="string">"chat"</span>, <span class="string">"superchat"</span>];
+
+<span class="comment">// 新建WebSocket连接</span>
+<span class="keyword">var</span> socket = <span class="keyword">new</span> WebSocket(host, protocols);
+
+<span class="comment">// 指定二进制类型</span>
+<span class="comment">// "arraybuffer", "blob"</span>
+socket.binaryType = <span class="string">"arraybuffer"</span>;
+
+<span class="comment">// 连接打开</span>
+socket.onopen = <span class="keyword">function</span>(e){
+  <span class="comment">// 发送数据</span>
+  socket.send(<span class="string">"a text string"</span>);
+  <span class="comment">// binary</span>
+  socket.send(<span class="keyword">new</span> ArrayBuffer(<span class="number">1</span>));
+  <span class="keyword">var</span> d = <span class="keyword">new</span> Uint16Array(<span class="number">2</span>);
+  d[<span class="number">0</span>] = <span class="number">0x1234</span>;
+  d[<span class="number">1</span>] = <span class="number">0xabcd</span>;
+  socket.send(d);
+  socket.send(<span class="keyword">new</span> Blob([<span class="string">"blob"</span>]));
+};
+
+<span class="comment">// 收到消息</span>
+socket.onmessage = <span class="keyword">function</span>(e){
+  console.log(e.data);
+};
+
+<span class="comment">// 连接错误</span>
+socket.onerror = <span class="keyword">function</span>(e){};
+<span class="comment">// 连接关闭</span>
+socket.onclose = <span class="keyword">function</span>(e){};</code></pre>
+	</div>
+	<div id="figure-websocket" style="position:absolute;top:60px;visibility:hidden;">
+		<div class="arrow" id="arr-browser">
+			<div class="arrow-body" style="height:0;"></div>
+			<div class="arrow-head"></div>
+		</div>
+		<div class="arrow" id="arr-server">
+			<div class="arrow-body" style="height:0;"></div>
+			<div class="arrow-head"></div>
+		</div>
+		<div class="entity" id="ent-browser">
+			Browser
+		</div>
+		<div class="entity" id="ent-server">
+			Server
+		</div>
+		<div class="line-box" id="ws-lines">
+			<div class="bg-text" id="txt-open-handshake">Opening Handshake</div>
+			<div class="bg-text" id="txt-send-n-receive">Sending and<br> Receiving Data</div>
+			<div class="line" id="open-handshake-req"></div>
+			<div class="line" id="open-handshake-res"></div>
+			<div class="line" id="client-send"></div>
+			<div class="line" id="server-send"></div>
+			<div class="packet" id="pkt-request">
+				<img src="images/packet-request.svg" width="60" height="70">
+				<pre id="hd-request"><code class="http" data-name="ws-handshake-req"><span class="request">GET <span class="string">ws://127.0.0.1:8002/</span> HTTP/1.1</span>
+<span class="attribute">Host</span>: <span class="string">127.0.0.1:8002</span>
+<span class="attribute">Origin</span>: <span class="string">http://127.0.0.1</span>
+<span class="attribute">Upgrade</span>: <span class="string">websocket</span>
+<span class="attribute">Connection</span>: <span class="string">Upgrade</span>
+<span class="attribute">Sec-WebSocket-Key</span>: <span class="string">QND8yfhKYhtTiNDo8ejHAg==</span>
+<span class="attribute">Sec-WebSocket-Version</span>: <span class="string">13</span>
+<span class="attribute">Sec-WebSocket-Protocol</span>: <span class="string">chat, superchat</span>
+<span class="attribute">Sec-WebSocket-Extensions</span>: <span class="string">x-webkit-deflate-frame</span></code></pre>
+			</div>
+			<div class="packet" id="pkt-handshake">
+				<img src="images/packet-handshake.svg" width="60" height="70">
+			</div>
+			<div class="packet" id="pkt-response">
+				<img src="images/packet-response.svg" width="60" height="70">
+				<pre id="hd-response"><code class="http" data-name="ws-handshake-res"><span class="status">HTTP/1.1 <span class="number">101</span> Switching Protocols</span>
+<span class="attribute">Connection</span>: <span class="string">Upgrade</span>
+<span class="attribute">Upgrade</span>: <span class="string">websocket</span>
+<span class="attribute">Sec-Websocket-Accept</span>: <span class="string">xAdIzFZeZx7LmC2ucJ+v6xqaSzc=</span></code></pre>
+			</div>
+			<div class="packet" id="pkt-frame">
+				<img src="images/packet-frame.svg" width="60" height="70">
+				<pre id="data-frame"><code class="no-highlight" data-name="ws-data-frame"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-------+-+-------------+-------------------------------+
+|F|R|R|R| opcode|M| Payload len |    Extended payload length    |
+|I|S|S|S|  (4)  |A|     (7)     |             (16/64)           |
+|N|V|V|V|       |S|             |   (if payload len==126/127)   |
+| |1|2|3|       |K|             |                               |
++-+-+-+-+-------+-+-------------+ - - - - - - - - - - - - - - - +
+|     Extended payload length continued, if payload len == 127  |
++ - - - - - - - - - - - - - - - +-------------------------------+
+|                               |Masking-key, if MASK set to 1  |
++-------------------------------+-------------------------------+
+| Masking-key (continued)       |          Payload Data         |
++-------------------------------- - - - - - - - - - - - - - - - +
+:                     Payload Data continued ...                :
++ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+|                     Payload Data continued ...                |
++---------------------------------------------------------------+</code></pre>
+			</div>
+			<div class="packet" id="pkt-parse">
+				<img src="images/packet-parse.svg" width="60" height="70">
+			</div>
+		</div>
+	</div>
+</div></div>
+		<div class="page" data-name="ws-chatroom" data-js="ws-chatroom.js" data-x="10500" data-y="8600" data-z="500" style="-webkit-transform: translate(-50%, -50%) translate3d(10500px, 8600px, 500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>Web Socket</h2>
+<div class="content">
+	<div id="chat-room">
+		<div id="chat-area"><div class="chat-join"><div>ss 加入了聊天</div></div><div class="chat-leave"><div>ss 退出了聊天</div></div></div>
+		<div class="chat-input">
+			<input type="text" id="chat-text" class="chat-text"><input type="button" value="发送" id="chat-send" class="chat-btn"><input type="button" value="位置" id="chat-place" class="chat-btn"><a class="chat-file-box" title="发送图片" href="javascript:;"><input type="button" value="图片" class="chat-btn"><input type="file" accept="image/*" id="chat-file"></a>
+		</div>
+		<div id="chat-input-mask"></div>
+		<div id="chat-user-list">
+			<div id="chat-sign-in">
+				<input id="chat-sign-in-btn" class="chat-btn" type="button" value="加入聊天">
+				<input id="chat-sign-out-btn" class="chat-btn" type="button" value="退出聊天">
+			</div>
+		</div>
+	</div>
+	<div style="color:#999;padding-top:20px;text-align:center;"><label for="chat-notify" id="chat-notify-label" style=""><input type="checkbox" id="chat-notify">接收桌面通知</label></div>
+</div>
+<div id="chat-mask"></div>
+<div id="chat-sign-box">
+	<div class="chat-sign-con">
+		<div style="line-height:20px;text-indent:14px;">选择一个头像:</div>
+		<div class="chat-avatars">
+			<a href="javascript:;" class="checked">
+				<img src="avatars/maqing.jpg" width="60" height="60">
+				<span></span>
+			</a>
+			<a href="javascript:;">
+				<img src="avatars/stone.jpg" width="60" height="60">
+				<span></span>
+			</a>
+			<a href="javascript:;">
+				<img src="avatars/jay.jpg" width="60" height="60">
+				<span></span>
+			</a>
+		</div>
+		<div class="chat-avatars">
+			<a href="javascript:;">
+				<img src="avatars/meizhi.jpg" width="60" height="60">
+				<span></span>
+			</a>
+			<a href="javascript:;">
+				<img src="avatars/xiaoxin.jpg" width="60" height="60">
+				<span></span>
+			</a>
+			<a href="javascript:;">
+				<img src="avatars/fire.jpg" width="60" height="60">
+				<span></span>
+			</a>
+		</div>
+		<div style="line-height:43px;text-align:center;">
+			<label>昵称:</label><input id="chat-sign-name" class="chat-text" type="text"><br>
+			<input id="chat-sign-btn" class="chat-btn" type="button" value="加入聊天">
+		</div>
+		<a id="chat-sign-close" class="btn-close" href="javascript:;"></a>
+	</div>
+</div></div>
+		<div class="page" data-name="ws-code" data-x="11600" data-y="8600" data-z="500" style="-webkit-transform: translate(-50%, -50%) translate3d(11600px, 8600px, 500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>HTML5</h2>
+<div class="content">
+	<pre style="font-size:16px;height:660px;overflow-y:auto;white-space:pre-wrap;word-break:break-all;"><code data-name="ws-chatroom.js" class="javascript">(<span class="keyword">function</span>(){
+  <span class="function"><span class="keyword">function</span> <span class="title">g</span><span class="params">(id)</span>{</span>
+    <span class="keyword">return</span> document.getElementById(id);
+  }
+  
+  <span class="keyword">var</span> HOST = <span class="string">"ws://192.168.50.115:8002/"</span>,
+    PROTOCOLS = [<span class="string">"chat"</span>],
+    IMAGE_MAX_WIDTH = <span class="number">480</span>;
+
+  <span class="comment">// 元素</span>
+  <span class="keyword">var</span> chatRoom = g(<span class="string">"chat-room"</span>),
+    chatArea = g(<span class="string">"chat-area"</span>),
+    chatFile = g(<span class="string">"chat-file"</span>),
+    chatText = g(<span class="string">"chat-text"</span>),
+    chatSend = g(<span class="string">"chat-send"</span>),
+    chatPlace = g(<span class="string">"chat-place"</span>);
+  <span class="comment">// 用于调整大图片的画布</span>
+  <span class="keyword">var</span> canvas = document.createElement(<span class="string">"canvas"</span>),
+    context = canvas.getContext(<span class="string">"2d"</span>);
+
+  <span class="comment">// 消息类型</span>
+  <span class="keyword">var</span> MSG_TYPE_TEXT = <span class="number">0x1</span>,
+    MSG_TYPE_IMAGE = <span class="number">0x2</span>,
+    MSG_TYPE_PLACE = <span class="number">0x3</span>,
+    MSG_TYPE_LIST = <span class="number">0x8</span>,
+    MSG_TYPE_JOIN = <span class="number">0x9</span>,
+    MSG_TYPE_LEAVE = <span class="number">0xa</span>,
+    MSG_TYPE_ERROR = <span class="number">0xb</span>,
+    MSG_TYPE_JOIN_ERROR = <span class="number">0xb</span>;
+
+  <span class="comment">// 当前用户</span>
+  <span class="keyword">var</span> user = {
+    joined: <span class="literal">false</span>,
+    name: <span class="literal">null</span>,
+    avatar: <span class="string">""</span>,
+    uid: <span class="literal">null</span>
+  };
+  <span class="comment">// 用户列表</span>
+  <span class="keyword">var</span> userList = {};
+
+  <span class="comment">// 加入聊天相关</span>
+  <span class="keyword">var</span> signInBtn = g(<span class="string">"chat-sign-in-btn"</span>),
+    signOutBtn = g(<span class="string">"chat-sign-out-btn"</span>),
+    chatMask = g(<span class="string">"chat-mask"</span>),
+    closeBtn = g(<span class="string">"chat-sign-close"</span>),
+    signBox = g(<span class="string">"chat-sign-box"</span>),
+    inputMask = g(<span class="string">"chat-input-mask"</span>),
+    avatars = signBox.querySelectorAll(<span class="string">".chat-avatars a"</span>),
+    _avatar = <span class="string">"maqing.jpg"</span>,
+    _name,
+    listBox = g(<span class="string">"chat-user-list"</span>),
+    signName = g(<span class="string">"chat-sign-name"</span>),
+    signBtn = g(<span class="string">"chat-sign-btn"</span>);
+  signInBtn.onclick = <span class="keyword">function</span>(){
+    chatMask.style.display = <span class="string">"block"</span>;
+    signBox.style.display = <span class="string">"block"</span>;
+  };
+  signOutBtn.onclick = <span class="keyword">function</span>(){
+    room.leave();
+  };
+  closeBtn.onclick = <span class="keyword">function</span>(){
+    chatMask.style.display = <span class="string">"none"</span>;
+    signBox.style.display = <span class="string">"none"</span>;
+  };
+  <span class="keyword">var</span> avatarClick = <span class="keyword">function</span>(){
+    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; avatars.length; ++ i) {
+      <span class="keyword">var</span> a = avatars[i];
+      a.className = <span class="string">""</span>;
+    }
+    <span class="keyword">this</span>.className = <span class="string">"checked"</span>;
+    _avatar = <span class="keyword">this</span>.querySelector(<span class="string">"img"</span>).src.match(<span class="regexp">/\/([^\/]+)$/</span>)[<span class="number">0</span>];
+  };
+  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; avatars.length; ++ i) {
+    avatars[i].onclick = avatarClick;
+  }
+  signBtn.onclick = <span class="keyword">function</span>(){
+    _name = signName.value.trim();
+    <span class="keyword">if</span> (!(_name &amp;&amp; <span class="regexp">/^.{2,20}$/</span>.test(_name.replace(<span class="regexp">/[\u0100-\uffff]/g</span>, <span class="string">"aa"</span>)))) {
+      joinError(<span class="number">1</span>, <span class="string">"Invalid Username"</span>);
+      <span class="keyword">return</span>;
+    }
+    signBtn.value = <span class="string">"正在加入"</span>;
+    signBtn.disabled = <span class="literal">true</span>;
+    signName.disabled = <span class="literal">true</span>;
+    user.name = _name;
+    user.avatar = _avatar;
+    room.join();
+  };
+  signName.onkeydown = <span class="keyword">function</span>(e){
+    e.stopPropagation();
+  };
+  signName.onkeyup = <span class="keyword">function</span>(e){
+    e.stopPropagation();
+    <span class="keyword">if</span> (e.keyCode == <span class="number">13</span>) {
+      e.preventDefault();
+      signBtn.onclick();
+    }
+  };
+  <span class="function"><span class="keyword">function</span> <span class="title">joinSuccess</span><span class="params">()</span> {</span>
+    closeBtn.onclick();
+    signBtn.value = <span class="string">"加入聊天"</span>;
+    signBtn.disabled = <span class="literal">false</span>;
+    signName.disabled = <span class="literal">false</span>;
+    signInBtn.style.display = <span class="string">"none"</span>;
+    signOutBtn.style.display = <span class="string">"inline-block"</span>;
+    inputMask.style.display = <span class="string">"none"</span>;
+  }
+  <span class="function"><span class="keyword">function</span> <span class="title">joinError</span><span class="params">(code, reason)</span> {</span>
+    <span class="keyword">var</span> msg;
+    <span class="keyword">switch</span> (code) {
+      <span class="keyword">case</span> <span class="number">1</span>:
+        msg = <span class="string">"请输入有效的昵称！"</span>
+        <span class="keyword">break</span>;
+      <span class="keyword">case</span> <span class="number">2</span>:
+        msg = <span class="string">"该昵称已经被使用了！"</span>
+        <span class="keyword">break</span>;
+      <span class="keyword">default</span>:
+        msg = <span class="string">"加入聊天失败！["</span> + code + <span class="string">", "</span> + reason + <span class="string">"]"</span>;
+        <span class="keyword">break</span>;
+    }
+    alert(msg);
+    signBtn.value = <span class="string">"加入聊天"</span>;
+    signBtn.disabled = <span class="literal">false</span>;
+    signName.disabled = <span class="literal">false</span>;
+    signName.focus();
+    signName.select();
+  }
+  <span class="function"><span class="keyword">function</span> <span class="title">leaveSuccess</span><span class="params">()</span> {</span>
+    signInBtn.style.display = <span class="string">"inline-block"</span>;
+    signOutBtn.style.display = <span class="string">"none"</span>;
+    inputMask.style.display = <span class="string">"block"</span>;
+  }
+
+  <span class="comment">// 新加入用户</span>
+  <span class="function"><span class="keyword">function</span> <span class="title">pushUser</span><span class="params">(user)</span> {</span>
+    userList[user.name] = user;
+
+    <span class="keyword">var</span> div = document.createElement(<span class="string">"div"</span>);
+    div.className = <span class="string">"list-user"</span>;
+    div.setAttribute(<span class="string">"data-uid"</span>, user.uid);
+    <span class="keyword">var</span> img = <span class="keyword">new</span> Image();
+    img.width = <span class="number">30</span>;
+    img.height = <span class="number">30</span>;
+    img.src = <span class="string">"avatars/"</span> + user.avatar;
+    <span class="keyword">var</span> span = document.createElement(<span class="string">"span"</span>);
+    span.textContent = user.name;
+    <span class="keyword">var</span> em = document.createElement(<span class="string">"em"</span>);
+    em.textContent = <span class="string">" ("</span> + user.ip.replace(<span class="regexp">/^\d+\.\d+\.(\d+)\.(\d+)$/</span>, <span class="string">"*.$1.$2"</span>) + <span class="string">")"</span>;
+    div.title = span.textContent + em.textContent;
+    div.appendChild(img);
+    div.appendChild(span);
+    div.appendChild(em);
+    listBox.appendChild(div);
+  }
+
+  <span class="comment">// 用户离开</span>
+  <span class="function"><span class="keyword">function</span> <span class="title">removeUser</span><span class="params">(name)</span> {</span>
+    <span class="keyword">var</span> uid = userList[name].uid;
+    <span class="keyword">delete</span> userList[name];
+    <span class="keyword">var</span> div = listBox.querySelector(<span class="string">"div.list-user[data-uid=\""</span> + uid + <span class="string">"\"]"</span>);
+    <span class="keyword">if</span> (div) {
+      listBox.removeChild(div);
+    }
+  }
+
+  <span class="comment">// 聊天室</span>
+  <span class="keyword">var</span> room = {
+    socket: <span class="literal">null</span>,
+    connected: <span class="literal">false</span>
+  };
+
+  <span class="comment">// 聊天室初始化</span>
+  <span class="comment">// 建立 WebSocket 连接</span>
+  room.init = <span class="keyword">function</span>(){
+    <span class="keyword">var</span> host = HOST;
+    <span class="keyword">var</span> protocols = PROTOCOLS;
+    <span class="keyword">var</span> socket = <span class="keyword">new</span> WebSocket(host, protocols);
+    <span class="keyword">var</span> self = <span class="keyword">this</span>;
+    socket.onopen = <span class="keyword">function</span>(){
+      self.socket = <span class="keyword">this</span>;
+      self.oninit();
+    };
+    socket.onmessage = <span class="keyword">function</span>(e){
+      <span class="comment">// console.dir(e);</span>
+      <span class="keyword">try</span> {
+        <span class="keyword">var</span> msg = JSON.parse(e.data);
+      } <span class="keyword">catch</span> (x) {
+        <span class="comment">// TODO: invalid message received</span>
+        <span class="keyword">return</span>;
+      }
+      self.messageReceived(msg.type, msg.data, msg.time);
+    };
+    socket.onerror = <span class="keyword">function</span>(e){
+      console.dir(e);
+    };
+    socket.onclose = <span class="keyword">function</span>(e){
+      console.dir(e);
+      showMessage(MSG_TYPE_ERROR, {content: <span class="string">"您掉线了"</span>});
+    };
+  };
+  room.oninit = <span class="keyword">function</span>(){
+    <span class="keyword">this</span>.connected = <span class="literal">true</span>;
+    console.log(<span class="string">"connected"</span>);
+  };
+  room.join = <span class="keyword">function</span>(){
+    room.sendMessage(MSG_TYPE_JOIN, {
+      name: user.name,
+      avatar: user.avatar
+    });
+  };
+  room.leave = <span class="keyword">function</span>(){
+    room.sendMessage(MSG_TYPE_LEAVE, {
+      reason: <span class="string">""</span>
+    });
+  },
+  room.sendMessage = <span class="keyword">function</span>(type, data){
+    <span class="keyword">if</span> (<span class="keyword">this</span>.connected) {
+      <span class="keyword">var</span> msg = JSON.stringify({
+        type: type,
+        data: data
+      });
+      <span class="keyword">this</span>.socket.send(msg);
+    } <span class="keyword">else</span> {
+      <span class="comment">// TODO: unconnected</span>
+    }
+  };
+  room.sendText = <span class="keyword">function</span>(text){
+    <span class="keyword">if</span> (user.joined) {
+      room.sendMessage(MSG_TYPE_TEXT, {
+        content: text
+      });
+    } <span class="keyword">else</span> {
+      <span class="comment">// TODO: unconnected</span>
+    }
+  };
+  room.sendImage = <span class="keyword">function</span>(image){
+    <span class="keyword">if</span> (user.joined) {
+      room.sendMessage(MSG_TYPE_IMAGE, {
+        content: image
+      });
+    } <span class="keyword">else</span> {
+      <span class="comment">// TODO: unconnected</span>
+    }
+  };
+  room.sendPlace = <span class="keyword">function</span>(coords){
+    <span class="keyword">if</span> (user.joined) {
+      room.sendMessage(MSG_TYPE_PLACE, {
+        latitude: coords.latitude,
+        longitude: coords.longitude,
+        accuracy: coords.accuracy
+      });
+    } <span class="keyword">else</span> {
+      <span class="comment">// TODO: unconnected</span>
+    }
+  };
+  room.messageReceived = <span class="keyword">function</span>(type, data, time){
+    <span class="keyword">switch</span> (type) {
+      <span class="keyword">case</span> MSG_TYPE_TEXT:
+        <span class="keyword">this</span>.textReceived(data, time);
+        <span class="keyword">break</span>;
+      <span class="keyword">case</span> MSG_TYPE_IMAGE:
+        <span class="keyword">this</span>.imageReceived(data, time);
+        <span class="keyword">break</span>;
+      <span class="keyword">case</span> MSG_TYPE_PLACE:
+        <span class="keyword">this</span>.placeReceived(data, time);
+        <span class="keyword">break</span>;
+      <span class="keyword">case</span> MSG_TYPE_LIST:
+        <span class="keyword">this</span>.userListRecieved(data, time);
+        <span class="keyword">break</span>;
+      <span class="keyword">case</span> MSG_TYPE_JOIN:
+        <span class="keyword">this</span>.userJoined(data, time);
+        <span class="keyword">break</span>;
+      <span class="keyword">case</span> MSG_TYPE_LEAVE:
+        <span class="keyword">this</span>.userLeaved(data, time);
+        <span class="keyword">break</span>;
+      <span class="keyword">case</span> MSG_TYPE_JOIN_ERROR:
+        <span class="keyword">this</span>.userJoinError(data, time);
+        <span class="keyword">break</span>;
+    }
+  };
+  room.textReceived = <span class="keyword">function</span>(data, time){
+    console.log(<span class="string">"text message"</span>, time);
+    console.dir(data);
+    
+    showMessage(MSG_TYPE_TEXT, data, time);
+
+    notify(MSG_TYPE_TEXT, data);
+  };
+  room.imageReceived = <span class="keyword">function</span>(data, time){
+    console.log(<span class="string">"image message"</span>, time);
+    console.dir(data);
+
+    showMessage(MSG_TYPE_IMAGE, data, time);
+
+    notify(MSG_TYPE_IMAGE, data);
+  };
+  room.placeReceived = <span class="keyword">function</span>(data, time){
+    console.log(<span class="string">"place message"</span>, time);
+    console.dir(data);
+
+    showMessage(MSG_TYPE_PLACE, data, time);
+
+    notify(MSG_TYPE_PLACE, data);
+  };
+  room.userListRecieved = <span class="keyword">function</span>(data, time){
+    console.log(<span class="string">"user list"</span>, time);
+    console.dir(data);
+
+    <span class="keyword">if</span> (data.list.length &gt; <span class="number">0</span>) {
+      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; data.list.length; ++ i) {
+        pushUser(data.list[i]);
+      }
+    }
+  };
+  room.userJoined = <span class="keyword">function</span>(data, time){
+    console.log(<span class="string">"user join"</span>, time);
+    console.dir(data);
+
+    <span class="keyword">if</span> (data.name == user.name) {
+      user.joined = <span class="literal">true</span>;
+      user.uid = data.uid;
+      joinSuccess();
+    }
+
+    pushUser(data);
+
+    showMessage(MSG_TYPE_JOIN, data, time);
+  };
+  room.userLeaved = <span class="keyword">function</span>(data, time){
+    console.log(<span class="string">"user leave"</span>, time);
+    console.dir(data);
+
+    <span class="keyword">if</span> (data.name == user.name) {
+      user.joined = <span class="literal">false</span>;
+      user.name = <span class="literal">null</span>;
+      user.avatar = <span class="string">""</span>;
+      user.uid = <span class="literal">null</span>;
+      leaveSuccess();
+    }
+
+    removeUser(data.name);
+
+    showMessage(MSG_TYPE_LEAVE, data, time);
+  };
+  room.userJoinError = <span class="keyword">function</span>(data, time){
+    console.log(<span class="string">"user join error"</span>, time);
+    console.dir(data);
+
+    user.name = <span class="literal">null</span>;
+    user.avatar = <span class="string">""</span>;
+
+    joinError(data.code, data.reason);
+  };
+
+  <span class="comment">// 显示消息</span>
+  <span class="function"><span class="keyword">function</span> <span class="title">showMessage</span><span class="params">(type, data, time)</span>{</span>
+    <span class="keyword">var</span> layer = document.createElement(<span class="string">"div"</span>);
+    <span class="keyword">switch</span> (type) {
+      <span class="keyword">case</span> MSG_TYPE_TEXT:
+      <span class="keyword">case</span> MSG_TYPE_IMAGE:
+      <span class="keyword">case</span> MSG_TYPE_PLACE:
+        layer.className = user.name == data.user ? <span class="string">"chat-myself"</span> : <span class="string">"chat-others"</span>;
+        <span class="keyword">var</span> h = document.createElement(<span class="string">"div"</span>);
+        h.className = <span class="string">"chat-head"</span>;
+        <span class="keyword">var</span> u = document.createElement(<span class="string">"div"</span>);
+        u.className = <span class="string">"chat-name"</span>;
+        u.textContent = data.user;
+        <span class="keyword">var</span> t = document.createElement(<span class="string">"div"</span>);
+        t.className = <span class="string">"chat-time"</span>;
+        <span class="keyword">var</span> d = <span class="keyword">new</span> Date(time);
+        <span class="keyword">var</span> m = d.getMinutes();
+        t.textContent = d.getHours() + <span class="string">":"</span> + (m &gt; <span class="number">9</span> ? <span class="string">""</span> : <span class="string">"0"</span>) + m;
+        h.appendChild(u);
+        h.appendChild(t);
+        layer.appendChild(h);
+        <span class="keyword">var</span> p = document.createElement(<span class="string">"div"</span>);
+        p.className = <span class="string">"chat-prof"</span>;
+        <span class="keyword">var</span> k = <span class="keyword">new</span> Image();
+        k.width = <span class="number">36</span>;
+        k.height = <span class="number">36</span>;
+        k.src = <span class="string">"avatars/"</span> + userList[data.user].avatar;
+        p.title = data.user + <span class="string">" ("</span> + userList[data.user].ip.replace(<span class="regexp">/^\d+\.\d+\.(\d+)\.(\d+)$/</span>, <span class="string">"*.$1.$2"</span>) + <span class="string">")"</span>;
+        p.appendChild(k);
+        layer.appendChild(p);
+        <span class="keyword">var</span> b = document.createElement(<span class="string">"div"</span>);
+        b.className = <span class="string">"chat-body"</span>;
+        <span class="keyword">var</span> c = document.createElement(<span class="string">"div"</span>);
+        c.className = <span class="string">"chat-corner"</span>;
+        <span class="keyword">if</span> (type == MSG_TYPE_TEXT) {
+          b.textContent = data.content;
+          b.appendChild(c);
+        } <span class="keyword">else</span> <span class="keyword">if</span> (type == MSG_TYPE_IMAGE) {
+          <span class="keyword">var</span> i = <span class="keyword">new</span> Image();
+          i.onload = <span class="keyword">function</span>(){
+            <span class="keyword">var</span> i = <span class="keyword">this</span>;
+            <span class="keyword">if</span> (i.width &gt; IMAGE_MAX_WIDTH) {
+              <span class="keyword">var</span> w = canvas.width = IMAGE_MAX_WIDTH;
+              <span class="keyword">var</span> h = canvas.height = Math.round(i.height / i.width * IMAGE_MAX_WIDTH);
+              context.clearRect(<span class="number">0</span>, <span class="number">0</span>, w, h);
+              context.drawImage(i, <span class="number">0</span>, <span class="number">0</span>, i.width, i.height, <span class="number">0</span>, <span class="number">0</span>, w, h);
+              <span class="keyword">var</span> j = <span class="keyword">new</span> Image();
+              j.onload = scrollToBottom;
+              j.src = canvas.toDataURL();
+              b.appendChild(j);
+            } <span class="keyword">else</span> {
+              b.appendChild(i);
+              scrollToBottom();
+            }
+            b.appendChild(c);
+          };
+          i.src = data.content;
+          <span class="comment">// b.appendChild(i);</span>
+        } <span class="keyword">else</span> <span class="keyword">if</span> (type == MSG_TYPE_PLACE) {
+          <span class="keyword">var</span> coords = data.coords,
+            longitude = coords.longitude,
+            latitude = coords.latitude;
+          <span class="keyword">var</span> isEast = longitude &gt; <span class="number">0</span>;
+          <span class="keyword">var</span> isNorth = latitude &gt; <span class="number">0</span>;
+          <span class="keyword">var</span> content = <span class="string">"我在这里: "</span> + (isEast ? <span class="string">"东"</span> : <span class="string">"西"</span>) + <span class="string">"经"</span>
+              + Math.abs(longitude).toFixed(<span class="number">4</span>) + <span class="string">"° "</span>
+              + (isNorth ? <span class="string">"北"</span> : <span class="string">"南"</span>) + <span class="string">"纬"</span>
+              + Math.abs(latitude).toFixed(<span class="number">4</span>) + <span class="string">"°"</span>
+          b.textContent = content;
+          b.appendChild(document.createElement(<span class="string">"br"</span>));
+          <span class="keyword">var</span> i = <span class="keyword">new</span> Image();
+          i.width = IMAGE_MAX_WIDTH;
+          i.height = <span class="number">240</span>;
+          i.src = <span class="string">"http://maps.google.com/maps/api/staticmap?center="</span>
+              + latitude + <span class="string">","</span> + longitude + <span class="string">"&amp;markers=color:blue%7Clabel:S%7C"</span>
+              + latitude + <span class="string">","</span> + longitude + <span class="string">"&amp;zoom="</span> + <span class="number">12</span>
+              + <span class="string">"&amp;size="</span> + i.width + <span class="string">"x"</span> + i.height
+              + <span class="string">"&amp;sensor=true&amp;maptype=roadmap"</span>;
+          i.style.marginTop = <span class="string">"5px"</span>;
+          b.appendChild(i);
+          b.appendChild(c);
+        }
+        layer.appendChild(b);
+        <span class="keyword">break</span>;
+      <span class="keyword">case</span> MSG_TYPE_JOIN:
+        layer.className = <span class="string">"chat-join"</span>;
+        <span class="keyword">var</span> b = document.createElement(<span class="string">"div"</span>);
+        b.textContent = data.name + <span class="string">" 加入了聊天"</span>;
+        layer.appendChild(b);
+        <span class="keyword">break</span>;
+      <span class="keyword">case</span> MSG_TYPE_LEAVE:
+        layer.className = <span class="string">"chat-leave"</span>;
+        <span class="keyword">var</span> b = document.createElement(<span class="string">"div"</span>);
+        b.textContent = data.name + <span class="string">" 退出了聊天"</span>;
+        layer.appendChild(b);
+        <span class="keyword">break</span>;
+      <span class="keyword">case</span> MSG_TYPE_LIST:
+        layer.className = <span class="string">"chat-join"</span>;
+        <span class="keyword">var</span> b = document.createElement(<span class="string">"div"</span>);
+        <span class="keyword">var</span> l = [];
+        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; data.list.length; ++ i) {
+          l.push(data.list[i].name);
+        }
+        b.textContent = l.join(<span class="string">"、"</span>) + <span class="string">" 加入了聊天"</span>;
+        layer.appendChild(b);
+        <span class="keyword">break</span>;
+      <span class="keyword">case</span> MSG_TYPE_ERROR:
+        layer.className = <span class="string">"chat-leave"</span>;
+        <span class="keyword">var</span> b = document.createElement(<span class="string">"div"</span>);
+        b.textContent = data.content;
+        layer.appendChild(b);
+        <span class="keyword">break</span>;
+    }
+    chatArea.appendChild(layer);
+    scrollToBottom();
+  }
+
+  <span class="comment">// 滚动到最底部</span>
+  <span class="function"><span class="keyword">function</span> <span class="title">scrollToBottom</span><span class="params">()</span> {</span>
+    requestAnimationFrame(<span class="keyword">function</span>(){
+      chatArea.scrollTop = <span class="number">1e8</span>;
+    });
+  }
+
+  <span class="comment">// 手动选择图片</span>
+  chatFile.onchange = <span class="keyword">function</span>(){
+    <span class="keyword">var</span> files = <span class="keyword">this</span>.files;
+    <span class="keyword">if</span> (files.length &gt; <span class="number">0</span>) {
+      <span class="keyword">if</span> (<span class="regexp">/^image\//</span>.test(files[<span class="number">0</span>].type)) {
+        <span class="keyword">var</span> self = <span class="keyword">this</span>;
+        <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();
+        reader.onload = <span class="keyword">function</span>(){
+          self.value = <span class="literal">null</span>;
+          room.sendImage(<span class="keyword">this</span>.result);
+        };
+        reader.readAsDataURL(files[<span class="number">0</span>]);
+      }
+    }
+  };
+
+  <span class="comment">// 拖放图片</span>
+  chatRoom.ondragover = <span class="keyword">function</span>(e){
+    e.preventDefault();
+    <span class="keyword">this</span>.className = <span class="string">"dropping"</span>;
+  };
+  chatRoom.ondragleave = <span class="keyword">function</span>(){
+    <span class="keyword">this</span>.className = <span class="string">""</span>;
+  };
+  chatRoom.ondrop = <span class="keyword">function</span>(e){
+    e.preventDefault();
+    <span class="keyword">this</span>.className = <span class="string">""</span>;
+    <span class="keyword">var</span> files = e.dataTransfer.files;
+    <span class="keyword">if</span> (files.length &gt; <span class="number">0</span>) {
+      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; files.length; ++ i) {
+        <span class="keyword">if</span> (<span class="regexp">/^image\//</span>.test(files[<span class="number">0</span>].type)) {
+          <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();
+          reader.onload = <span class="keyword">function</span>(){
+            room.sendImage(<span class="keyword">this</span>.result);
+          };
+          reader.readAsDataURL(files[<span class="number">0</span>]);
+          <span class="keyword">break</span>;
+        }
+      }
+    }
+  };
+
+  chatSend.onclick = <span class="keyword">function</span>(){
+    <span class="keyword">var</span> text = chatText.value.trim();
+    <span class="keyword">if</span> (text) {
+      <span class="keyword">this</span>.disabled = <span class="literal">true</span>;
+      room.sendText(text);
+      <span class="keyword">this</span>.disabled = <span class="literal">false</span>;
+    }
+    chatText.value = <span class="string">""</span>;
+  };
+
+  <span class="comment">// 回车发送消息</span>
+  chatText.onkeydown = <span class="keyword">function</span>(e){
+    e.stopPropagation();
+  };
+  chatText.onkeyup = <span class="keyword">function</span>(e){
+    e.stopPropagation();
+    <span class="keyword">if</span> (e.keyCode == <span class="number">13</span>) {
+      e.preventDefault();
+      chatSend.onclick();
+    }
+  };
+
+  <span class="comment">// 通知</span>
+  <span class="keyword">var</span> notify = (<span class="keyword">function</span>(){
+    window.notifications = window.notifications || window.webkitNotifications;
+    <span class="keyword">if</span> (window.notifications) {
+      <span class="keyword">var</span> btn = g(<span class="string">"chat-notify"</span>),
+        label = g(<span class="string">"chat-notify-label"</span>),
+        state = <span class="string">"default"</span>;
+      label.style.display = <span class="string">""</span>;
+      btn.checked = window.notifications.checkPermission() == <span class="number">0</span>;
+      <span class="keyword">if</span> (btn.checked) {
+        state = <span class="string">"granted"</span>;
+      }
+      btn.onclick = <span class="keyword">function</span>(){
+        <span class="keyword">if</span> (btn.checked) {
+          <span class="keyword">if</span> (state != <span class="string">"granted"</span>) {
+            window.notifications.requestPermission(<span class="keyword">function</span>(){
+              state = <span class="string">"granted"</span>;
+            });
+          }
+        }
+      };
+    } <span class="keyword">else</span> {
+      <span class="keyword">return</span> <span class="keyword">function</span>(){};
+    }
+    <span class="keyword">var</span> lastNote = <span class="literal">null</span>;
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">(type, data)</span> {</span>
+      <span class="keyword">if</span> (state != <span class="string">"granted"</span> || !btn.checked) {
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">if</span> (document.hidden || document.webkitHidden) {
+        <span class="keyword">if</span> (window.notifications &amp;&amp; window.notifications.checkPermission() == <span class="number">0</span>) {
+          <span class="keyword">var</span> body = data.user;
+          <span class="keyword">if</span> (type == MSG_TYPE_TEXT) {
+            body += <span class="string">" : "</span> + data.content.substr(<span class="number">0</span>,<span class="number">20</span>) + (data.content.length &gt; <span class="number">20</span> ? <span class="string">"..."</span> : <span class="string">""</span>);
+          } <span class="keyword">else</span> <span class="keyword">if</span> (type == MSG_TYPE_IMAGE) {
+            body += <span class="string">" 发来一张照片"</span>;
+          } <span class="keyword">else</span> {
+            body += <span class="string">" 发来一条位置消息"</span>;
+          }
+          <span class="keyword">var</span> note = window.notifications.createNotification(
+            <span class="string">""</span>,
+            <span class="string">"新消息"</span>,
+            body
+          );
+          <span class="keyword">if</span> (lastNote) {
+            lastNote.close();
+          }
+          note.show();
+          lastNote = note;
+        }
+      }
+    };
+  })();
+
+  <span class="comment">// 定位</span>
+  chatPlace.onclick = <span class="keyword">function</span>(){
+    <span class="keyword">if</span> (!navigator.geolocation) {
+      showMessage(MSG_TYPE_ERROR, {content: <span class="string">"您的浏览器不支持定位"</span>});
+      <span class="keyword">return</span>;
+    }
+    navigator.geolocation.getCurrentPosition(onLoacationSuccess, onLocationError, {
+      enableHighAccuracy: <span class="literal">false</span>, <span class="comment">// 是否使用精确定位</span>
+      timeout: <span class="number">2e4</span>, <span class="comment">// 超时时间</span>
+      maximumAge: <span class="number">6e5</span> <span class="comment">// 位置有效期</span>
+    });
+    <span class="comment">// 监听位置变化</span>
+    <span class="comment">// navigator.geolocation.watchPosition(onLoacationSuccess, onLocationError, options);</span>
+    <span class="keyword">this</span>.disabled = <span class="literal">true</span>;
+  };
+  <span class="function"><span class="keyword">function</span> <span class="title">onLoacationSuccess</span><span class="params">(position)</span> {</span>
+    <span class="comment">/**
+    coords: {
+      latitude : 纬度,
+      longitude : 经度,
+      accuracy : 精确度(米)
+    } (还有高度，高度精确度，运动方向，运动速度等)
+    */</span>
+    console.dir(position);
+    room.sendPlace(position.coords);
+    chatPlace.disabled = <span class="literal">false</span>;
+  }
+  <span class="function"><span class="keyword">function</span> <span class="title">onLocationError</span><span class="params">()</span> {</span>
+    showMessage(MSG_TYPE_ERROR, {content: <span class="string">"定位失败"</span>});
+    chatPlace.disabled = <span class="literal">false</span>;
+  }
+
+  room.init();
+})();
+</code></pre>
+</div></div>
+		<div class="page" data-name="links" data-x="12700" data-y="8600" data-z="500" style="-webkit-transform: translate(-50%, -50%) translate3d(12700px, 8600px, 500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>相关链接</h2>
+<div class="content">
+	<dl class="link-list">
+		<dd><a href="" target="_blank"></a></dd>
+		<dt>[html5]</dt>
+		<dd><a href="http://www.w3schools.com/html/html5_intro.asp" target="_blank">http://www.w3schools.com/html/html5_intro.asp</a></dd>
+		<dd><a href="http://msdn.microsoft.com/zh-cn/library/ie/hh673546(v=vs.85).aspx" target="_blank">http://msdn.microsoft.com/zh-cn/library/ie/hh673546(v=vs.85).aspx</a></dd>
+		<dd>搜索 "site:w3.org ***"</dd>
+		<dt>[图形与动画]</dt>
+		<dd><a href="http://msdn.microsoft.com/zh-cn/library/ie/gg193983(v=vs.85).aspx" target="_blank">http://msdn.microsoft.com/zh-cn/library/ie/gg193983(v=vs.85).aspx</a></dd>
+		<dt>[SVG]</dt>
+		<dd><a href="http://www.cheat-sheets.org/own/svg/" target="_blank">http://www.cheat-sheets.org/own/svg/</a></dd>
+		<dt>[WebGL]</dt>
+		<dd><a href="http://mrdoob.github.com/three.js/" target="_blank">http://mrdoob.github.com/three.js/</a></dd>
+		<dt>[WebSocket]</dt>
+		<dd><a href="http://www.w3.org/TR/websockets/" target="_blank">http://www.w3.org/TR/websockets/</a></dd>
+		<dd><a href="http://tools.ietf.org/html/rfc6455" target="_blank">http://tools.ietf.org/html/rfc6455</a></dd>
+	</dl>
+</div></div>
+		<div class="page" data-name="q-and-a" data-x="13800" data-y="8600" data-z="500" style="-webkit-transform: translate(-50%, -50%) translate3d(13800px, 8600px, 500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);"><h2>HTML5</h2>
+<div class="content">
+	<div id="thanks">谢谢!</div>
+	<div id="q-and-a">Q&amp;A</div>
+</div></div>
+	</div>
+</div>
+<script type="text/javascript" charset="utf-8" src="examples/code-list/ws-chatroom.js"></script><script type="text/javascript" charset="utf-8" src="examples/code-list/drag-n-drop.js"></script><script type="text/javascript" charset="utf-8" src="examples/code-list/xhr2-tilt-shift.js"></script><script type="text/javascript" charset="utf-8" src="examples/code-list/canvas-world.js"></script><script type="text/javascript" charset="utf-8" src="examples/code-list/canvas-simple.js"></script>
+<script type="text/javascript" src="js/animate-data.js"></script>
+<script type="text/javascript" src="js/ppt.js"></script>
+
+</body></html>
